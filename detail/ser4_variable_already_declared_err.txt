@@ -1,0 +1,1 @@
+Semantic error at line 4: 'a' was already declared as a variable

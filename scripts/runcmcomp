@@ -1,0 +1,9 @@
+for f in ../example/*.cm  
+do 
+    OUTFILE=../alunoout/`basename -s .cm $f`.out
+    echo "running mycmcomp on $f" 
+    ../build/mycmcomp $f ../alunodetail/ > ${OUTFILE}
+done
+
+echo GENERATED OUTPUTS
+wc ../alunoout/*.out  

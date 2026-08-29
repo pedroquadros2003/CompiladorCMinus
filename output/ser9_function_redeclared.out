@@ -1,0 +1,160 @@
+
+COMPILATION: ../example/ser9_function_redeclared.cm
+1: int funOne(void) {
+	1: reserved word: int
+	1: ID, name= funOne
+	1: (
+	1: reserved word: void
+	1: )
+	1: {
+2:     output(1); return 1;
+	2: ID, name= output
+	2: (
+	2: NUM, val= 1
+	2: )
+	2: ;
+	2: reserved word: return
+	2: NUM, val= 1
+	2: ;
+3: }
+	3: }
+4: 
+5: int funTwo(void) {
+	5: reserved word: int
+	5: ID, name= funTwo
+	5: (
+	5: reserved word: void
+	5: )
+	5: {
+6:     output(2); return 2;
+	6: ID, name= output
+	6: (
+	6: NUM, val= 2
+	6: )
+	6: ;
+	6: reserved word: return
+	6: NUM, val= 2
+	6: ;
+7: }
+	7: }
+8: 
+9: int funThree(void) {
+	9: reserved word: int
+	9: ID, name= funThree
+	9: (
+	9: reserved word: void
+	9: )
+	9: {
+10:     output(3); return 3;
+	10: ID, name= output
+	10: (
+	10: NUM, val= 3
+	10: )
+	10: ;
+	10: reserved word: return
+	10: NUM, val= 3
+	10: ;
+11: }
+	11: }
+12: 
+13: /* oops, 2 functions with the same name */ 
+14: int funTwo(void) { 
+	14: reserved word: int
+	14: ID, name= funTwo
+	14: (
+	14: reserved word: void
+	14: )
+	14: {
+15:     output(4);  return 4;
+	15: ID, name= output
+	15: (
+	15: NUM, val= 4
+	15: )
+	15: ;
+	15: reserved word: return
+	15: NUM, val= 4
+	15: ;
+16: }
+	16: }
+17: 
+18: void main(void)
+	18: reserved word: void
+	18: ID, name= main
+	18: (
+	18: reserved word: void
+	18: )
+19: {
+	19: {
+20:     int a;
+	20: reserved word: int
+	20: ID, name= a
+	20: ;
+21:     a = funOne() + funTwo();
+	21: ID, name= a
+	21: =
+	21: ID, name= funOne
+	21: (
+	21: )
+	21: +
+	21: ID, name= funTwo
+	21: (
+	21: )
+	21: ;
+22:     output(a);
+	22: ID, name= output
+	22: (
+	22: ID, name= a
+	22: )
+	22: ;
+23: }
+	23: }
+	24: EOF
+
+Syntax tree:
+Declare function (return type "int"): funOne
+    Function call: output
+        Const: 1
+    Return
+        Const: 1
+Declare function (return type "int"): funTwo
+    Function call: output
+        Const: 2
+    Return
+        Const: 2
+Declare function (return type "int"): funThree
+    Function call: output
+        Const: 3
+    Return
+        Const: 3
+Declare function (return type "int"): funTwo
+    Function call: output
+        Const: 4
+    Return
+        Const: 4
+Declare function (return type "void"): main
+    Declare int var: a
+    Assign to var: a
+        Op: +
+            Function call: funOne
+            Function call: funTwo
+    Function call: output
+        Id: a
+
+Building Symbol Table...
+Semantic error at line 14: Func Decl Error, Already Declared!
+
+Checking Types...
+
+Type Checking Finished
+
+Symbol table:
+
+Variable Name  Scope     ID Type  Data Type  Line Numbers
+-------------  --------  -------  ---------  -------------------------
+main                     fun      void       18 
+funTwo                   fun      int         5 21 
+input                    fun      int        
+funOne                   fun      int         1 21 
+output                   fun      void        2  6 10 15 22 
+funThree                 fun      int         9 
+a              main      var      int        20 21 22 

@@ -1,0 +1,11 @@
+Semantic error at line 4: 'b' was not declared in this scope
+Semantic error: undefined reference to 'main'
+
+Symbol table:
+
+Variable Name  Scope     ID Type  Data Type  Line Numbers
+-------------  --------  -------  ---------  -------------------------
+input                    fun      int        
+exemplo                  fun      void        1 
+output                   fun      void       
+a              exemplo   var      int         3  4 

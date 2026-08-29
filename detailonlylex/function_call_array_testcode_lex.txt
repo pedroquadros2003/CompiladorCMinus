@@ -1,0 +1,35 @@
+1: /*
+2: Este exemplo testa:
+3: - declaração de função contendo parâmetro de tipo array
+4: - return não-vazio de expressao combinando chamada a função, leitura de array e expressão aritmética
+5: */
+6: int f (int u, int v[]) 
+	6: reserved word: int
+	6: ID, name= f
+	6: (
+	6: reserved word: int
+	6: ID, name= u
+	6: ,
+	6: reserved word: int
+	6: ID, name= v
+	6: [
+	6: ]
+	6: )
+7: {    return g(v[3], 3) + u;
+	7: {
+	7: reserved word: return
+	7: ID, name= g
+	7: (
+	7: ID, name= v
+	7: [
+	7: NUM, val= 3
+	7: ]
+	7: ,
+	7: NUM, val= 3
+	7: )
+	7: +
+	7: ID, name= u
+	7: ;
+8: }
+	8: }
+	8: EOF

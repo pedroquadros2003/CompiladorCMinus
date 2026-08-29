@@ -1,0 +1,12 @@
+void funOne (void) {
+    int a;
+    int b;
+    b = 1 + (5 * 7) / 2;
+    a = b + 4;
+}
+
+void main (void) {
+    int x;
+    int y;
+    y = x + 1;
+}

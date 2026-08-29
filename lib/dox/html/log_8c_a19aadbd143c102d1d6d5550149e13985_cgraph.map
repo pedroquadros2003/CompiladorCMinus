@@ -1,0 +1,4 @@
+<map id="pc" name="pc">
+<area shape="rect" id="node1" title="prints in CURRENT output file AND stdout" alt="" coords="5,5,44,32"/>
+<area shape="rect" id="node2" href="$log_8c.html#a35090abc4db171f429e1e52f8aa6e9c6" title="flushes all opened files." alt="" coords="92,5,159,32"/>
+</map>

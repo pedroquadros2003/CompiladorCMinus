@@ -1,0 +1,48 @@
+1: int funOne(void) { 
+	1: reserved word: int
+	1: ID, name= funOne
+	1: (
+	1: reserved word: void
+	1: )
+	1: {
+2:     output(1);
+	2: ID, name= output
+	2: (
+	2: NUM, val= 1
+	2: )
+	2: ;
+3: }
+	3: }
+4: 
+5: int funTwo(void) {
+	5: reserved word: int
+	5: ID, name= funTwo
+	5: (
+	5: reserved word: void
+	5: )
+	5: {
+6:     output(2);
+	6: ID, name= output
+	6: (
+	6: NUM, val= 2
+	6: )
+	6: ;
+7: }
+	7: }
+8: 
+9: int funThree(void) {
+	9: reserved word: int
+	9: ID, name= funThree
+	9: (
+	9: reserved word: void
+	9: )
+	9: {
+10:     output(3);
+	10: ID, name= output
+	10: (
+	10: NUM, val= 3
+	10: )
+	10: ;
+11: }
+	11: }
+	11: EOF

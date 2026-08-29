@@ -1,0 +1,183 @@
+Declare function (return type "void"): binario
+    Function param (int var): x
+    Conditional selection
+        Op: <
+            Id: x
+            Const: 2
+        Function call: output
+            Id: x
+        Function call: binario
+            Op: /
+                Id: x
+                Const: 2
+        Function call: output
+            Op: -
+                Id: x
+                Op: *
+                    Const: 2
+                    Op: /
+                        Id: x
+                        Const: 2
+Declare function (return type "int"): gdc
+    Function param (int var): u
+    Function param (int var): v
+    Conditional selection
+        Op: ==
+            Id: v
+            Const: 0
+        Return
+            Id: u
+        Return
+            Function call: gdc
+                Id: v
+                Op: -
+                    Id: u
+                    Op: *
+                        Op: /
+                            Id: u
+                            Id: v
+                        Id: v
+Declare function (return type "void"): main
+    Function call: output
+        Op: - (unario)
+            Op: -
+                Function call: gdc
+                    Const: 13
+                    Const: 19
+                Const: 1
+    Function call: output
+        Op: - (unario)
+            Op: - (unario)
+                Function call: gdc
+                    Const: 1
+                    Const: 10
+    Function call: output
+        Op: - (unario)
+            Function call: gdc
+                Op: - (unario)
+                    Const: 44
+                Op: - (unario)
+                    Const: 46
+    Function call: output
+        Op: +
+            Function call: gdc
+                Op: - (unario)
+                    Const: 9
+                Op: - (unario)
+                    Const: 3
+            Const: 6
+    Function call: output
+        Op: -
+            Op: +
+                Op: -
+                    Op: +
+                        Const: 10
+                        Op: /
+                            Op: *
+                                Const: 2
+                                Function call: gdc
+                                    Const: 44
+                                    Const: 46
+                            Function call: gdc
+                                Const: 4
+                                Const: 6
+                    Const: 10
+                Op: +
+                    Op: /
+                        Op: +
+                            Function call: gdc
+                                Const: 2
+                                Const: 46
+                            Op: /
+                                Const: 0
+                                Function call: gdc
+                                    Const: 10
+                                    Const: 100
+                        Const: 1
+                    Const: 0
+            Op: *
+                Const: 0
+                Function call: gdc
+                    Const: 1
+                    Const: 1
+    Function call: output
+        Op: /
+            Op: *
+                Op: -
+                    Const: 1
+                    Const: 2
+                Op: - (unario)
+                    Op: +
+                        Op: +
+                            Op: +
+                                Op: +
+                                    Function call: gdc
+                                        Const: 5
+                                        Const: 5
+                                    Function call: gdc
+                                        Const: 5
+                                        Const: 5
+                                Function call: gdc
+                                    Const: 5
+                                    Const: 5
+                            Function call: gdc
+                                Const: 5
+                                Const: 5
+                        Function call: gdc
+                            Const: 5
+                            Const: 5
+            Op: -
+                Op: +
+                    Op: +
+                        Op: +
+                            Op: +
+                                Op: +
+                                    Op: +
+                                        Const: 1
+                                        Const: 1
+                                    Const: 1
+                                Const: 1
+                            Const: 1
+                        Const: 5
+                    Const: 5
+                Const: 10
+    Function call: output
+        Op: *
+            Op: - (unario)
+                Const: 6
+            Op: - (unario)
+                Const: 1
+    Declare int var: y
+    Assign to var: y
+        Const: 0
+    Declare int var: x
+    Declare int var: res
+    Assign to var: res
+        Const: 0
+    Block:
+        Declare int var: y
+        Assign to var: x
+            Function call: input
+        Assign to var: y
+            Function call: input
+        Assign to var: y
+            Function call: gdc
+                Id: x
+                Id: y
+        Assign to var: res
+            Id: y
+        Function call: output
+            Id: res
+    Conditional selection
+        Op: >=
+            Id: res
+            Const: 0
+        Function call: binario
+            Op: +
+                Id: res
+                Id: y
+        Function call: binario
+            Op: +
+                Op: - (unario)
+                    Id: res
+                Id: y

@@ -1,0 +1,16 @@
+/* Impressao recursiva da representacao
+binaria do modulo de um inteiro */
+void binario (int x) {
+  if (x < 2) output(x);
+  else {
+    binario(x/2);
+    output(x - 2*(x/2));
+  }
+}
+
+void main(void) {
+  int x;
+  x = input();
+  if (x >= 0) binario(x);
+  else binario(-x);
+}

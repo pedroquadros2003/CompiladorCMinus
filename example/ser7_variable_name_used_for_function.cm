@@ -1,0 +1,15 @@
+int funOne(void) {
+    output(1);
+}
+
+int xyz(void) {
+    int x;
+    int y;
+    int z;
+}
+
+void main(void)
+{
+    int a;
+    int xyz;
+}

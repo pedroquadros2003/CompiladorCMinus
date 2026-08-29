@@ -1,0 +1,15 @@
+Semantic error at line 14: 'xyz' was already declared as a function
+
+Symbol table:
+
+Variable Name  Scope     ID Type  Data Type  Line Numbers
+-------------  --------  -------  ---------  -------------------------
+main                     fun      void       11 
+xyz                      fun      int         5 
+input                    fun      int        
+funOne                   fun      int         1 
+output                   fun      void        2 
+x              xyz       var      int         6 
+y              xyz       var      int         7 
+z              xyz       var      int         8 
+a              main      var      int        13 

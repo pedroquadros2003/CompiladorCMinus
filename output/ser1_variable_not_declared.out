@@ -1,0 +1,51 @@
+
+COMPILATION: ../example/ser1_variable_not_declared.cm
+1: void exemplo(void)
+	1: reserved word: void
+	1: ID, name= exemplo
+	1: (
+	1: reserved word: void
+	1: )
+2: {
+	2: {
+3:     int a; a = 0;
+	3: reserved word: int
+	3: ID, name= a
+	3: ;
+	3: ID, name= a
+	3: =
+	3: NUM, val= 0
+	3: ;
+4:     b = a;
+	4: ID, name= b
+	4: =
+	4: ID, name= a
+	4: ;
+5: }
+	5: }
+	5: EOF
+
+Syntax tree:
+Declare function (return type "void"): exemplo
+    Declare int var: a
+    Assign to var: a
+        Const: 0
+    Assign to var: b
+        Id: a
+
+Building Symbol Table...
+Semantic error at line 4: 'b' was not declared in this scope
+Semantic error: undefined reference to 'main'
+
+Checking Types...
+
+Type Checking Finished
+
+Symbol table:
+
+Variable Name  Scope     ID Type  Data Type  Line Numbers
+-------------  --------  -------  ---------  -------------------------
+input                    fun      int        
+exemplo                  fun      void        1 
+output                   fun      void       
+a              exemplo   var      int         3  4 

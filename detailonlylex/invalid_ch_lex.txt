@@ -1,0 +1,29 @@
+1: /* Program that uses a invalid character */
+2: 
+3: void main(void)
+	3: reserved word: void
+	3: ID, name= main
+	3: (
+	3: reserved word: void
+	3: )
+4: {
+	4: {
+5:     int x@test = 99; /* @ is an illegal character */ 
+	5: reserved word: int
+	5: ID, name= x
+	5: ERROR: @
+	5: ID, name= test
+	5: =
+	5: NUM, val= 99
+	5: ;
+6:     output(x@test);
+	6: ID, name= output
+	6: (
+	6: ID, name= x
+	6: ERROR: @
+	6: ID, name= test
+	6: )
+	6: ;
+7: }
+	7: }
+	7: EOF

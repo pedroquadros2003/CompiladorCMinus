@@ -1,0 +1,12 @@
+int f(int a, int b) {
+    return a + b;
+}
+
+int g(int x) {
+    return x + 1;
+}
+
+void main (void) {
+    int a; int b; int x;
+    x = f(a, g(b));
+}

@@ -1,0 +1,25 @@
+for f in ../alunodetail/*.txt  
+do 
+    OUTFILE=../detail/`basename $f`
+    echo running diff  $f x ${OUTFILE}
+    diff -ZbB $f ${OUTFILE} > ../alunodetail/`basename -s .txt $f`.diff
+done
+
+echo RUNNING DIFFS FOR TM CODE
+for f in ../alunodetail/*.tm  
+do 
+    OUTFILE=../detail/`basename $f`
+    echo running diff  $f x ${OUTFILE}
+    diff -ZbB $f ${OUTFILE} > ../alunodetail/`basename -s .tm $f`.diff
+done
+
+echo GENERATED DIFFS - LEX
+wc ../alunodetail/*_lex.diff
+echo GENERATED DIFFS - SYN
+wc ../alunodetail/*_syn.diff
+echo GENERATED DIFFS - TAB
+wc ../alunodetail/*_tab.diff
+echo GENERATED DIFFS - GEN
+wc ../alunodetail/*_gen.diff
+echo GENERATED DIFFS - ERR
+wc ../alunodetail/*_err.diff

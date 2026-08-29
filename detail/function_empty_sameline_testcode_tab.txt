@@ -1,0 +1,12 @@
+
+Symbol table:
+
+Variable Name  Scope     ID Type  Data Type  Line Numbers
+-------------  --------  -------  ---------  -------------------------
+main                     fun      void        9 
+global                   array    int         8 12 
+input                    fun      int        
+f                        fun      void        7 13 
+output                   fun      void       
+x              main      var      int        10 11 12 
+y              main      var      int        10 11 12 

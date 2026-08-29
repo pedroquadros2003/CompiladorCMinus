@@ -1,0 +1,335 @@
+\hypertarget{log_8h}{}\doxysection{log.\+h File Reference}
+\label{log_8h}\index{log.h@{log.h}}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=121pt]{log_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{log_8h_a629a92805eecd7048e3d960b3482072c}{file\+Destination}} \mbox{\hyperlink{log_8h_a866471de48f540bdc1a0f7d42b7fd474}{File\+Destination}}
+\begin{DoxyCompactList}\small\item\em bitmask to select output files \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{log_8h_a629a92805eecd7048e3d960b3482072c}{file\+Destination}} \{ \newline
+\mbox{\hyperlink{log_8h_a629a92805eecd7048e3d960b3482072ca66043546572f39f560c3ea4e705be190}{E\+R\+\_\+}} = 0x1, 
+\mbox{\hyperlink{log_8h_a629a92805eecd7048e3d960b3482072ca82c830ca85f981251ab33255d8dc26b7}{L\+EX}} = 0x2, 
+\mbox{\hyperlink{log_8h_a629a92805eecd7048e3d960b3482072cae6fe9228f4939ae8277bb49921020a46}{L\+ER}} = 0x3, 
+\mbox{\hyperlink{log_8h_a629a92805eecd7048e3d960b3482072ca09525917af0ed4514b05c075b3830488}{S\+YN}} = 0x4, 
+\newline
+\mbox{\hyperlink{log_8h_a629a92805eecd7048e3d960b3482072cac5a5cfdbc76418f74f2a427c51d1c774}{S\+ER}} = 0x5, 
+\mbox{\hyperlink{log_8h_a629a92805eecd7048e3d960b3482072ca920380215591395ea33ee5df8e293e19}{T\+AB}} = 0x8, 
+\mbox{\hyperlink{log_8h_a629a92805eecd7048e3d960b3482072ca07089895cdf5ab53c542bc9064d88828}{T\+ER}} = 0x9, 
+\mbox{\hyperlink{log_8h_a629a92805eecd7048e3d960b3482072ca64a7cd6a11249aecd21cbd3fcc7e4f28}{G\+EN}} = 0x10, 
+\newline
+\mbox{\hyperlink{log_8h_a629a92805eecd7048e3d960b3482072cac7ebdb89b60bfbf55d747809c65faeda}{G\+ER}} = 0x11, 
+\mbox{\hyperlink{log_8h_a629a92805eecd7048e3d960b3482072ca687f46d035d8ca810085ef079d164402}{U\+P2\+S\+YN}} = 0x7, 
+\mbox{\hyperlink{log_8h_a629a92805eecd7048e3d960b3482072cacd81662a6469b7ea16b8b45b26b5904b}{U\+P2\+T\+AB}} = 0xF, 
+\mbox{\hyperlink{log_8h_a629a92805eecd7048e3d960b3482072caae9589e4d7ee5d64583ade58b299abf2}{L\+O\+G\+A\+LL}} = 0x1F
+ \}
+\begin{DoxyCompactList}\small\item\em bitmask to select output files \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{log_8h_a0ba66d28f34aadc7b447856f180dec55}{initialize\+Printer}} (const char $\ast$path, const char $\ast$base\+Name, \mbox{\hyperlink{log_8h_a866471de48f540bdc1a0f7d42b7fd474}{File\+Destination}} files2open)
+\begin{DoxyCompactList}\small\item\em open the files specified by files2open in the directory specified by path, with the basename specified \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{log_8h_a66d5587d32889b22e56a956e84997557}{pp}} (\mbox{\hyperlink{log_8h_a866471de48f540bdc1a0f7d42b7fd474}{File\+Destination}} destination, const char $\ast$format,...)
+\begin{DoxyCompactList}\small\item\em prints in both chosen output file(s) A\+ND stdout \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{log_8h_a8247112d99f0e7cda892af1335db21c5}{done\+L\+E\+Xstart\+S\+YN}} ()
+\begin{DoxyCompactList}\small\item\em sets the curent compilation stage to S\+YN (syntatic analysis) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{log_8h_a704516cdabe12d5b87f253082c830a8e}{done\+S\+Y\+Nstart\+T\+AB}} ()
+\begin{DoxyCompactList}\small\item\em sets the curent compilation stage to T\+AB (symbol table) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{log_8h_af61d2ae2431a5c988e5a9e2793b2761c}{done\+T\+A\+Bstart\+G\+EN}} ()
+\begin{DoxyCompactList}\small\item\em sets the curent compilation stage to G\+EN (code generation) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{log_8h_a19aadbd143c102d1d6d5550149e13985}{pc}} (const char $\ast$format,...)
+\begin{DoxyCompactList}\small\item\em prints in C\+U\+R\+R\+E\+NT output file A\+ND stdout \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{log_8h_a098badc7cd289765ab894834e5b6e83d}{pce}} (const char $\ast$format,...)
+\begin{DoxyCompactList}\small\item\em prints in C\+U\+R\+R\+E\+NT output file A\+ND stdout A\+ND error file (3-\/way) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{log_8h_a35090abc4db171f429e1e52f8aa6e9c6}{fflushc}} ()
+\begin{DoxyCompactList}\small\item\em flushes all opened files. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{log_8h_adb62fa9c56ab2153e83eb3da4fdec148}{close\+Printer}} ()
+\begin{DoxyCompactList}\small\item\em closes all opened files \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{log_8h_a866471de48f540bdc1a0f7d42b7fd474}\label{log_8h_a866471de48f540bdc1a0f7d42b7fd474}} 
+\index{log.h@{log.h}!FileDestination@{FileDestination}}
+\index{FileDestination@{FileDestination}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{FileDestination}{FileDestination}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{log_8h_a629a92805eecd7048e3d960b3482072c}{file\+Destination}} \mbox{\hyperlink{log_8h_a866471de48f540bdc1a0f7d42b7fd474}{File\+Destination}}}
+
+
+
+bitmask to select output files 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{log_8h_a629a92805eecd7048e3d960b3482072c}\label{log_8h_a629a92805eecd7048e3d960b3482072c}} 
+\index{log.h@{log.h}!fileDestination@{fileDestination}}
+\index{fileDestination@{fileDestination}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{fileDestination}{fileDestination}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{log_8h_a629a92805eecd7048e3d960b3482072c}{file\+Destination}}}
+
+
+
+bitmask to select output files 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ER\_@{ER\_}!log.h@{log.h}}\index{log.h@{log.h}!ER\_@{ER\_}}}\mbox{\Hypertarget{log_8h_a629a92805eecd7048e3d960b3482072ca66043546572f39f560c3ea4e705be190}\label{log_8h_a629a92805eecd7048e3d960b3482072ca66043546572f39f560c3ea4e705be190}} 
+E\+R\+\_\+&N\+OT S\+T\+D\+E\+R\+R!!! J\+U\+ST A F\+I\+LE TO S\+T\+O\+RE Y\+O\+UR E\+RR M\+S\+G\+S!! \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEX@{LEX}!log.h@{log.h}}\index{log.h@{log.h}!LEX@{LEX}}}\mbox{\Hypertarget{log_8h_a629a92805eecd7048e3d960b3482072ca82c830ca85f981251ab33255d8dc26b7}\label{log_8h_a629a92805eecd7048e3d960b3482072ca82c830ca85f981251ab33255d8dc26b7}} 
+L\+EX&lexical \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LER@{LER}!log.h@{log.h}}\index{log.h@{log.h}!LER@{LER}}}\mbox{\Hypertarget{log_8h_a629a92805eecd7048e3d960b3482072cae6fe9228f4939ae8277bb49921020a46}\label{log_8h_a629a92805eecd7048e3d960b3482072cae6fe9228f4939ae8277bb49921020a46}} 
+L\+ER&L\+EX A\+ND E\+RR. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SYN@{SYN}!log.h@{log.h}}\index{log.h@{log.h}!SYN@{SYN}}}\mbox{\Hypertarget{log_8h_a629a92805eecd7048e3d960b3482072ca09525917af0ed4514b05c075b3830488}\label{log_8h_a629a92805eecd7048e3d960b3482072ca09525917af0ed4514b05c075b3830488}} 
+S\+YN&syntatic analisis \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SER@{SER}!log.h@{log.h}}\index{log.h@{log.h}!SER@{SER}}}\mbox{\Hypertarget{log_8h_a629a92805eecd7048e3d960b3482072cac5a5cfdbc76418f74f2a427c51d1c774}\label{log_8h_a629a92805eecd7048e3d960b3482072cac5a5cfdbc76418f74f2a427c51d1c774}} 
+S\+ER&syntatic analisis A\+ND error \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TAB@{TAB}!log.h@{log.h}}\index{log.h@{log.h}!TAB@{TAB}}}\mbox{\Hypertarget{log_8h_a629a92805eecd7048e3d960b3482072ca920380215591395ea33ee5df8e293e19}\label{log_8h_a629a92805eecd7048e3d960b3482072ca920380215591395ea33ee5df8e293e19}} 
+T\+AB&symbol table \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TER@{TER}!log.h@{log.h}}\index{log.h@{log.h}!TER@{TER}}}\mbox{\Hypertarget{log_8h_a629a92805eecd7048e3d960b3482072ca07089895cdf5ab53c542bc9064d88828}\label{log_8h_a629a92805eecd7048e3d960b3482072ca07089895cdf5ab53c542bc9064d88828}} 
+T\+ER&symbol table A\+ND error \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GEN@{GEN}!log.h@{log.h}}\index{log.h@{log.h}!GEN@{GEN}}}\mbox{\Hypertarget{log_8h_a629a92805eecd7048e3d960b3482072ca64a7cd6a11249aecd21cbd3fcc7e4f28}\label{log_8h_a629a92805eecd7048e3d960b3482072ca64a7cd6a11249aecd21cbd3fcc7e4f28}} 
+G\+EN&code generation \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GER@{GER}!log.h@{log.h}}\index{log.h@{log.h}!GER@{GER}}}\mbox{\Hypertarget{log_8h_a629a92805eecd7048e3d960b3482072cac7ebdb89b60bfbf55d747809c65faeda}\label{log_8h_a629a92805eecd7048e3d960b3482072cac7ebdb89b60bfbf55d747809c65faeda}} 
+G\+ER&code generation A\+ND error \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UP2SYN@{UP2SYN}!log.h@{log.h}}\index{log.h@{log.h}!UP2SYN@{UP2SYN}}}\mbox{\Hypertarget{log_8h_a629a92805eecd7048e3d960b3482072ca687f46d035d8ca810085ef079d164402}\label{log_8h_a629a92805eecd7048e3d960b3482072ca687f46d035d8ca810085ef079d164402}} 
+U\+P2\+S\+YN&ER + L\+EX + S\+YN -\/ all up to synthatic analisis A\+ND E\+R\+R\+OR. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UP2TAB@{UP2TAB}!log.h@{log.h}}\index{log.h@{log.h}!UP2TAB@{UP2TAB}}}\mbox{\Hypertarget{log_8h_a629a92805eecd7048e3d960b3482072cacd81662a6469b7ea16b8b45b26b5904b}\label{log_8h_a629a92805eecd7048e3d960b3482072cacd81662a6469b7ea16b8b45b26b5904b}} 
+U\+P2\+T\+AB&ER + L\+EX + S\+YN + T\+AB -\/ all up to symbol table A\+ND E\+R\+R\+OR. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOGALL@{LOGALL}!log.h@{log.h}}\index{log.h@{log.h}!LOGALL@{LOGALL}}}\mbox{\Hypertarget{log_8h_a629a92805eecd7048e3d960b3482072caae9589e4d7ee5d64583ade58b299abf2}\label{log_8h_a629a92805eecd7048e3d960b3482072caae9589e4d7ee5d64583ade58b299abf2}} 
+L\+O\+G\+A\+LL&ER + L\+EX + S\+YN + T\+AB + G\+EN -\/ everything, including code generation A\+ND E\+R\+R\+OR. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{log_8h_adb62fa9c56ab2153e83eb3da4fdec148}\label{log_8h_adb62fa9c56ab2153e83eb3da4fdec148}} 
+\index{log.h@{log.h}!closePrinter@{closePrinter}}
+\index{closePrinter@{closePrinter}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{closePrinter()}{closePrinter()}}
+{\footnotesize\ttfamily void close\+Printer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+closes all opened files 
+
+\mbox{\Hypertarget{log_8h_a8247112d99f0e7cda892af1335db21c5}\label{log_8h_a8247112d99f0e7cda892af1335db21c5}} 
+\index{log.h@{log.h}!doneLEXstartSYN@{doneLEXstartSYN}}
+\index{doneLEXstartSYN@{doneLEXstartSYN}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{doneLEXstartSYN()}{doneLEXstartSYN()}}
+{\footnotesize\ttfamily void done\+L\+E\+Xstart\+S\+YN (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+sets the curent compilation stage to S\+YN (syntatic analysis) 
+
+\mbox{\Hypertarget{log_8h_a704516cdabe12d5b87f253082c830a8e}\label{log_8h_a704516cdabe12d5b87f253082c830a8e}} 
+\index{log.h@{log.h}!doneSYNstartTAB@{doneSYNstartTAB}}
+\index{doneSYNstartTAB@{doneSYNstartTAB}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{doneSYNstartTAB()}{doneSYNstartTAB()}}
+{\footnotesize\ttfamily void done\+S\+Y\+Nstart\+T\+AB (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+sets the curent compilation stage to T\+AB (symbol table) 
+
+\mbox{\Hypertarget{log_8h_af61d2ae2431a5c988e5a9e2793b2761c}\label{log_8h_af61d2ae2431a5c988e5a9e2793b2761c}} 
+\index{log.h@{log.h}!doneTABstartGEN@{doneTABstartGEN}}
+\index{doneTABstartGEN@{doneTABstartGEN}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{doneTABstartGEN()}{doneTABstartGEN()}}
+{\footnotesize\ttfamily void done\+T\+A\+Bstart\+G\+EN (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+sets the curent compilation stage to G\+EN (code generation) 
+
+\mbox{\Hypertarget{log_8h_a35090abc4db171f429e1e52f8aa6e9c6}\label{log_8h_a35090abc4db171f429e1e52f8aa6e9c6}} 
+\index{log.h@{log.h}!fflushc@{fflushc}}
+\index{fflushc@{fflushc}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{fflushc()}{fflushc()}}
+{\footnotesize\ttfamily void fflushc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+flushes all opened files. 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{log_8h_a35090abc4db171f429e1e52f8aa6e9c6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{log_8h_a0ba66d28f34aadc7b447856f180dec55}\label{log_8h_a0ba66d28f34aadc7b447856f180dec55}} 
+\index{log.h@{log.h}!initializePrinter@{initializePrinter}}
+\index{initializePrinter@{initializePrinter}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{initializePrinter()}{initializePrinter()}}
+{\footnotesize\ttfamily void initialize\+Printer (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path,  }\item[{const char $\ast$}]{base\+Name,  }\item[{\mbox{\hyperlink{log_8h_a866471de48f540bdc1a0f7d42b7fd474}{File\+Destination}}}]{files2open }\end{DoxyParamCaption})}
+
+
+
+open the files specified by files2open in the directory specified by path, with the basename specified 
+
+
+\begin{DoxyItemize}
+\item sets current\+State to L\+EX -\/ the first stage of compilation is always lexical analysis
+\item the supplied main code already calls this function adequately. Probably, students will not need to change it.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & directory for detailed output files \\
+\hline
+{\em basename} & the radical part of the file name \\
+\hline
+{\em files2open} & choose which files to open. If not all compilation stages will be run, you may choose to not open all files\\
+\hline
+\end{DoxyParams}
+example usage\+:
+
+{\ttfamily initialize\+Printer(detailpath, pgm, L\+O\+G\+A\+L\+L); // open detailed output files into the path given by detailpath, with the basename given by pgm, and L\+O\+G\+A\+LL means all files will be opened} Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{log_8h_a0ba66d28f34aadc7b447856f180dec55_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{log_8h_a19aadbd143c102d1d6d5550149e13985}\label{log_8h_a19aadbd143c102d1d6d5550149e13985}} 
+\index{log.h@{log.h}!pc@{pc}}
+\index{pc@{pc}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{pc()}{pc()}}
+{\footnotesize\ttfamily void pc (\begin{DoxyParamCaption}\item[{const char $\ast$}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+prints in C\+U\+R\+R\+E\+NT output file A\+ND stdout 
+
+
+\begin{DoxyItemize}
+\item use this to {\bfseries{print usual output messages into the current compilation stage output}}.
+\item this function will be used most of the time.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em format} & variadic parameters, to be used as fprintf\\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{flushes if D\+E\+B\+U\+G\+\_\+\+L\+O\+G\+\_\+\+A\+L\+W\+A\+Y\+S\+\_\+\+F\+L\+U\+SH is set}
+
+\end{DoxyParagraph}
+example usage\+:
+
+{\ttfamily pc(\char`\"{}my message n. \%i is \%s\char`\"{},var\+\_\+int,var\+\_\+pointerchar); // prints on stdout A\+ND the output corresponding to the current compilation stage.} flushes all output files. I\+N\+N\+E\+F\+I\+C\+I\+E\+NT, O\+N\+LY F\+OR D\+E\+B\+U\+G!Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{log_8h_a19aadbd143c102d1d6d5550149e13985_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{log_8h_a098badc7cd289765ab894834e5b6e83d}\label{log_8h_a098badc7cd289765ab894834e5b6e83d}} 
+\index{log.h@{log.h}!pce@{pce}}
+\index{pce@{pce}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{pce()}{pce()}}
+{\footnotesize\ttfamily void pce (\begin{DoxyParamCaption}\item[{const char $\ast$}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+prints in C\+U\+R\+R\+E\+NT output file A\+ND stdout A\+ND error file (3-\/way) 
+
+use this to {\bfseries{print error messages into the current compilation stage output}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em format} & variadic parameters, to be used as fprintf\\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{flushes if D\+E\+B\+U\+G\+\_\+\+L\+O\+G\+\_\+\+A\+L\+W\+A\+Y\+S\+\_\+\+F\+L\+U\+SH is set}
+
+\end{DoxyParagraph}
+example usage\+:
+
+{\ttfamily pce(\char`\"{}my message n. \%i is \%s\char`\"{},var\+\_\+int,var\+\_\+pointerchar); // prints on stdout A\+ND error A\+ND the output corresponding to the current compilation stage.} flushes all output files. I\+N\+N\+E\+F\+I\+C\+I\+E\+NT, O\+N\+LY F\+OR D\+E\+B\+U\+G!Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{log_8h_a098badc7cd289765ab894834e5b6e83d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{log_8h_a66d5587d32889b22e56a956e84997557}\label{log_8h_a66d5587d32889b22e56a956e84997557}} 
+\index{log.h@{log.h}!pp@{pp}}
+\index{pp@{pp}!log.h@{log.h}}
+\doxysubsubsection{\texorpdfstring{pp()}{pp()}}
+{\footnotesize\ttfamily void pp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{log_8h_a866471de48f540bdc1a0f7d42b7fd474}{File\+Destination}}}]{destination,  }\item[{const char $\ast$}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+prints in both chosen output file(s) A\+ND stdout 
+
+this function is intended for {\bfseries{hardcoded fine control over output files}}. ~\newline
+
+
+
+\begin{DoxyItemize}
+\item it is a {\itshape variadic function} which accepts a variable number of arguments. It repasses its arguments to fprintf, printing into the output files indicated by the destination argument.
+\item it does not care about the current state.
+\item It checks if the file was set to be opened before printing
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em destination} & bitflag setting which output files will be used \\
+\hline
+{\em format} & after the destination flag, this function should be used as fprintf.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{flushes if D\+E\+B\+U\+G\+\_\+\+L\+O\+G\+\_\+\+A\+L\+W\+A\+Y\+S\+\_\+\+F\+L\+U\+SH is set}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{example usage (check the possible flags on the @ref file\+Destination \char`\"{}enum file\+Destination\char`\"{} ) \+:}
+
+\end{DoxyParagraph}
+{\ttfamily pp(S\+YN, \char`\"{}my message n. \%i is \%s\char`\"{},var\+\_\+int,var\+\_\+pointerchar); // prints on stdout and sintatic analysis output}
+
+{\ttfamily pp(S\+YN $\vert$ L\+EX, \char`\"{}my message n. \%i is \%s\char`\"{},var\+\_\+int,var\+\_\+pointerchar); // prints on stdout, lexic and sintatic analysis outputs}
+
+{\ttfamily pp(T\+AB $\vert$ E\+RR, \char`\"{}my message n. \%i is \%s\char`\"{},var\+\_\+int,var\+\_\+pointerchar); // prints on stdout, symbol table and error outputs} flushes all output files. I\+N\+N\+E\+F\+I\+C\+I\+E\+NT, O\+N\+LY F\+OR D\+E\+B\+U\+G!Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{log_8h_a66d5587d32889b22e56a956e84997557_cgraph}
+\end{center}
+\end{figure}

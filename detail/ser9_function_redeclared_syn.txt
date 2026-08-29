@@ -1,0 +1,28 @@
+Declare function (return type "int"): funOne
+    Function call: output
+        Const: 1
+    Return
+        Const: 1
+Declare function (return type "int"): funTwo
+    Function call: output
+        Const: 2
+    Return
+        Const: 2
+Declare function (return type "int"): funThree
+    Function call: output
+        Const: 3
+    Return
+        Const: 3
+Declare function (return type "int"): funTwo
+    Function call: output
+        Const: 4
+    Return
+        Const: 4
+Declare function (return type "void"): main
+    Declare int var: a
+    Assign to var: a
+        Op: +
+            Function call: funOne
+            Function call: funTwo
+    Function call: output
+        Id: a

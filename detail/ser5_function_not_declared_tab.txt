@@ -1,0 +1,12 @@
+Semantic error at line 12: 'fun' was not declared in this scope
+
+Symbol table:
+
+Variable Name  Scope     ID Type  Data Type  Line Numbers
+-------------  --------  -------  ---------  -------------------------
+main                     fun      void        9 
+funTwo                   fun      int         5 
+input                    fun      int        
+funOne                   fun      int         1 
+output                   fun      void        2  6 
+a              main      var      int        11 12 

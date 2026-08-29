@@ -1,0 +1,70 @@
+1: int f(int a, int b) {
+	1: reserved word: int
+	1: ID, name= f
+	1: (
+	1: reserved word: int
+	1: ID, name= a
+	1: ,
+	1: reserved word: int
+	1: ID, name= b
+	1: )
+	1: {
+2:     return a + b;
+	2: reserved word: return
+	2: ID, name= a
+	2: +
+	2: ID, name= b
+	2: ;
+3: }
+	3: }
+4: 
+5: int g(int x) {
+	5: reserved word: int
+	5: ID, name= g
+	5: (
+	5: reserved word: int
+	5: ID, name= x
+	5: )
+	5: {
+6:     return x + 1;
+	6: reserved word: return
+	6: ID, name= x
+	6: +
+	6: NUM, val= 1
+	6: ;
+7: }
+	7: }
+8: 
+9: void main (void) {
+	9: reserved word: void
+	9: ID, name= main
+	9: (
+	9: reserved word: void
+	9: )
+	9: {
+10:     int a; int b; int x;
+	10: reserved word: int
+	10: ID, name= a
+	10: ;
+	10: reserved word: int
+	10: ID, name= b
+	10: ;
+	10: reserved word: int
+	10: ID, name= x
+	10: ;
+11:     x = f(a, g(b));
+	11: ID, name= x
+	11: =
+	11: ID, name= f
+	11: (
+	11: ID, name= a
+	11: ,
+	11: ID, name= g
+	11: (
+	11: ID, name= b
+	11: )
+	11: )
+	11: ;
+12: }
+	12: }
+	12: EOF

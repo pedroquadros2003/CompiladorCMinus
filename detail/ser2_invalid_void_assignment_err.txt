@@ -1,0 +1,1 @@
+Semantic error at line 9: invalid use of void expression

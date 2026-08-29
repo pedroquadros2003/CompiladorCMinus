@@ -1,0 +1,33 @@
+Declare function (return type "void"): binario
+    Function param (int var): x
+    Conditional selection
+        Op: <
+            Id: x
+            Const: 2
+        Function call: output
+            Id: x
+        Function call: binario
+            Op: /
+                Id: x
+                Const: 2
+        Function call: output
+            Op: -
+                Id: x
+                Op: *
+                    Const: 2
+                    Op: /
+                        Id: x
+                        Const: 2
+Declare function (return type "void"): main
+    Declare int var: x
+    Assign to var: x
+        Function call: input
+    Conditional selection
+        Op: >=
+            Id: x
+            Const: 0
+        Function call: binario
+            Id: x
+        Function call: binario
+            Op: - (unario)
+                Id: x

@@ -1,0 +1,4 @@
+<map id="pce" name="pce">
+<area shape="rect" id="node1" title="prints in CURRENT output file AND stdout AND error file (3&#45;way)" alt="" coords="5,5,51,32"/>
+<area shape="rect" id="node2" href="$log_8c.html#a35090abc4db171f429e1e52f8aa6e9c6" title="flushes all opened files." alt="" coords="99,5,165,32"/>
+</map>

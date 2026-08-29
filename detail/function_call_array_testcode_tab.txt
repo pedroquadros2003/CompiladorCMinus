@@ -1,0 +1,12 @@
+Semantic error: undefined reference to 'main'
+Semantic error at line 7: 'g' was not declared in this scope
+
+Symbol table:
+
+Variable Name  Scope     ID Type  Data Type  Line Numbers
+-------------  --------  -------  ---------  -------------------------
+input                    fun      int        
+f                        fun      int         6 
+output                   fun      void       
+u              f         var      int         6  7 
+v              f         array    int         6  7 

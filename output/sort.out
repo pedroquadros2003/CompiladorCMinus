@@ -1,0 +1,1490 @@
+
+COMPILATION: ../example/sort.cm
+1: /* ordenacao por selecao */
+2: int x[10];
+	2: reserved word: int
+	2: ID, name= x
+	2: [
+	2: NUM, val= 10
+	2: ]
+	2: ;
+3: 
+4: int minloc ( int a[], int low, int high ){
+	4: reserved word: int
+	4: ID, name= minloc
+	4: (
+	4: reserved word: int
+	4: ID, name= a
+	4: [
+	4: ]
+	4: ,
+	4: reserved word: int
+	4: ID, name= low
+	4: ,
+	4: reserved word: int
+	4: ID, name= high
+	4: )
+	4: {
+5:     int i; int x; int k;
+	5: reserved word: int
+	5: ID, name= i
+	5: ;
+	5: reserved word: int
+	5: ID, name= x
+	5: ;
+	5: reserved word: int
+	5: ID, name= k
+	5: ;
+6:     k = low;
+	6: ID, name= k
+	6: =
+	6: ID, name= low
+	6: ;
+7:     x = a[low];
+	7: ID, name= x
+	7: =
+	7: ID, name= a
+	7: [
+	7: ID, name= low
+	7: ]
+	7: ;
+8:     i = low + 1;
+	8: ID, name= i
+	8: =
+	8: ID, name= low
+	8: +
+	8: NUM, val= 1
+	8: ;
+9:     while(i<high){
+	9: reserved word: while
+	9: (
+	9: ID, name= i
+	9: <
+	9: ID, name= high
+	9: )
+	9: {
+10:         if(a[i] < x){
+	10: reserved word: if
+	10: (
+	10: ID, name= a
+	10: [
+	10: ID, name= i
+	10: ]
+	10: <
+	10: ID, name= x
+	10: )
+	10: {
+11:             x = a[i];
+	11: ID, name= x
+	11: =
+	11: ID, name= a
+	11: [
+	11: ID, name= i
+	11: ]
+	11: ;
+12:             k = i;
+	12: ID, name= k
+	12: =
+	12: ID, name= i
+	12: ;
+13:         }
+	13: }
+14:         i = i + 1;
+	14: ID, name= i
+	14: =
+	14: ID, name= i
+	14: +
+	14: NUM, val= 1
+	14: ;
+15:     }
+	15: }
+16:     return k;
+	16: reserved word: return
+	16: ID, name= k
+	16: ;
+17: }
+	17: }
+18: 
+19: void sort(int a[], int low, int high){
+	19: reserved word: void
+	19: ID, name= sort
+	19: (
+	19: reserved word: int
+	19: ID, name= a
+	19: [
+	19: ]
+	19: ,
+	19: reserved word: int
+	19: ID, name= low
+	19: ,
+	19: reserved word: int
+	19: ID, name= high
+	19: )
+	19: {
+20:     int i; int k;
+	20: reserved word: int
+	20: ID, name= i
+	20: ;
+	20: reserved word: int
+	20: ID, name= k
+	20: ;
+21:     i = low;
+	21: ID, name= i
+	21: =
+	21: ID, name= low
+	21: ;
+22:     while(i < high - 1 ) {
+	22: reserved word: while
+	22: (
+	22: ID, name= i
+	22: <
+	22: ID, name= high
+	22: -
+	22: NUM, val= 1
+	22: )
+	22: {
+23:         int t;
+	23: reserved word: int
+	23: ID, name= t
+	23: ;
+24:         k = minloc(a,i,high);
+	24: ID, name= k
+	24: =
+	24: ID, name= minloc
+	24: (
+	24: ID, name= a
+	24: ,
+	24: ID, name= i
+	24: ,
+	24: ID, name= high
+	24: )
+	24: ;
+25:         t = a[k];
+	25: ID, name= t
+	25: =
+	25: ID, name= a
+	25: [
+	25: ID, name= k
+	25: ]
+	25: ;
+26:         a[k] = a[i];
+	26: ID, name= a
+	26: [
+	26: ID, name= k
+	26: ]
+	26: =
+	26: ID, name= a
+	26: [
+	26: ID, name= i
+	26: ]
+	26: ;
+27:         a[i] = t;
+	27: ID, name= a
+	27: [
+	27: ID, name= i
+	27: ]
+	27: =
+	27: ID, name= t
+	27: ;
+28:         i = i + 1;
+	28: ID, name= i
+	28: =
+	28: ID, name= i
+	28: +
+	28: NUM, val= 1
+	28: ;
+29:     }
+	29: }
+30: }
+	30: }
+31: 
+32: void main(void){
+	32: reserved word: void
+	32: ID, name= main
+	32: (
+	32: reserved word: void
+	32: )
+	32: {
+33:     
+34:     
+35:     x[0] = 1;x[1] = -2;x[2] = 0;x[3] = 5;x[4] = 2;
+	35: ID, name= x
+	35: [
+	35: NUM, val= 0
+	35: ]
+	35: =
+	35: NUM, val= 1
+	35: ;
+	35: ID, name= x
+	35: [
+	35: NUM, val= 1
+	35: ]
+	35: =
+	35: -
+	35: NUM, val= 2
+	35: ;
+	35: ID, name= x
+	35: [
+	35: NUM, val= 2
+	35: ]
+	35: =
+	35: NUM, val= 0
+	35: ;
+	35: ID, name= x
+	35: [
+	35: NUM, val= 3
+	35: ]
+	35: =
+	35: NUM, val= 5
+	35: ;
+	35: ID, name= x
+	35: [
+	35: NUM, val= 4
+	35: ]
+	35: =
+	35: NUM, val= 2
+	35: ;
+36:     x[5] = 0;x[6] = -2;x[7] = -6;x[8] = 0;x[9] = 2;
+	36: ID, name= x
+	36: [
+	36: NUM, val= 5
+	36: ]
+	36: =
+	36: NUM, val= 0
+	36: ;
+	36: ID, name= x
+	36: [
+	36: NUM, val= 6
+	36: ]
+	36: =
+	36: -
+	36: NUM, val= 2
+	36: ;
+	36: ID, name= x
+	36: [
+	36: NUM, val= 7
+	36: ]
+	36: =
+	36: -
+	36: NUM, val= 6
+	36: ;
+	36: ID, name= x
+	36: [
+	36: NUM, val= 8
+	36: ]
+	36: =
+	36: NUM, val= 0
+	36: ;
+	36: ID, name= x
+	36: [
+	36: NUM, val= 9
+	36: ]
+	36: =
+	36: NUM, val= 2
+	36: ;
+37:     sort(x,0,10);
+	37: ID, name= sort
+	37: (
+	37: ID, name= x
+	37: ,
+	37: NUM, val= 0
+	37: ,
+	37: NUM, val= 10
+	37: )
+	37: ;
+38:     
+39:     int i; i=0;
+	39: reserved word: int
+	39: ID, name= i
+	39: ;
+	39: ID, name= i
+	39: =
+	39: NUM, val= 0
+	39: ;
+40:     while(i<10){
+	40: reserved word: while
+	40: (
+	40: ID, name= i
+	40: <
+	40: NUM, val= 10
+	40: )
+	40: {
+41:         output(x[i]);
+	41: ID, name= output
+	41: (
+	41: ID, name= x
+	41: [
+	41: ID, name= i
+	41: ]
+	41: )
+	41: ;
+42:         i = i + 1;
+	42: ID, name= i
+	42: =
+	42: ID, name= i
+	42: +
+	42: NUM, val= 1
+	42: ;
+43:     }
+	43: }
+44:     
+45:     
+46:     i = 0;
+	46: ID, name= i
+	46: =
+	46: NUM, val= 0
+	46: ;
+47:     while(i<5){
+	47: reserved word: while
+	47: (
+	47: ID, name= i
+	47: <
+	47: NUM, val= 5
+	47: )
+	47: {
+48:         x[i] = input();
+	48: ID, name= x
+	48: [
+	48: ID, name= i
+	48: ]
+	48: =
+	48: ID, name= input
+	48: (
+	48: )
+	48: ;
+49:         i = i + 1;
+	49: ID, name= i
+	49: =
+	49: ID, name= i
+	49: +
+	49: NUM, val= 1
+	49: ;
+50:     }
+	50: }
+51:     sort(x,0,5);
+	51: ID, name= sort
+	51: (
+	51: ID, name= x
+	51: ,
+	51: NUM, val= 0
+	51: ,
+	51: NUM, val= 5
+	51: )
+	51: ;
+52:     i = 0;
+	52: ID, name= i
+	52: =
+	52: NUM, val= 0
+	52: ;
+53:     while(i<5){
+	53: reserved word: while
+	53: (
+	53: ID, name= i
+	53: <
+	53: NUM, val= 5
+	53: )
+	53: {
+54:         output(x[i]);
+	54: ID, name= output
+	54: (
+	54: ID, name= x
+	54: [
+	54: ID, name= i
+	54: ]
+	54: )
+	54: ;
+55:         i = i + 1;
+	55: ID, name= i
+	55: =
+	55: ID, name= i
+	55: +
+	55: NUM, val= 1
+	55: ;
+56:     }
+	56: }
+57: }
+	57: }
+	58: EOF
+
+Syntax tree:
+Declare int array: x
+    Const: 10
+Declare function (return type "int"): minloc
+    Function param (int array): a
+    Function param (int var): low
+    Function param (int var): high
+    Declare int var: i
+    Declare int var: x
+    Declare int var: k
+    Assign to var: k
+        Id: low
+    Assign to var: x
+        Id: a
+            Id: low
+    Assign to var: i
+        Op: +
+            Id: low
+            Const: 1
+    Iteration (loop)
+        Op: <
+            Id: i
+            Id: high
+        Conditional selection
+            Op: <
+                Id: a
+                    Id: i
+                Id: x
+            Assign to var: x
+                Id: a
+                    Id: i
+            Assign to var: k
+                Id: i
+        Assign to var: i
+            Op: +
+                Id: i
+                Const: 1
+    Return
+        Id: k
+Declare function (return type "void"): sort
+    Function param (int array): a
+    Function param (int var): low
+    Function param (int var): high
+    Declare int var: i
+    Declare int var: k
+    Assign to var: i
+        Id: low
+    Iteration (loop)
+        Op: <
+            Id: i
+            Op: -
+                Id: high
+                Const: 1
+        Declare int var: t
+        Assign to var: k
+            Function call: minloc
+                Id: a
+                Id: i
+                Id: high
+        Assign to var: t
+            Id: a
+                Id: k
+        Assign to array: a
+            Id: k
+            Id: a
+                Id: i
+        Assign to array: a
+            Id: i
+            Id: t
+        Assign to var: i
+            Op: +
+                Id: i
+                Const: 1
+Declare function (return type "void"): main
+    Assign to array: x
+        Const: 0
+        Const: 1
+    Assign to array: x
+        Const: 1
+        Op: - (unario)
+            Const: 2
+    Assign to array: x
+        Const: 2
+        Const: 0
+    Assign to array: x
+        Const: 3
+        Const: 5
+    Assign to array: x
+        Const: 4
+        Const: 2
+    Assign to array: x
+        Const: 5
+        Const: 0
+    Assign to array: x
+        Const: 6
+        Op: - (unario)
+            Const: 2
+    Assign to array: x
+        Const: 7
+        Op: - (unario)
+            Const: 6
+    Assign to array: x
+        Const: 8
+        Const: 0
+    Assign to array: x
+        Const: 9
+        Const: 2
+    Function call: sort
+        Id: x
+        Const: 0
+        Const: 10
+    Declare int var: i
+    Assign to var: i
+        Const: 0
+    Iteration (loop)
+        Op: <
+            Id: i
+            Const: 10
+        Function call: output
+            Id: x
+                Id: i
+        Assign to var: i
+            Op: +
+                Id: i
+                Const: 1
+    Assign to var: i
+        Const: 0
+    Iteration (loop)
+        Op: <
+            Id: i
+            Const: 5
+        Assign to array: x
+            Id: i
+            Function call: input
+        Assign to var: i
+            Op: +
+                Id: i
+                Const: 1
+    Function call: sort
+        Id: x
+        Const: 0
+        Const: 5
+    Assign to var: i
+        Const: 0
+    Iteration (loop)
+        Op: <
+            Id: i
+            Const: 5
+        Function call: output
+            Id: x
+                Id: i
+        Assign to var: i
+            Op: +
+                Id: i
+                Const: 1
+
+Building Symbol Table...
+
+Checking Types...
+
+Type Checking Finished
+
+Symbol table:
+
+Variable Name  Scope     ID Type  Data Type  Line Numbers
+-------------  --------  -------  ---------  -------------------------
+main                     fun      void       32 
+sort                     fun      void       19 37 51 
+input                    fun      int        48 
+minloc                   fun      int         4 24 
+output                   fun      void       41 54 
+x                        array    int         2 35 36 37 41 48 51 54 
+t              sort:22   var      int        23 25 27 
+i              main      var      int        39 40 41 42 46 47 48 49 52 53 54 55 
+low            sort      var      int        19 21 
+a              sort      array    int        19 24 25 26 27 
+i              sort      var      int        20 21 22 24 26 27 28 
+k              sort      var      int        20 24 25 26 
+high           sort      var      int        19 22 24 
+low            minloc    var      int         4  6  7  8 
+a              minloc    array    int         4  7 10 11 
+i              minloc    var      int         5  8  9 10 11 12 14 
+k              minloc    var      int         5  6 12 16 
+x              minloc    var      int         5  7 10 11 
+high           minloc    var      int         4  9 
+* GERACAO CODIGO ASSEMBLY TM
+* A posicao 0 comeca com o maxaddress
+  0:     LD  6,0(0) 	Salvar o maxaddress em MP
+  1:     LD  2,0(0) 	Salvar o maxaddress em FP
+  2:     ST  0,0(0) 	Limpar a posicao 0
+* INICIO DA EXECUCAO
+* -> Declarando vetor
+  3:    LDA  0,11(5) 	Colocando endereco do vetor em AC
+  4:     ST  0,11(5) 	salvando endereco do vetor no primeiro slot do vetor
+* <- Declarando vetor
+* -> FUNCAO (minloc)
+* -> Declarando variavel
+  6:    LDA  6,-1(6) 	Deixando MP no final do frame
+* <- Declarando variavel
+* -> Declarando variavel
+  7:    LDA  6,-1(6) 	Deixando MP no final do frame
+* <- Declarando variavel
+* -> Declarando variavel
+  8:    LDA  6,-1(6) 	Deixando MP no final do frame
+* <- Declarando variavel
+* -> Id
+  9:     LD  0,-3(2) 	Carregar valor de ID em AC
+* <- Id
+ 10:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+ 11:     ST  4,-7(2) 	Armazenando valor na variável
+* <- Atribuicao
+* -> Id
+* -> Id
+ 12:     LD  0,-3(2) 	Carregar valor de ID em AC
+* <- Id
+*                       AC tem o index
+ 13:     LD  1,-2(2) 	AC1 = endereco base do array
+ 14:    SUB  0,1,0      AC tem o endereco - 1
+ 15:    LDC  1,1(0) 	load 1 em AC1
+ 16:    SUB  0,0,1      AC tem o endereco
+ 17:     LD  0,0(0) 	Obter o valor do elemento do array em AC
+* <- Id
+ 18:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+ 19:     ST  4,-6(2) 	Armazenando valor na variável
+* <- Atribuicao
+* -> Op
+* -> Id
+ 20:     LD  0,-3(2) 	Carregar valor de ID em AC
+* <- Id
+ 21:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+ 22:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+ 23:    LDC  0,1(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+ 24:     LD  1,0(6) 	Esquerda da operacao em AC1
+ 25:    LDA  6,1(6) 	Livrar o espaco usado
+ 26:    ADD  0,1,0      op +
+* <- Op
+ 27:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+ 28:     ST  4,-5(2) 	Armazenando valor na variável
+* <- Atribuicao
+* -> while
+* Verificando condicao do while
+* -> Op
+* -> Id
+ 29:     LD  0,-5(2) 	Carregar valor de ID em AC
+* <- Id
+ 30:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+ 31:     ST  0,0(6) 	Armazenando valor da variável
+* -> Id
+ 32:     LD  0,-4(2) 	Carregar valor de ID em AC
+* <- Id
+*                       Direita da operacao em AC
+ 33:     LD  1,0(6) 	Esquerda da operacao em AC1
+ 34:    LDA  6,1(6) 	Livrar o espaco usado
+ 35:    SUB  0,1,0      op <
+ 36:    JLT  0,2(7) 	Se verdadeiro PC pula 2
+ 37:    LDC  0,0(0) 	Se falso, coloca 0 em AC
+ 38:    LDA  7,1(7) 	PC pula para o fim
+ 39:    LDC  0,1(0) 	Se verdadeiro, coloca 1 em AC
+* <- Op
+* -> Novo Bloco
+ 41:    LDA  6,-1(6) 	Posicao do novo FP
+ 42:     ST  2,0(6) 	Salvar FP antigo
+ 43:    LDA  2,0(6) 	FP atualizado
+* -> If
+* -> Op
+* -> Id
+* -> Id
+ 44:    LDA  3,0(2) 	Salvando FP em R3
+ 45:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+ 46:     LD  0,-5(2) 	Carregar valor de ID em AC
+ 47:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+*                       AC tem o index
+ 48:    LDA  3,0(2) 	Salvando FP em R3
+ 49:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+ 50:     LD  1,-2(2) 	AC1 = endereco base do array
+ 51:    LDA  2,0(3) 	Restaurando FP
+ 52:    SUB  0,1,0      AC tem o endereco - 1
+ 53:    LDC  1,1(0) 	load 1 em AC1
+ 54:    SUB  0,0,1      AC tem o endereco
+ 55:     LD  0,0(0) 	Obter o valor do elemento do array em AC
+* <- Id
+ 56:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+ 57:     ST  0,0(6) 	Armazenando valor da variável
+* -> Id
+ 58:    LDA  3,0(2) 	Salvando FP em R3
+ 59:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+ 60:     LD  0,-6(2) 	Carregar valor de ID em AC
+ 61:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+*                       Direita da operacao em AC
+ 62:     LD  1,0(6) 	Esquerda da operacao em AC1
+ 63:    LDA  6,1(6) 	Livrar o espaco usado
+ 64:    SUB  0,1,0      op <
+ 65:    JLT  0,2(7) 	Se verdadeiro PC pula 2
+ 66:    LDC  0,0(0) 	Se falso, coloca 0 em AC
+ 67:    LDA  7,1(7) 	PC pula para o fim
+ 68:    LDC  0,1(0) 	Se verdadeiro, coloca 1 em AC
+* <- Op
+* THEN branch
+* -> Novo Bloco
+ 70:    LDA  6,-1(6) 	Posicao do novo FP
+ 71:     ST  2,0(6) 	Salvar FP antigo
+ 72:    LDA  2,0(6) 	FP atualizado
+* -> Id
+* -> Id
+ 73:    LDA  3,0(2) 	Salvando FP em R3
+ 74:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+ 75:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+ 76:     LD  0,-5(2) 	Carregar valor de ID em AC
+ 77:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+*                       AC tem o index
+ 78:    LDA  3,0(2) 	Salvando FP em R3
+ 79:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+ 80:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+ 81:     LD  1,-2(2) 	AC1 = endereco base do array
+ 82:    LDA  2,0(3) 	Restaurando FP
+ 83:    SUB  0,1,0      AC tem o endereco - 1
+ 84:    LDC  1,1(0) 	load 1 em AC1
+ 85:    SUB  0,0,1      AC tem o endereco
+ 86:     LD  0,0(0) 	Obter o valor do elemento do array em AC
+* <- Id
+ 87:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+ 88:    LDA  3,0(2) 	Salvando FP em R3
+ 89:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+ 90:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+ 91:     ST  4,-6(2) 	Armazenando valor na variável
+ 92:    LDA  2,0(3) 	Restaurando FP
+* <- Atribuicao
+* -> Id
+ 93:    LDA  3,0(2) 	Salvando FP em R3
+ 94:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+ 95:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+ 96:     LD  0,-5(2) 	Carregar valor de ID em AC
+ 97:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+ 98:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+ 99:    LDA  3,0(2) 	Salvando FP em R3
+100:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+101:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+102:     ST  4,-7(2) 	Armazenando valor na variável
+103:    LDA  2,0(3) 	Restaurando FP
+* <- Atribuicao
+104:    LDA  6,1(2) 	Atualizando MP para o frame anterior
+105:     LD  2,0(2) 	FP volta para o escopo pai (fim do bloco)
+* <- Fim de Bloco
+ 69:    JEQ  0,36(7) 	Se AC == 0, pular para else/end
+* <- If
+* -> Op
+* -> Id
+106:    LDA  3,0(2) 	Salvando FP em R3
+107:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+108:     LD  0,-5(2) 	Carregar valor de ID em AC
+109:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+110:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+111:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+112:    LDC  0,1(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+113:     LD  1,0(6) 	Esquerda da operacao em AC1
+114:    LDA  6,1(6) 	Livrar o espaco usado
+115:    ADD  0,1,0      op +
+* <- Op
+116:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+117:    LDA  3,0(2) 	Salvando FP em R3
+118:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+119:     ST  4,-5(2) 	Armazenando valor na variável
+120:    LDA  2,0(3) 	Restaurando FP
+* <- Atribuicao
+121:    LDA  6,1(2) 	Atualizando MP para o frame anterior
+122:     LD  2,0(2) 	FP volta para o escopo pai (fim do bloco)
+* <- Fim de Bloco
+123:    LDA  7,-95(7) 	Voltando para checar a condicao do while
+ 40:    JEQ  0,83(7) 	Fim do while, se AC = 1 volta para o while, se AC = 0 continua
+* <- while
+* -> Return
+* -> Id
+124:     LD  0,-7(2) 	Carregar valor de ID em AC
+* <- Id
+125:    LDA  1,0(2) 	Salvar FP em AC1
+126:     LD  2,0(2) 	FP volta para o escopo pai
+127:    LDA  6,1(1) 	MP volta ao topo do frame anterior
+128:     LD  1,-1(1) 	AC1 tem o endereco de retorno - 1
+129:    LDA  7,1(1) 	Retorna para onde foi chamado
+* <- Return
+* <- Function exit
+* -> FUNCAO (sort)
+* -> Declarando variavel
+130:    LDA  6,-1(6) 	Deixando MP no final do frame
+* <- Declarando variavel
+* -> Declarando variavel
+131:    LDA  6,-1(6) 	Deixando MP no final do frame
+* <- Declarando variavel
+* -> Id
+132:     LD  0,-3(2) 	Carregar valor de ID em AC
+* <- Id
+133:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+134:     ST  4,-5(2) 	Armazenando valor na variável
+* <- Atribuicao
+* -> while
+* Verificando condicao do while
+* -> Op
+* -> Id
+135:     LD  0,-5(2) 	Carregar valor de ID em AC
+* <- Id
+136:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+137:     ST  0,0(6) 	Armazenando valor da variável
+* -> Op
+* -> Id
+138:     LD  0,-4(2) 	Carregar valor de ID em AC
+* <- Id
+139:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+140:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+141:    LDC  0,1(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+142:     LD  1,0(6) 	Esquerda da operacao em AC1
+143:    LDA  6,1(6) 	Livrar o espaco usado
+144:    SUB  0,1,0      op -
+* <- Op
+*                       Direita da operacao em AC
+145:     LD  1,0(6) 	Esquerda da operacao em AC1
+146:    LDA  6,1(6) 	Livrar o espaco usado
+147:    SUB  0,1,0      op <
+148:    JLT  0,2(7) 	Se verdadeiro PC pula 2
+149:    LDC  0,0(0) 	Se falso, coloca 0 em AC
+150:    LDA  7,1(7) 	PC pula para o fim
+151:    LDC  0,1(0) 	Se verdadeiro, coloca 1 em AC
+* <- Op
+* -> Novo Bloco
+153:    LDA  6,-1(6) 	Posicao do novo FP
+154:     ST  2,0(6) 	Salvar FP antigo
+155:    LDA  2,0(6) 	FP atualizado
+* -> Declarando variavel
+156:    LDA  6,-1(6) 	Deixando MP no final do frame
+* <- Declarando variavel
+* -> Chamando a funcao (minloc)
+157:    LDA  6,-1(6) 	Posicao do novo FP
+158:     ST  2,0(6) 	Salvar FP antigo
+159:    LDA  2,0(6) 	FP atualizado
+160:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Id
+161:    LDA  3,0(2) 	Salvando FP em R3
+162:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+163:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+164:     LD  0,-2(2) 	Carregar valor de ID em AC
+165:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+* -> Argumento da funcao
+166:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+167:     ST  0,0(6) 	Salvar parametro (a) que esta em AC
+* <- Argumento da funcao
+* -> Id
+168:    LDA  3,0(2) 	Salvando FP em R3
+169:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+170:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+171:     LD  0,-5(2) 	Carregar valor de ID em AC
+172:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+* -> Argumento da funcao
+173:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+174:     ST  0,0(6) 	Salvar parametro (i) que esta em AC
+* <- Argumento da funcao
+* -> Id
+175:    LDA  3,0(2) 	Salvando FP em R3
+176:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+177:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+178:     LD  0,-4(2) 	Carregar valor de ID em AC
+179:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+* -> Argumento da funcao
+180:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+181:     ST  0,0(6) 	Salvar parametro (high) que esta em AC
+* <- Argumento da funcao
+182:     ST  7,-1(2) 	Guarda endereco de retorno
+183:    LDA  7,-178(7) 	Pular para a funcao
+* <- Call
+184:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+185:    LDA  3,0(2) 	Salvando FP em R3
+186:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+187:     ST  4,-6(2) 	Armazenando valor na variável
+188:    LDA  2,0(3) 	Restaurando FP
+* <- Atribuicao
+* -> Id
+* -> Id
+189:    LDA  3,0(2) 	Salvando FP em R3
+190:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+191:     LD  0,-6(2) 	Carregar valor de ID em AC
+192:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+*                       AC tem o index
+193:    LDA  3,0(2) 	Salvando FP em R3
+194:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+195:     LD  1,-2(2) 	AC1 = endereco base do array
+196:    LDA  2,0(3) 	Restaurando FP
+197:    SUB  0,1,0      AC tem o endereco - 1
+198:    LDC  1,1(0) 	load 1 em AC1
+199:    SUB  0,0,1      AC tem o endereco
+200:     LD  0,0(0) 	Obter o valor do elemento do array em AC
+* <- Id
+201:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+202:     ST  4,-1(2) 	Armazenando valor na variável
+* <- Atribuicao
+* -> Id
+* -> Id
+203:    LDA  3,0(2) 	Salvando FP em R3
+204:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+205:     LD  0,-5(2) 	Carregar valor de ID em AC
+206:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+*                       AC tem o index
+207:    LDA  3,0(2) 	Salvando FP em R3
+208:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+209:     LD  1,-2(2) 	AC1 = endereco base do array
+210:    LDA  2,0(3) 	Restaurando FP
+211:    SUB  0,1,0      AC tem o endereco - 1
+212:    LDC  1,1(0) 	load 1 em AC1
+213:    SUB  0,0,1      AC tem o endereco
+214:     LD  0,0(0) 	Obter o valor do elemento do array em AC
+* <- Id
+215:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+* -> Id
+216:    LDA  3,0(2) 	Salvando FP em R3
+217:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+218:     LD  0,-6(2) 	Carregar valor de ID em AC
+219:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+*                       AC tem o index
+220:    LDA  3,0(2) 	Salvando FP em R3
+221:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+222:     LD  1,-2(2) 	AC1 = endereco base do array
+223:    LDA  2,0(3) 	Restaurando FP
+224:    SUB  0,1,0      AC tem o endereco - 1
+225:    LDC  1,1(0) 	load 1 em AC1
+226:    SUB  0,0,1      AC tem o endereco
+227:     ST  4,0(0) 	Colocando R4 no endereco do array
+* <- Atribuicao
+* -> Id
+228:     LD  0,-1(2) 	Carregar valor de ID em AC
+* <- Id
+229:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+* -> Id
+230:    LDA  3,0(2) 	Salvando FP em R3
+231:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+232:     LD  0,-5(2) 	Carregar valor de ID em AC
+233:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+*                       AC tem o index
+234:    LDA  3,0(2) 	Salvando FP em R3
+235:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+236:     LD  1,-2(2) 	AC1 = endereco base do array
+237:    LDA  2,0(3) 	Restaurando FP
+238:    SUB  0,1,0      AC tem o endereco - 1
+239:    LDC  1,1(0) 	load 1 em AC1
+240:    SUB  0,0,1      AC tem o endereco
+241:     ST  4,0(0) 	Colocando R4 no endereco do array
+* <- Atribuicao
+* -> Op
+* -> Id
+242:    LDA  3,0(2) 	Salvando FP em R3
+243:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+244:     LD  0,-5(2) 	Carregar valor de ID em AC
+245:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+246:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+247:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+248:    LDC  0,1(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+249:     LD  1,0(6) 	Esquerda da operacao em AC1
+250:    LDA  6,1(6) 	Livrar o espaco usado
+251:    ADD  0,1,0      op +
+* <- Op
+252:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+253:    LDA  3,0(2) 	Salvando FP em R3
+254:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+255:     ST  4,-5(2) 	Armazenando valor na variável
+256:    LDA  2,0(3) 	Restaurando FP
+* <- Atribuicao
+257:    LDA  6,1(2) 	Atualizando MP para o frame anterior
+258:     LD  2,0(2) 	FP volta para o escopo pai (fim do bloco)
+* <- Fim de Bloco
+259:    LDA  7,-125(7) 	Voltando para checar a condicao do while
+152:    JEQ  0,107(7) 	Fim do while, se AC = 1 volta para o while, se AC = 0 continua
+* <- while
+* -> Return
+260:    LDA  1,0(2) 	Salvar FP em AC1
+261:     LD  2,0(2) 	FP volta para o escopo pai
+262:    LDA  6,1(1) 	MP volta ao topo do frame anterior
+263:     LD  1,-1(1) 	AC1 tem o endereco de retorno - 1
+264:    LDA  7,1(1) 	Retorna para onde foi chamado
+* <- Return
+* <- Function exit
+  5:    LDA  7,259(7) 	Pular para a main
+* -> FUNCAO (main)
+265:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Constante
+266:    LDC  0,1(0) 	Salvando constante em AC
+* <- Constante
+267:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+* -> Constante
+268:    LDC  0,0(0) 	Salvando constante em AC
+* <- Constante
+*                       AC tem o index
+269:     LD  1,11(5) 	AC1 = endereco base do array (global)
+270:    SUB  0,1,0      AC tem o endereco - 1
+271:    LDC  1,1(0) 	load 1 em AC1
+272:    SUB  0,0,1      AC tem o endereco
+273:     ST  4,0(0) 	Colocando R4 no endereco do array
+* <- Atribuicao
+* -> Op
+* -> Constante
+274:    LDC  0,2(0) 	Salvando constante em AC
+* <- Constante
+275:    LDA  0,0,0 unario: AC = -AC
+* <- Calc (Unary)
+276:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+* -> Constante
+277:    LDC  0,1(0) 	Salvando constante em AC
+* <- Constante
+*                       AC tem o index
+278:     LD  1,11(5) 	AC1 = endereco base do array (global)
+279:    SUB  0,1,0      AC tem o endereco - 1
+280:    LDC  1,1(0) 	load 1 em AC1
+281:    SUB  0,0,1      AC tem o endereco
+282:     ST  4,0(0) 	Colocando R4 no endereco do array
+* <- Atribuicao
+* -> Constante
+283:    LDC  0,0(0) 	Salvando constante em AC
+* <- Constante
+284:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+* -> Constante
+285:    LDC  0,2(0) 	Salvando constante em AC
+* <- Constante
+*                       AC tem o index
+286:     LD  1,11(5) 	AC1 = endereco base do array (global)
+287:    SUB  0,1,0      AC tem o endereco - 1
+288:    LDC  1,1(0) 	load 1 em AC1
+289:    SUB  0,0,1      AC tem o endereco
+290:     ST  4,0(0) 	Colocando R4 no endereco do array
+* <- Atribuicao
+* -> Constante
+291:    LDC  0,5(0) 	Salvando constante em AC
+* <- Constante
+292:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+* -> Constante
+293:    LDC  0,3(0) 	Salvando constante em AC
+* <- Constante
+*                       AC tem o index
+294:     LD  1,11(5) 	AC1 = endereco base do array (global)
+295:    SUB  0,1,0      AC tem o endereco - 1
+296:    LDC  1,1(0) 	load 1 em AC1
+297:    SUB  0,0,1      AC tem o endereco
+298:     ST  4,0(0) 	Colocando R4 no endereco do array
+* <- Atribuicao
+* -> Constante
+299:    LDC  0,2(0) 	Salvando constante em AC
+* <- Constante
+300:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+* -> Constante
+301:    LDC  0,4(0) 	Salvando constante em AC
+* <- Constante
+*                       AC tem o index
+302:     LD  1,11(5) 	AC1 = endereco base do array (global)
+303:    SUB  0,1,0      AC tem o endereco - 1
+304:    LDC  1,1(0) 	load 1 em AC1
+305:    SUB  0,0,1      AC tem o endereco
+306:     ST  4,0(0) 	Colocando R4 no endereco do array
+* <- Atribuicao
+* -> Constante
+307:    LDC  0,0(0) 	Salvando constante em AC
+* <- Constante
+308:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+* -> Constante
+309:    LDC  0,5(0) 	Salvando constante em AC
+* <- Constante
+*                       AC tem o index
+310:     LD  1,11(5) 	AC1 = endereco base do array (global)
+311:    SUB  0,1,0      AC tem o endereco - 1
+312:    LDC  1,1(0) 	load 1 em AC1
+313:    SUB  0,0,1      AC tem o endereco
+314:     ST  4,0(0) 	Colocando R4 no endereco do array
+* <- Atribuicao
+* -> Op
+* -> Constante
+315:    LDC  0,2(0) 	Salvando constante em AC
+* <- Constante
+316:    LDA  0,0,0 unario: AC = -AC
+* <- Calc (Unary)
+317:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+* -> Constante
+318:    LDC  0,6(0) 	Salvando constante em AC
+* <- Constante
+*                       AC tem o index
+319:     LD  1,11(5) 	AC1 = endereco base do array (global)
+320:    SUB  0,1,0      AC tem o endereco - 1
+321:    LDC  1,1(0) 	load 1 em AC1
+322:    SUB  0,0,1      AC tem o endereco
+323:     ST  4,0(0) 	Colocando R4 no endereco do array
+* <- Atribuicao
+* -> Op
+* -> Constante
+324:    LDC  0,6(0) 	Salvando constante em AC
+* <- Constante
+325:    LDA  0,0,0 unario: AC = -AC
+* <- Calc (Unary)
+326:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+* -> Constante
+327:    LDC  0,7(0) 	Salvando constante em AC
+* <- Constante
+*                       AC tem o index
+328:     LD  1,11(5) 	AC1 = endereco base do array (global)
+329:    SUB  0,1,0      AC tem o endereco - 1
+330:    LDC  1,1(0) 	load 1 em AC1
+331:    SUB  0,0,1      AC tem o endereco
+332:     ST  4,0(0) 	Colocando R4 no endereco do array
+* <- Atribuicao
+* -> Constante
+333:    LDC  0,0(0) 	Salvando constante em AC
+* <- Constante
+334:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+* -> Constante
+335:    LDC  0,8(0) 	Salvando constante em AC
+* <- Constante
+*                       AC tem o index
+336:     LD  1,11(5) 	AC1 = endereco base do array (global)
+337:    SUB  0,1,0      AC tem o endereco - 1
+338:    LDC  1,1(0) 	load 1 em AC1
+339:    SUB  0,0,1      AC tem o endereco
+340:     ST  4,0(0) 	Colocando R4 no endereco do array
+* <- Atribuicao
+* -> Constante
+341:    LDC  0,2(0) 	Salvando constante em AC
+* <- Constante
+342:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+* -> Constante
+343:    LDC  0,9(0) 	Salvando constante em AC
+* <- Constante
+*                       AC tem o index
+344:     LD  1,11(5) 	AC1 = endereco base do array (global)
+345:    SUB  0,1,0      AC tem o endereco - 1
+346:    LDC  1,1(0) 	load 1 em AC1
+347:    SUB  0,0,1      AC tem o endereco
+348:     ST  4,0(0) 	Colocando R4 no endereco do array
+* <- Atribuicao
+* -> Chamando a funcao (sort)
+349:    LDA  6,-1(6) 	Posicao do novo FP
+350:     ST  2,0(6) 	Salvar FP antigo
+351:    LDA  2,0(6) 	FP atualizado
+352:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Id
+353:    LDA  3,0(2) 	Salvando FP em R3
+354:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+355:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+356:     LD  0,11(5) 	Carregar valor de ID em AC
+357:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+* -> Argumento da funcao
+358:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+359:     ST  0,0(6) 	Salvar parametro (x) que esta em AC
+* <- Argumento da funcao
+* -> Constante
+360:    LDC  0,0(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+361:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+362:     ST  0,0(6) 	Salvar parametro (0) que esta em AC
+* <- Argumento da funcao
+* -> Constante
+363:    LDC  0,10(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+364:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+365:     ST  0,0(6) 	Salvar parametro (10) que esta em AC
+* <- Argumento da funcao
+366:     ST  7,-1(2) 	Guarda endereco de retorno
+367:    LDA  7,-238(7) 	Pular para a funcao
+* <- Call
+* -> Declarando variavel
+368:    LDA  6,-1(6) 	Deixando MP no final do frame
+* <- Declarando variavel
+* -> Constante
+369:    LDC  0,0(0) 	Salvando constante em AC
+* <- Constante
+370:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+371:     ST  4,-2(2) 	Armazenando valor na variável
+* <- Atribuicao
+* -> while
+* Verificando condicao do while
+* -> Op
+* -> Id
+372:     LD  0,-2(2) 	Carregar valor de ID em AC
+* <- Id
+373:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+374:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+375:    LDC  0,10(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+376:     LD  1,0(6) 	Esquerda da operacao em AC1
+377:    LDA  6,1(6) 	Livrar o espaco usado
+378:    SUB  0,1,0      op <
+379:    JLT  0,2(7) 	Se verdadeiro PC pula 2
+380:    LDC  0,0(0) 	Se falso, coloca 0 em AC
+381:    LDA  7,1(7) 	PC pula para o fim
+382:    LDC  0,1(0) 	Se verdadeiro, coloca 1 em AC
+* <- Op
+* -> Novo Bloco
+384:    LDA  6,-1(6) 	Posicao do novo FP
+385:     ST  2,0(6) 	Salvar FP antigo
+386:    LDA  2,0(6) 	FP atualizado
+* -> Call output
+* -> Id
+* -> Id
+387:    LDA  3,0(2) 	Salvando FP em R3
+388:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+389:     LD  0,-2(2) 	Carregar valor de ID em AC
+390:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+*                       AC tem o index
+391:     LD  1,11(5) 	AC1 = endereco base do array (global)
+392:    SUB  0,1,0      AC tem o endereco - 1
+393:    LDC  1,1(0) 	load 1 em AC1
+394:    SUB  0,0,1      AC tem o endereco
+395:     LD  0,0(0) 	Obter o valor do elemento do array em AC
+* <- Id
+396:    OUT  0,0,0 Escrevendo valor de AC
+* <- Call output
+* -> Op
+* -> Id
+397:    LDA  3,0(2) 	Salvando FP em R3
+398:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+399:     LD  0,-2(2) 	Carregar valor de ID em AC
+400:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+401:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+402:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+403:    LDC  0,1(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+404:     LD  1,0(6) 	Esquerda da operacao em AC1
+405:    LDA  6,1(6) 	Livrar o espaco usado
+406:    ADD  0,1,0      op +
+* <- Op
+407:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+408:    LDA  3,0(2) 	Salvando FP em R3
+409:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+410:     ST  4,-2(2) 	Armazenando valor na variável
+411:    LDA  2,0(3) 	Restaurando FP
+* <- Atribuicao
+412:    LDA  6,1(2) 	Atualizando MP para o frame anterior
+413:     LD  2,0(2) 	FP volta para o escopo pai (fim do bloco)
+* <- Fim de Bloco
+414:    LDA  7,-43(7) 	Voltando para checar a condicao do while
+383:    JEQ  0,31(7) 	Fim do while, se AC = 1 volta para o while, se AC = 0 continua
+* <- while
+* -> Constante
+415:    LDC  0,0(0) 	Salvando constante em AC
+* <- Constante
+416:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+417:     ST  4,-2(2) 	Armazenando valor na variável
+* <- Atribuicao
+* -> while
+* Verificando condicao do while
+* -> Op
+* -> Id
+418:     LD  0,-2(2) 	Carregar valor de ID em AC
+* <- Id
+419:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+420:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+421:    LDC  0,5(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+422:     LD  1,0(6) 	Esquerda da operacao em AC1
+423:    LDA  6,1(6) 	Livrar o espaco usado
+424:    SUB  0,1,0      op <
+425:    JLT  0,2(7) 	Se verdadeiro PC pula 2
+426:    LDC  0,0(0) 	Se falso, coloca 0 em AC
+427:    LDA  7,1(7) 	PC pula para o fim
+428:    LDC  0,1(0) 	Se verdadeiro, coloca 1 em AC
+* <- Op
+* -> Novo Bloco
+430:    LDA  6,-1(6) 	Posicao do novo FP
+431:     ST  2,0(6) 	Salvar FP antigo
+432:    LDA  2,0(6) 	FP atualizado
+* -> Call input
+433:     IN  0,0,0 Lendo valor para AC
+* <- Call input
+434:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+* -> Id
+435:    LDA  3,0(2) 	Salvando FP em R3
+436:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+437:     LD  0,-2(2) 	Carregar valor de ID em AC
+438:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+*                       AC tem o index
+439:     LD  1,11(5) 	AC1 = endereco base do array (global)
+440:    SUB  0,1,0      AC tem o endereco - 1
+441:    LDC  1,1(0) 	load 1 em AC1
+442:    SUB  0,0,1      AC tem o endereco
+443:     ST  4,0(0) 	Colocando R4 no endereco do array
+* <- Atribuicao
+* -> Op
+* -> Id
+444:    LDA  3,0(2) 	Salvando FP em R3
+445:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+446:     LD  0,-2(2) 	Carregar valor de ID em AC
+447:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+448:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+449:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+450:    LDC  0,1(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+451:     LD  1,0(6) 	Esquerda da operacao em AC1
+452:    LDA  6,1(6) 	Livrar o espaco usado
+453:    ADD  0,1,0      op +
+* <- Op
+454:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+455:    LDA  3,0(2) 	Salvando FP em R3
+456:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+457:     ST  4,-2(2) 	Armazenando valor na variável
+458:    LDA  2,0(3) 	Restaurando FP
+* <- Atribuicao
+459:    LDA  6,1(2) 	Atualizando MP para o frame anterior
+460:     LD  2,0(2) 	FP volta para o escopo pai (fim do bloco)
+* <- Fim de Bloco
+461:    LDA  7,-44(7) 	Voltando para checar a condicao do while
+429:    JEQ  0,32(7) 	Fim do while, se AC = 1 volta para o while, se AC = 0 continua
+* <- while
+* -> Chamando a funcao (sort)
+462:    LDA  6,-1(6) 	Posicao do novo FP
+463:     ST  2,0(6) 	Salvar FP antigo
+464:    LDA  2,0(6) 	FP atualizado
+465:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Id
+466:    LDA  3,0(2) 	Salvando FP em R3
+467:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+468:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+469:     LD  0,11(5) 	Carregar valor de ID em AC
+470:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+* -> Argumento da funcao
+471:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+472:     ST  0,0(6) 	Salvar parametro (x) que esta em AC
+* <- Argumento da funcao
+* -> Constante
+473:    LDC  0,0(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+474:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+475:     ST  0,0(6) 	Salvar parametro (0) que esta em AC
+* <- Argumento da funcao
+* -> Constante
+476:    LDC  0,5(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+477:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+478:     ST  0,0(6) 	Salvar parametro (5) que esta em AC
+* <- Argumento da funcao
+479:     ST  7,-1(2) 	Guarda endereco de retorno
+480:    LDA  7,-351(7) 	Pular para a funcao
+* <- Call
+* -> Constante
+481:    LDC  0,0(0) 	Salvando constante em AC
+* <- Constante
+482:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+483:     ST  4,-2(2) 	Armazenando valor na variável
+* <- Atribuicao
+* -> while
+* Verificando condicao do while
+* -> Op
+* -> Id
+484:     LD  0,-2(2) 	Carregar valor de ID em AC
+* <- Id
+485:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+486:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+487:    LDC  0,5(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+488:     LD  1,0(6) 	Esquerda da operacao em AC1
+489:    LDA  6,1(6) 	Livrar o espaco usado
+490:    SUB  0,1,0      op <
+491:    JLT  0,2(7) 	Se verdadeiro PC pula 2
+492:    LDC  0,0(0) 	Se falso, coloca 0 em AC
+493:    LDA  7,1(7) 	PC pula para o fim
+494:    LDC  0,1(0) 	Se verdadeiro, coloca 1 em AC
+* <- Op
+* -> Novo Bloco
+496:    LDA  6,-1(6) 	Posicao do novo FP
+497:     ST  2,0(6) 	Salvar FP antigo
+498:    LDA  2,0(6) 	FP atualizado
+* -> Call output
+* -> Id
+* -> Id
+499:    LDA  3,0(2) 	Salvando FP em R3
+500:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+501:     LD  0,-2(2) 	Carregar valor de ID em AC
+502:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+*                       AC tem o index
+503:     LD  1,11(5) 	AC1 = endereco base do array (global)
+504:    SUB  0,1,0      AC tem o endereco - 1
+505:    LDC  1,1(0) 	load 1 em AC1
+506:    SUB  0,0,1      AC tem o endereco
+507:     LD  0,0(0) 	Obter o valor do elemento do array em AC
+* <- Id
+508:    OUT  0,0,0 Escrevendo valor de AC
+* <- Call output
+* -> Op
+* -> Id
+509:    LDA  3,0(2) 	Salvando FP em R3
+510:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+511:     LD  0,-2(2) 	Carregar valor de ID em AC
+512:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+513:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+514:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+515:    LDC  0,1(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+516:     LD  1,0(6) 	Esquerda da operacao em AC1
+517:    LDA  6,1(6) 	Livrar o espaco usado
+518:    ADD  0,1,0      op +
+* <- Op
+519:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+520:    LDA  3,0(2) 	Salvando FP em R3
+521:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+522:     ST  4,-2(2) 	Armazenando valor na variável
+523:    LDA  2,0(3) 	Restaurando FP
+* <- Atribuicao
+524:    LDA  6,1(2) 	Atualizando MP para o frame anterior
+525:     LD  2,0(2) 	FP volta para o escopo pai (fim do bloco)
+* <- Fim de Bloco
+526:    LDA  7,-43(7) 	Voltando para checar a condicao do while
+495:    JEQ  0,31(7) 	Fim do while, se AC = 1 volta para o while, se AC = 0 continua
+* <- while
+* FIM DA EXECUCAO
+527:   HALT  0,0,0          
+* <- Function exit

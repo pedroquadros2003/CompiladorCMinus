@@ -1,0 +1,13 @@
+int funOne(void) {
+    output(1);
+}
+
+int funTwo(void) {
+    output(2);
+}
+
+void main(void)
+{
+    int a;
+    a = fun();
+}

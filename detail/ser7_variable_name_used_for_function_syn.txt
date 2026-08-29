@@ -1,0 +1,10 @@
+Declare function (return type "int"): funOne
+    Function call: output
+        Const: 1
+Declare function (return type "int"): xyz
+    Declare int var: x
+    Declare int var: y
+    Declare int var: z
+Declare function (return type "void"): main
+    Declare int var: a
+    Declare int var: xyz

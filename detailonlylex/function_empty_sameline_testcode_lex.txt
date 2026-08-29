@@ -1,0 +1,69 @@
+1: /*
+2: Este exemplo testa:
+3: - declaração de função com comrpo vazio e sem argumentos (inútil mas sintaticamente ok)
+4: - declarações de variável e assignments na mesma linha
+5: - chamada de função sem argumentos
+6: */
+7: void f(void) {}
+	7: reserved word: void
+	7: ID, name= f
+	7: (
+	7: reserved word: void
+	7: )
+	7: {
+	7: }
+8: int global[2];
+	8: reserved word: int
+	8: ID, name= global
+	8: [
+	8: NUM, val= 2
+	8: ]
+	8: ;
+9: void main(void) {
+	9: reserved word: void
+	9: ID, name= main
+	9: (
+	9: reserved word: void
+	9: )
+	9: {
+10:     int x; int y;
+	10: reserved word: int
+	10: ID, name= x
+	10: ;
+	10: reserved word: int
+	10: ID, name= y
+	10: ;
+11:     x = 1; y = x + 1;
+	11: ID, name= x
+	11: =
+	11: NUM, val= 1
+	11: ;
+	11: ID, name= y
+	11: =
+	11: ID, name= x
+	11: +
+	11: NUM, val= 1
+	11: ;
+12:     global[0] = x; global[1] = y;
+	12: ID, name= global
+	12: [
+	12: NUM, val= 0
+	12: ]
+	12: =
+	12: ID, name= x
+	12: ;
+	12: ID, name= global
+	12: [
+	12: NUM, val= 1
+	12: ]
+	12: =
+	12: ID, name= y
+	12: ;
+13:     f();
+	13: ID, name= f
+	13: (
+	13: )
+	13: ;
+14: }
+	14: }
+	14: EOF

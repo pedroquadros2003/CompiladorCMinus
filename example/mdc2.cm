@@ -1,0 +1,49 @@
+/* Impressao recursiva da representacao
+binaria do modulo de um inteiro */
+void binario (int x) {
+  if (x < 2) output(x);
+  else {
+    binario(x/2);
+    output(x - 2*(x/2));
+  }
+}
+
+/* Um programa para calcular mdc 
+   Segundo o algoritmo de Euclides*/
+int gdc (int u, int v)
+{
+    if (v == 0) return u;
+    else return gdc(v,u-u/v*v);
+    /* u-u / v*v == u mod v */
+}
+
+void main(void)
+{
+    
+    /* hardcoded tests of operators and mdc */
+    /* outputs 0 1 2 3 4  (gabarito tem bug) */
+    output(-(gdc(13,19)-1));
+    output(-(-(gdc(1,10))));
+    output(-gdc(-44,-46));
+    output(gdc(-9,-3)+6);
+    output( 10+(2*gdc(44,46)/gdc(4,6))-10 + ((( gdc(2,46) + 0/gdc(10,100) )/1)+0)-0*gdc(1,1) );
+    output( (1-2) * -( gdc(5,5) + gdc(5,5) + gdc(5,5) + gdc(5,5) + gdc(5,5) ) / (1+1+1+1+1+5+5-10)  );
+    output( -6 * (-1));
+
+    int y;
+    y = 0;
+    int x;
+    
+    int res;
+    res=0;
+    { 
+        int y;
+        x = input();
+        y = input();
+        y = gdc(x,y); /* reusing y apenas pra chatear */
+        res = y; /* atribuição do bloco pra fora */
+        output(res);
+    }
+    if (res >= 0) binario(res+y); /* y eh zero... */
+    else binario(-res+y);/* gabarito tem bug no unario! */
+}

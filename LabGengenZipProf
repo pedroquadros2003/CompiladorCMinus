@@ -1,0 +1,8 @@
+#!/bin/bash
+FDATE=`date +'%y%m%d_%H%M'`
+
+zip -r /tmp/labctc41${FDATE}.zip * -x srcok\* -x build\* -x srclog\* -x TinySemantico\* -x srcq*\* -x srcL*\* -x old\* -x srconlylex\* -x aluno*\* -x C_exam*\*
+
+zip -r /tmp/labcrc41FULL${FDATE}.zip * -x build\*  -x aluno*\*  
+
+

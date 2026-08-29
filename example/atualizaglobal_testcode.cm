@@ -1,0 +1,22 @@
+/*
+Este exemplo testa:
+- retorno vazio (tá na BNF)
+- loop while
+*/
+int global;
+void atualizaglobal(int i) {
+    global = global + i;
+    return;
+}
+void main(void) {
+    /* calcula 1 + 2 + ... + N com N dado pelo usuario */
+    int i;
+    int max;
+    global = 0; i = 1;
+    max = input();
+    while (i < 10) {
+        atualizaglobal(i);
+        i = i + 1;
+    }
+    output(global);
+}

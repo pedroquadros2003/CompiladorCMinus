@@ -1,0 +1,1 @@
+Semantic error: undefined reference to 'main'

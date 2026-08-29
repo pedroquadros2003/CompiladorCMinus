@@ -1,0 +1,154 @@
+Declare int array: x
+    Const: 10
+Declare function (return type "int"): minloc
+    Function param (int array): a
+    Function param (int var): low
+    Function param (int var): high
+    Declare int var: i
+    Declare int var: x
+    Declare int var: k
+    Assign to var: k
+        Id: low
+    Assign to var: x
+        Id: a
+            Id: low
+    Assign to var: i
+        Op: +
+            Id: low
+            Const: 1
+    Iteration (loop)
+        Op: <
+            Id: i
+            Id: high
+        Conditional selection
+            Op: <
+                Id: a
+                    Id: i
+                Id: x
+            Assign to var: x
+                Id: a
+                    Id: i
+            Assign to var: k
+                Id: i
+        Assign to var: i
+            Op: +
+                Id: i
+                Const: 1
+    Return
+        Id: k
+Declare function (return type "void"): sort
+    Function param (int array): a
+    Function param (int var): low
+    Function param (int var): high
+    Declare int var: i
+    Declare int var: k
+    Assign to var: i
+        Id: low
+    Iteration (loop)
+        Op: <
+            Id: i
+            Op: -
+                Id: high
+                Const: 1
+        Declare int var: t
+        Assign to var: k
+            Function call: minloc
+                Id: a
+                Id: i
+                Id: high
+        Assign to var: t
+            Id: a
+                Id: k
+        Assign to array: a
+            Id: k
+            Id: a
+                Id: i
+        Assign to array: a
+            Id: i
+            Id: t
+        Assign to var: i
+            Op: +
+                Id: i
+                Const: 1
+Declare function (return type "void"): main
+    Assign to array: x
+        Const: 0
+        Const: 1
+    Assign to array: x
+        Const: 1
+        Op: - (unario)
+            Const: 2
+    Assign to array: x
+        Const: 2
+        Const: 0
+    Assign to array: x
+        Const: 3
+        Const: 5
+    Assign to array: x
+        Const: 4
+        Const: 2
+    Assign to array: x
+        Const: 5
+        Const: 0
+    Assign to array: x
+        Const: 6
+        Op: - (unario)
+            Const: 2
+    Assign to array: x
+        Const: 7
+        Op: - (unario)
+            Const: 6
+    Assign to array: x
+        Const: 8
+        Const: 0
+    Assign to array: x
+        Const: 9
+        Const: 2
+    Function call: sort
+        Id: x
+        Const: 0
+        Const: 10
+    Declare int var: i
+    Assign to var: i
+        Const: 0
+    Iteration (loop)
+        Op: <
+            Id: i
+            Const: 10
+        Function call: output
+            Id: x
+                Id: i
+        Assign to var: i
+            Op: +
+                Id: i
+                Const: 1
+    Assign to var: i
+        Const: 0
+    Iteration (loop)
+        Op: <
+            Id: i
+            Const: 5
+        Assign to array: x
+            Id: i
+            Function call: input
+        Assign to var: i
+            Op: +
+                Id: i
+                Const: 1
+    Function call: sort
+        Id: x
+        Const: 0
+        Const: 5
+    Assign to var: i
+        Const: 0
+    Iteration (loop)
+        Op: <
+            Id: i
+            Const: 5
+        Function call: output
+            Id: x
+                Id: i
+        Assign to var: i
+            Op: +
+                Id: i
+                Const: 1

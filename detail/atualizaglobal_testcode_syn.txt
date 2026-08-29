@@ -1,0 +1,29 @@
+Declare int var: global
+Declare function (return type "void"): atualizaglobal
+    Function param (int var): i
+    Assign to var: global
+        Op: +
+            Id: global
+            Id: i
+    Return
+Declare function (return type "void"): main
+    Declare int var: i
+    Declare int var: max
+    Assign to var: global
+        Const: 0
+    Assign to var: i
+        Const: 1
+    Assign to var: max
+        Function call: input
+    Iteration (loop)
+        Op: <
+            Id: i
+            Const: 10
+        Function call: atualizaglobal
+            Id: i
+        Assign to var: i
+            Op: +
+                Id: i
+                Const: 1
+    Function call: output
+        Id: global

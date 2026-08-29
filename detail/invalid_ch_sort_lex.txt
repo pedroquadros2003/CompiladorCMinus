@@ -1,0 +1,142 @@
+1: /* ordenacao por selecao */
+2: int x[10];
+	2: reserved word: int
+	2: ID, name= x
+	2: [
+	2: NUM, val= 10
+	2: ]
+	2: ;
+3: 
+4: int minloc ( int a[], int low, int high ){
+	4: reserved word: int
+	4: ID, name= minloc
+	4: (
+	4: reserved word: int
+	4: ID, name= a
+	4: [
+	4: ]
+	4: ,
+	4: reserved word: int
+	4: ID, name= low
+	4: ,
+	4: reserved word: int
+	4: ID, name= high
+	4: )
+	4: {
+5:     int i; int x; int k;
+	5: reserved word: int
+	5: ID, name= i
+	5: ;
+	5: reserved word: int
+	5: ID, name= x
+	5: ;
+	5: reserved word: int
+	5: ID, name= k
+	5: ;
+6:     k = low;
+	6: ID, name= k
+	6: =
+	6: ID, name= low
+	6: ;
+7:     x = a[low];
+	7: ID, name= x
+	7: =
+	7: ID, name= a
+	7: [
+	7: ID, name= low
+	7: ]
+	7: ;
+8:     i = low + 1;
+	8: ID, name= i
+	8: =
+	8: ID, name= low
+	8: +
+	8: NUM, val= 1
+	8: ;
+9:     while(i<high){
+	9: reserved word: while
+	9: (
+	9: ID, name= i
+	9: <
+	9: ID, name= high
+	9: )
+	9: {
+10:         if(a[i] < x){
+	10: reserved word: if
+	10: (
+	10: ID, name= a
+	10: [
+	10: ID, name= i
+	10: ]
+	10: <
+	10: ID, name= x
+	10: )
+	10: {
+11:             x = a[i];
+	11: ID, name= x
+	11: =
+	11: ID, name= a
+	11: [
+	11: ID, name= i
+	11: ]
+	11: ;
+12:             k = i;
+	12: ID, name= k
+	12: =
+	12: ID, name= i
+	12: ;
+13:         }
+	13: }
+14:         i = i + 1;
+	14: ID, name= i
+	14: =
+	14: ID, name= i
+	14: +
+	14: NUM, val= 1
+	14: ;
+15:     }
+	15: }
+16:     return k;
+	16: reserved word: return
+	16: ID, name= k
+	16: ;
+17: }
+	17: }
+18: 
+19: void sort(int a[], int low, int high){
+	19: reserved word: void
+	19: ID, name= sort
+	19: (
+	19: reserved word: int
+	19: ID, name= a
+	19: [
+	19: ]
+	19: ,
+	19: reserved word: int
+	19: ID, name= low
+	19: ,
+	19: reserved word: int
+	19: ID, name= high
+	19: )
+	19: {
+20:     int i; int k;
+	20: reserved word: int
+	20: ID, name= i
+	20: ;
+	20: reserved word: int
+	20: ID, name= k
+	20: ;
+21:     i = low;
+	21: ID, name= i
+	21: =
+	21: ID, name= low
+	21: ;
+22:     while(i < high â€“ 1){
+	22: reserved word: while
+	22: (
+	22: ID, name= i
+	22: <
+	22: ID, name= high
+	22: ERROR: â
+Syntax error at line 22: syntax error
+Current token: ERROR: â

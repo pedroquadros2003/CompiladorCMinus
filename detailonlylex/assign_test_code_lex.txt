@@ -1,0 +1,63 @@
+1: void funOne (void) {
+	1: reserved word: void
+	1: ID, name= funOne
+	1: (
+	1: reserved word: void
+	1: )
+	1: {
+2:     int a;
+	2: reserved word: int
+	2: ID, name= a
+	2: ;
+3:     int b;
+	3: reserved word: int
+	3: ID, name= b
+	3: ;
+4:     b = 1 + (5 * 7) / 2;
+	4: ID, name= b
+	4: =
+	4: NUM, val= 1
+	4: +
+	4: (
+	4: NUM, val= 5
+	4: *
+	4: NUM, val= 7
+	4: )
+	4: /
+	4: NUM, val= 2
+	4: ;
+5:     a = b + 4;
+	5: ID, name= a
+	5: =
+	5: ID, name= b
+	5: +
+	5: NUM, val= 4
+	5: ;
+6: }
+	6: }
+7: 
+8: void main (void) {
+	8: reserved word: void
+	8: ID, name= main
+	8: (
+	8: reserved word: void
+	8: )
+	8: {
+9:     int x;
+	9: reserved word: int
+	9: ID, name= x
+	9: ;
+10:     int y;
+	10: reserved word: int
+	10: ID, name= y
+	10: ;
+11:     y = x + 1;
+	11: ID, name= y
+	11: =
+	11: ID, name= x
+	11: +
+	11: NUM, val= 1
+	11: ;
+12: }
+	12: }
+	12: EOF

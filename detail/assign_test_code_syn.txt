@@ -1,0 +1,22 @@
+Declare function (return type "void"): funOne
+    Declare int var: a
+    Declare int var: b
+    Assign to var: b
+        Op: +
+            Const: 1
+            Op: /
+                Op: *
+                    Const: 5
+                    Const: 7
+                Const: 2
+    Assign to var: a
+        Op: +
+            Id: b
+            Const: 4
+Declare function (return type "void"): main
+    Declare int var: x
+    Declare int var: y
+    Assign to var: y
+        Op: +
+            Id: x
+            Const: 1

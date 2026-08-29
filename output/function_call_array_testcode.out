@@ -1,0 +1,67 @@
+
+COMPILATION: ../example/function_call_array_testcode.cm
+1: /*
+2: Este exemplo testa:
+3: - declaração de função contendo parâmetro de tipo array
+4: - return não-vazio de expressao combinando chamada a função, leitura de array e expressão aritmética
+5: */
+6: int f (int u, int v[]) 
+	6: reserved word: int
+	6: ID, name= f
+	6: (
+	6: reserved word: int
+	6: ID, name= u
+	6: ,
+	6: reserved word: int
+	6: ID, name= v
+	6: [
+	6: ]
+	6: )
+7: {    return g(v[3], 3) + u;
+	7: {
+	7: reserved word: return
+	7: ID, name= g
+	7: (
+	7: ID, name= v
+	7: [
+	7: NUM, val= 3
+	7: ]
+	7: ,
+	7: NUM, val= 3
+	7: )
+	7: +
+	7: ID, name= u
+	7: ;
+8: }
+	8: }
+	8: EOF
+
+Syntax tree:
+Declare function (return type "int"): f
+    Function param (int var): u
+    Function param (int array): v
+    Return
+        Op: +
+            Function call: g
+                Id: v
+                    Const: 3
+                Const: 3
+            Id: u
+
+Building Symbol Table...
+Semantic error: undefined reference to 'main'
+
+Checking Types...
+Semantic error at line 7: 'g' was not declared in this scope
+
+Type Checking Finished
+
+Symbol table:
+
+Variable Name  Scope     ID Type  Data Type  Line Numbers
+-------------  --------  -------  ---------  -------------------------
+input                    fun      int        
+f                        fun      int         6 
+output                   fun      void       
+u              f         var      int         6  7 
+v              f         array    int         6  7 

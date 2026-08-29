@@ -1,0 +1,24 @@
+1: void exemplo(void)
+	1: reserved word: void
+	1: ID, name= exemplo
+	1: (
+	1: reserved word: void
+	1: )
+2: {
+	2: {
+3:     int a; a = 0;
+	3: reserved word: int
+	3: ID, name= a
+	3: ;
+	3: ID, name= a
+	3: =
+	3: NUM, val= 0
+	3: ;
+4:     b = a;
+	4: ID, name= b
+	4: =
+	4: ID, name= a
+	4: ;
+5: }
+	5: }
+	5: EOF

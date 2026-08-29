@@ -1,0 +1,2 @@
+int x; /* ok, por exemplo variavel global */
+x = 1; /* errado -> fora de uma funcao */

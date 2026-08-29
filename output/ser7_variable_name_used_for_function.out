@@ -1,0 +1,92 @@
+
+COMPILATION: ../example/ser7_variable_name_used_for_function.cm
+1: int funOne(void) {
+	1: reserved word: int
+	1: ID, name= funOne
+	1: (
+	1: reserved word: void
+	1: )
+	1: {
+2:     output(1);
+	2: ID, name= output
+	2: (
+	2: NUM, val= 1
+	2: )
+	2: ;
+3: }
+	3: }
+4: 
+5: int xyz(void) {
+	5: reserved word: int
+	5: ID, name= xyz
+	5: (
+	5: reserved word: void
+	5: )
+	5: {
+6:     int x;
+	6: reserved word: int
+	6: ID, name= x
+	6: ;
+7:     int y;
+	7: reserved word: int
+	7: ID, name= y
+	7: ;
+8:     int z;
+	8: reserved word: int
+	8: ID, name= z
+	8: ;
+9: }
+	9: }
+10: 
+11: void main(void)
+	11: reserved word: void
+	11: ID, name= main
+	11: (
+	11: reserved word: void
+	11: )
+12: {
+	12: {
+13:     int a;
+	13: reserved word: int
+	13: ID, name= a
+	13: ;
+14:     int xyz;
+	14: reserved word: int
+	14: ID, name= xyz
+	14: ;
+15: }
+	15: }
+	15: EOF
+
+Syntax tree:
+Declare function (return type "int"): funOne
+    Function call: output
+        Const: 1
+Declare function (return type "int"): xyz
+    Declare int var: x
+    Declare int var: y
+    Declare int var: z
+Declare function (return type "void"): main
+    Declare int var: a
+    Declare int var: xyz
+
+Building Symbol Table...
+Semantic error at line 14: 'xyz' was already declared as a function
+
+Checking Types...
+
+Type Checking Finished
+
+Symbol table:
+
+Variable Name  Scope     ID Type  Data Type  Line Numbers
+-------------  --------  -------  ---------  -------------------------
+main                     fun      void       11 
+xyz                      fun      int         5 
+input                    fun      int        
+funOne                   fun      int         1 
+output                   fun      void        2 
+x              xyz       var      int         6 
+y              xyz       var      int         7 
+z              xyz       var      int         8 
+a              main      var      int        13 

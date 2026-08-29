@@ -1,0 +1,44 @@
+1: /* Um programa para calcular mdc 
+2:    Segundo o algoritmo de Euclides*/
+3: int gcd (int u, int v)
+	3: reserved word: int
+	3: ID, name= gcd
+	3: (
+	3: reserved word: int
+	3: ID, name= u
+	3: ,
+	3: reserved word: int
+	3: ID, name= v
+	3: )
+4: {
+	4: {
+5:     if (v == 0) return u;
+	5: reserved word: if
+	5: (
+	5: ID, name= v
+	5: ==
+	5: NUM, val= 0
+	5: )
+	5: reserved word: return
+	5: ID, name= u
+	5: ;
+6:     else return gcd(v,u-u/v*v)
+	6: reserved word: else
+	6: reserved word: return
+	6: ID, name= gcd
+	6: (
+	6: ID, name= v
+	6: ,
+	6: ID, name= u
+	6: -
+	6: ID, name= u
+	6: /
+	6: ID, name= v
+	6: *
+	6: ID, name= v
+	6: )
+7:     /* u-u / v*v == u mod v */
+8: }
+	8: }
+Syntax error at line 8: syntax error
+Current token: }

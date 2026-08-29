@@ -1,0 +1,11 @@
+int funOne(void) { 
+    output(1);
+}
+
+int funTwo(void) {
+    output(2);
+}
+
+int funThree(void) {
+    output(3);
+}

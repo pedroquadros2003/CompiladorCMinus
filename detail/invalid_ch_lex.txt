@@ -1,0 +1,16 @@
+1: /* Program that uses a invalid character */
+2: 
+3: void main(void)
+	3: reserved word: void
+	3: ID, name= main
+	3: (
+	3: reserved word: void
+	3: )
+4: {
+	4: {
+5:     int x@test = 99; /* @ is an illegal character */ 
+	5: reserved word: int
+	5: ID, name= x
+	5: ERROR: @
+Syntax error at line 5: syntax error
+Current token: ERROR: @

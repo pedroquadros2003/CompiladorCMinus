@@ -1,0 +1,1 @@
+Semantic error at line 14: Func Decl Error, Already Declared!

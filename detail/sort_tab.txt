@@ -1,0 +1,24 @@
+
+Symbol table:
+
+Variable Name  Scope     ID Type  Data Type  Line Numbers
+-------------  --------  -------  ---------  -------------------------
+main                     fun      void       32 
+sort                     fun      void       19 37 51 
+input                    fun      int        48 
+minloc                   fun      int         4 24 
+output                   fun      void       41 54 
+x                        array    int         2 35 36 37 41 48 51 54 
+t              sort:22   var      int        23 25 27 
+i              main      var      int        39 40 41 42 46 47 48 49 52 53 54 55 
+low            sort      var      int        19 21 
+a              sort      array    int        19 24 25 26 27 
+i              sort      var      int        20 21 22 24 26 27 28 
+k              sort      var      int        20 24 25 26 
+high           sort      var      int        19 22 24 
+low            minloc    var      int         4  6  7  8 
+a              minloc    array    int         4  7 10 11 
+i              minloc    var      int         5  8  9 10 11 12 14 
+k              minloc    var      int         5  6 12 16 
+x              minloc    var      int         5  7 10 11 
+high           minloc    var      int         4  9 

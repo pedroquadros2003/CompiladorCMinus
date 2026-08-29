@@ -1,0 +1,8 @@
+/build/
+/alunoout/
+/alunodetail/
+*.o
+*~
+*.diff
+/tm
+compile_commands.json

@@ -1,0 +1,10 @@
+1: int x; /* ok, por exemplo variavel global */
+	1: reserved word: int
+	1: ID, name= x
+	1: ;
+2: x = 1; /* errado -> fora de uma funcao */
+	2: ID, name= x
+	2: =
+	2: NUM, val= 1
+	2: ;
+	2: EOF

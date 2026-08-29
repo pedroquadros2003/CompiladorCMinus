@@ -1,0 +1,6 @@
+<map id="fflushc" name="fflushc">
+<area shape="rect" id="node1" title="flushes all opened files." alt="" coords="99,56,165,83"/>
+<area shape="rect" id="node2" href="$log_8h.html#a19aadbd143c102d1d6d5550149e13985" title="prints in CURRENT output file AND stdout" alt="" coords="9,5,47,32"/>
+<area shape="rect" id="node3" href="$log_8h.html#a098badc7cd289765ab894834e5b6e83d" title="prints in CURRENT output file AND stdout AND error file (3&#45;way)" alt="" coords="5,56,51,83"/>
+<area shape="rect" id="node4" href="$log_8h.html#a66d5587d32889b22e56a956e84997557" title="prints in both chosen output file(s) AND stdout" alt="" coords="9,107,47,133"/>
+</map>

@@ -1,0 +1,15 @@
+1: /* Um programa para calcular mdc 
+2:    Segundo o algoritmo de Euclides*/
+3: int gcd (int u, int v
+	3: reserved word: int
+	3: ID, name= gcd
+	3: (
+	3: reserved word: int
+	3: ID, name= u
+	3: ,
+	3: reserved word: int
+	3: ID, name= v
+4: {
+	4: {
+Syntax error at line 4: syntax error
+Current token: {

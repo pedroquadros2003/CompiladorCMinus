@@ -1,0 +1,1700 @@
+
+COMPILATION: ../example/mdc2.cm
+1: /* Impressao recursiva da representacao
+2: binaria do modulo de um inteiro */
+3: void binario (int x) {
+	3: reserved word: void
+	3: ID, name= binario
+	3: (
+	3: reserved word: int
+	3: ID, name= x
+	3: )
+	3: {
+4:   if (x < 2) output(x);
+	4: reserved word: if
+	4: (
+	4: ID, name= x
+	4: <
+	4: NUM, val= 2
+	4: )
+	4: ID, name= output
+	4: (
+	4: ID, name= x
+	4: )
+	4: ;
+5:   else {
+	5: reserved word: else
+	5: {
+6:     binario(x/2);
+	6: ID, name= binario
+	6: (
+	6: ID, name= x
+	6: /
+	6: NUM, val= 2
+	6: )
+	6: ;
+7:     output(x - 2*(x/2));
+	7: ID, name= output
+	7: (
+	7: ID, name= x
+	7: -
+	7: NUM, val= 2
+	7: *
+	7: (
+	7: ID, name= x
+	7: /
+	7: NUM, val= 2
+	7: )
+	7: )
+	7: ;
+8:   }
+	8: }
+9: }
+	9: }
+10: 
+11: /* Um programa para calcular mdc 
+12:    Segundo o algoritmo de Euclides*/
+13: int gdc (int u, int v)
+	13: reserved word: int
+	13: ID, name= gdc
+	13: (
+	13: reserved word: int
+	13: ID, name= u
+	13: ,
+	13: reserved word: int
+	13: ID, name= v
+	13: )
+14: {
+	14: {
+15:     if (v == 0) return u;
+	15: reserved word: if
+	15: (
+	15: ID, name= v
+	15: ==
+	15: NUM, val= 0
+	15: )
+	15: reserved word: return
+	15: ID, name= u
+	15: ;
+16:     else return gdc(v,u-u/v*v);
+	16: reserved word: else
+	16: reserved word: return
+	16: ID, name= gdc
+	16: (
+	16: ID, name= v
+	16: ,
+	16: ID, name= u
+	16: -
+	16: ID, name= u
+	16: /
+	16: ID, name= v
+	16: *
+	16: ID, name= v
+	16: )
+	16: ;
+17:     /* u-u / v*v == u mod v */
+18: }
+	18: }
+19: 
+20: void main(void)
+	20: reserved word: void
+	20: ID, name= main
+	20: (
+	20: reserved word: void
+	20: )
+21: {
+	21: {
+22:     
+23:     /* hardcoded tests of operators and mdc */
+24:     /* outputs 0 1 2 3 4  (gabarito tem bug) */
+25:     output(-(gdc(13,19)-1));
+	25: ID, name= output
+	25: (
+	25: -
+	25: (
+	25: ID, name= gdc
+	25: (
+	25: NUM, val= 13
+	25: ,
+	25: NUM, val= 19
+	25: )
+	25: -
+	25: NUM, val= 1
+	25: )
+	25: )
+	25: ;
+26:     output(-(-(gdc(1,10))));
+	26: ID, name= output
+	26: (
+	26: -
+	26: (
+	26: -
+	26: (
+	26: ID, name= gdc
+	26: (
+	26: NUM, val= 1
+	26: ,
+	26: NUM, val= 10
+	26: )
+	26: )
+	26: )
+	26: )
+	26: ;
+27:     output(-gdc(-44,-46));
+	27: ID, name= output
+	27: (
+	27: -
+	27: ID, name= gdc
+	27: (
+	27: -
+	27: NUM, val= 44
+	27: ,
+	27: -
+	27: NUM, val= 46
+	27: )
+	27: )
+	27: ;
+28:     output(gdc(-9,-3)+6);
+	28: ID, name= output
+	28: (
+	28: ID, name= gdc
+	28: (
+	28: -
+	28: NUM, val= 9
+	28: ,
+	28: -
+	28: NUM, val= 3
+	28: )
+	28: +
+	28: NUM, val= 6
+	28: )
+	28: ;
+29:     output( 10+(2*gdc(44,46)/gdc(4,6))-10 + ((( gdc(2,46) + 0/gdc(10,100) )/1)+0)-0*gdc(1,1) );
+	29: ID, name= output
+	29: (
+	29: NUM, val= 10
+	29: +
+	29: (
+	29: NUM, val= 2
+	29: *
+	29: ID, name= gdc
+	29: (
+	29: NUM, val= 44
+	29: ,
+	29: NUM, val= 46
+	29: )
+	29: /
+	29: ID, name= gdc
+	29: (
+	29: NUM, val= 4
+	29: ,
+	29: NUM, val= 6
+	29: )
+	29: )
+	29: -
+	29: NUM, val= 10
+	29: +
+	29: (
+	29: (
+	29: (
+	29: ID, name= gdc
+	29: (
+	29: NUM, val= 2
+	29: ,
+	29: NUM, val= 46
+	29: )
+	29: +
+	29: NUM, val= 0
+	29: /
+	29: ID, name= gdc
+	29: (
+	29: NUM, val= 10
+	29: ,
+	29: NUM, val= 100
+	29: )
+	29: )
+	29: /
+	29: NUM, val= 1
+	29: )
+	29: +
+	29: NUM, val= 0
+	29: )
+	29: -
+	29: NUM, val= 0
+	29: *
+	29: ID, name= gdc
+	29: (
+	29: NUM, val= 1
+	29: ,
+	29: NUM, val= 1
+	29: )
+	29: )
+	29: ;
+30:     output( (1-2) * -( gdc(5,5) + gdc(5,5) + gdc(5,5) + gdc(5,5) + gdc(5,5) ) / (1+1+1+1+1+5+5-10)  );
+	30: ID, name= output
+	30: (
+	30: (
+	30: NUM, val= 1
+	30: -
+	30: NUM, val= 2
+	30: )
+	30: *
+	30: -
+	30: (
+	30: ID, name= gdc
+	30: (
+	30: NUM, val= 5
+	30: ,
+	30: NUM, val= 5
+	30: )
+	30: +
+	30: ID, name= gdc
+	30: (
+	30: NUM, val= 5
+	30: ,
+	30: NUM, val= 5
+	30: )
+	30: +
+	30: ID, name= gdc
+	30: (
+	30: NUM, val= 5
+	30: ,
+	30: NUM, val= 5
+	30: )
+	30: +
+	30: ID, name= gdc
+	30: (
+	30: NUM, val= 5
+	30: ,
+	30: NUM, val= 5
+	30: )
+	30: +
+	30: ID, name= gdc
+	30: (
+	30: NUM, val= 5
+	30: ,
+	30: NUM, val= 5
+	30: )
+	30: )
+	30: /
+	30: (
+	30: NUM, val= 1
+	30: +
+	30: NUM, val= 1
+	30: +
+	30: NUM, val= 1
+	30: +
+	30: NUM, val= 1
+	30: +
+	30: NUM, val= 1
+	30: +
+	30: NUM, val= 5
+	30: +
+	30: NUM, val= 5
+	30: -
+	30: NUM, val= 10
+	30: )
+	30: )
+	30: ;
+31:     output( -6 * (-1));
+	31: ID, name= output
+	31: (
+	31: -
+	31: NUM, val= 6
+	31: *
+	31: (
+	31: -
+	31: NUM, val= 1
+	31: )
+	31: )
+	31: ;
+32: 
+33:     int y;
+	33: reserved word: int
+	33: ID, name= y
+	33: ;
+34:     y = 0;
+	34: ID, name= y
+	34: =
+	34: NUM, val= 0
+	34: ;
+35:     int x;
+	35: reserved word: int
+	35: ID, name= x
+	35: ;
+36:     
+37:     int res;
+	37: reserved word: int
+	37: ID, name= res
+	37: ;
+38:     res=0;
+	38: ID, name= res
+	38: =
+	38: NUM, val= 0
+	38: ;
+39:     { 
+	39: {
+40:         int y;
+	40: reserved word: int
+	40: ID, name= y
+	40: ;
+41:         x = input();
+	41: ID, name= x
+	41: =
+	41: ID, name= input
+	41: (
+	41: )
+	41: ;
+42:         y = input();
+	42: ID, name= y
+	42: =
+	42: ID, name= input
+	42: (
+	42: )
+	42: ;
+43:         y = gdc(x,y); /* reusing y apenas pra chatear */
+	43: ID, name= y
+	43: =
+	43: ID, name= gdc
+	43: (
+	43: ID, name= x
+	43: ,
+	43: ID, name= y
+	43: )
+	43: ;
+44:         res = y; /* atribuição do bloco pra fora */
+	44: ID, name= res
+	44: =
+	44: ID, name= y
+	44: ;
+45:         output(res);
+	45: ID, name= output
+	45: (
+	45: ID, name= res
+	45: )
+	45: ;
+46:     }
+	46: }
+47:     if (res >= 0) binario(res+y); /* y eh zero... */
+	47: reserved word: if
+	47: (
+	47: ID, name= res
+	47: >=
+	47: NUM, val= 0
+	47: )
+	47: ID, name= binario
+	47: (
+	47: ID, name= res
+	47: +
+	47: ID, name= y
+	47: )
+	47: ;
+48:     else binario(-res+y);/* gabarito tem bug no unario! */
+	48: reserved word: else
+	48: ID, name= binario
+	48: (
+	48: -
+	48: ID, name= res
+	48: +
+	48: ID, name= y
+	48: )
+	48: ;
+49: }
+	49: }
+	50: EOF
+
+Syntax tree:
+Declare function (return type "void"): binario
+    Function param (int var): x
+    Conditional selection
+        Op: <
+            Id: x
+            Const: 2
+        Function call: output
+            Id: x
+        Function call: binario
+            Op: /
+                Id: x
+                Const: 2
+        Function call: output
+            Op: -
+                Id: x
+                Op: *
+                    Const: 2
+                    Op: /
+                        Id: x
+                        Const: 2
+Declare function (return type "int"): gdc
+    Function param (int var): u
+    Function param (int var): v
+    Conditional selection
+        Op: ==
+            Id: v
+            Const: 0
+        Return
+            Id: u
+        Return
+            Function call: gdc
+                Id: v
+                Op: -
+                    Id: u
+                    Op: *
+                        Op: /
+                            Id: u
+                            Id: v
+                        Id: v
+Declare function (return type "void"): main
+    Function call: output
+        Op: - (unario)
+            Op: -
+                Function call: gdc
+                    Const: 13
+                    Const: 19
+                Const: 1
+    Function call: output
+        Op: - (unario)
+            Op: - (unario)
+                Function call: gdc
+                    Const: 1
+                    Const: 10
+    Function call: output
+        Op: - (unario)
+            Function call: gdc
+                Op: - (unario)
+                    Const: 44
+                Op: - (unario)
+                    Const: 46
+    Function call: output
+        Op: +
+            Function call: gdc
+                Op: - (unario)
+                    Const: 9
+                Op: - (unario)
+                    Const: 3
+            Const: 6
+    Function call: output
+        Op: -
+            Op: +
+                Op: -
+                    Op: +
+                        Const: 10
+                        Op: /
+                            Op: *
+                                Const: 2
+                                Function call: gdc
+                                    Const: 44
+                                    Const: 46
+                            Function call: gdc
+                                Const: 4
+                                Const: 6
+                    Const: 10
+                Op: +
+                    Op: /
+                        Op: +
+                            Function call: gdc
+                                Const: 2
+                                Const: 46
+                            Op: /
+                                Const: 0
+                                Function call: gdc
+                                    Const: 10
+                                    Const: 100
+                        Const: 1
+                    Const: 0
+            Op: *
+                Const: 0
+                Function call: gdc
+                    Const: 1
+                    Const: 1
+    Function call: output
+        Op: /
+            Op: *
+                Op: -
+                    Const: 1
+                    Const: 2
+                Op: - (unario)
+                    Op: +
+                        Op: +
+                            Op: +
+                                Op: +
+                                    Function call: gdc
+                                        Const: 5
+                                        Const: 5
+                                    Function call: gdc
+                                        Const: 5
+                                        Const: 5
+                                Function call: gdc
+                                    Const: 5
+                                    Const: 5
+                            Function call: gdc
+                                Const: 5
+                                Const: 5
+                        Function call: gdc
+                            Const: 5
+                            Const: 5
+            Op: -
+                Op: +
+                    Op: +
+                        Op: +
+                            Op: +
+                                Op: +
+                                    Op: +
+                                        Const: 1
+                                        Const: 1
+                                    Const: 1
+                                Const: 1
+                            Const: 1
+                        Const: 5
+                    Const: 5
+                Const: 10
+    Function call: output
+        Op: *
+            Op: - (unario)
+                Const: 6
+            Op: - (unario)
+                Const: 1
+    Declare int var: y
+    Assign to var: y
+        Const: 0
+    Declare int var: x
+    Declare int var: res
+    Assign to var: res
+        Const: 0
+    Block:
+        Declare int var: y
+        Assign to var: x
+            Function call: input
+        Assign to var: y
+            Function call: input
+        Assign to var: y
+            Function call: gdc
+                Id: x
+                Id: y
+        Assign to var: res
+            Id: y
+        Function call: output
+            Id: res
+    Conditional selection
+        Op: >=
+            Id: res
+            Const: 0
+        Function call: binario
+            Op: +
+                Id: res
+                Id: y
+        Function call: binario
+            Op: +
+                Op: - (unario)
+                    Id: res
+                Id: y
+
+Building Symbol Table...
+
+Checking Types...
+
+Type Checking Finished
+
+Symbol table:
+
+Variable Name  Scope     ID Type  Data Type  Line Numbers
+-------------  --------  -------  ---------  -------------------------
+gdc                      fun      int        13 16 25 26 27 28 29 30 43 
+main                     fun      void       20 
+binario                  fun      void        3  6 47 48 
+input                    fun      int        41 42 
+output                   fun      void        4  7 25 26 27 28 29 30 31 45 
+x              binario   var      int         3  4  6  7 
+y              main:39   var      int        40 42 43 44 
+res            main      var      int        37 38 44 45 47 48 
+x              main      var      int        35 41 43 
+y              main      var      int        33 34 47 48 
+u              gdc       var      int        13 15 16 
+v              gdc       var      int        13 15 16 
+* GERACAO CODIGO ASSEMBLY TM
+* A posicao 0 comeca com o maxaddress
+  0:     LD  6,0(0) 	Salvar o maxaddress em MP
+  1:     LD  2,0(0) 	Salvar o maxaddress em FP
+  2:     ST  0,0(0) 	Limpar a posicao 0
+* INICIO DA EXECUCAO
+* -> FUNCAO (binario)
+* -> If
+* -> Op
+* -> Id
+  4:     LD  0,-2(2) 	Carregar valor de ID em AC
+* <- Id
+  5:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+  6:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+  7:    LDC  0,2(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+  8:     LD  1,0(6) 	Esquerda da operacao em AC1
+  9:    LDA  6,1(6) 	Livrar o espaco usado
+ 10:    SUB  0,1,0      op <
+ 11:    JLT  0,2(7) 	Se verdadeiro PC pula 2
+ 12:    LDC  0,0(0) 	Se falso, coloca 0 em AC
+ 13:    LDA  7,1(7) 	PC pula para o fim
+ 14:    LDC  0,1(0) 	Se verdadeiro, coloca 1 em AC
+* <- Op
+* THEN branch
+* -> Call output
+* -> Id
+ 16:     LD  0,-2(2) 	Carregar valor de ID em AC
+* <- Id
+ 17:    OUT  0,0,0 Escrevendo valor de AC
+* <- Call output
+* ELSE branch
+ 15:    JEQ  0,3(7) 	Se AC == 0, pular para else/end
+* -> Novo Bloco
+ 19:    LDA  6,-1(6) 	Posicao do novo FP
+ 20:     ST  2,0(6) 	Salvar FP antigo
+ 21:    LDA  2,0(6) 	FP atualizado
+* -> Chamando a funcao (binario)
+ 22:    LDA  6,-1(6) 	Posicao do novo FP
+ 23:     ST  2,0(6) 	Salvar FP antigo
+ 24:    LDA  2,0(6) 	FP atualizado
+ 25:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Op
+* -> Id
+ 26:    LDA  3,0(2) 	Salvando FP em R3
+ 27:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+ 28:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+ 29:     LD  0,-2(2) 	Carregar valor de ID em AC
+ 30:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+ 31:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+ 32:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+ 33:    LDC  0,2(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+ 34:     LD  1,0(6) 	Esquerda da operacao em AC1
+ 35:    LDA  6,1(6) 	Livrar o espaco usado
+ 36:    DIV  0,1,0      op /
+* <- Op
+* -> Argumento da funcao
+ 37:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+ 38:     ST  0,0(6) 	Salvar parametro (/) que esta em AC
+* <- Argumento da funcao
+ 39:     ST  7,-1(2) 	Guarda endereco de retorno
+ 40:    LDA  7,-37(7) 	Pular para a funcao
+* <- Call
+* -> Call output
+* -> Op
+* -> Id
+ 41:    LDA  3,0(2) 	Salvando FP em R3
+ 42:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+ 43:     LD  0,-2(2) 	Carregar valor de ID em AC
+ 44:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+ 45:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+ 46:     ST  0,0(6) 	Armazenando valor da variável
+* -> Op
+* -> Constante
+ 47:    LDC  0,2(0) 	Salvando constante em AC
+* <- Constante
+ 48:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+ 49:     ST  0,0(6) 	Armazenando valor da variável
+* -> Op
+* -> Id
+ 50:    LDA  3,0(2) 	Salvando FP em R3
+ 51:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+ 52:     LD  0,-2(2) 	Carregar valor de ID em AC
+ 53:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+ 54:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+ 55:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+ 56:    LDC  0,2(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+ 57:     LD  1,0(6) 	Esquerda da operacao em AC1
+ 58:    LDA  6,1(6) 	Livrar o espaco usado
+ 59:    DIV  0,1,0      op /
+* <- Op
+*                       Direita da operacao em AC
+ 60:     LD  1,0(6) 	Esquerda da operacao em AC1
+ 61:    LDA  6,1(6) 	Livrar o espaco usado
+ 62:    MUL  0,1,0      op *
+* <- Op
+*                       Direita da operacao em AC
+ 63:     LD  1,0(6) 	Esquerda da operacao em AC1
+ 64:    LDA  6,1(6) 	Livrar o espaco usado
+ 65:    SUB  0,1,0      op -
+* <- Op
+ 66:    OUT  0,0,0 Escrevendo valor de AC
+* <- Call output
+ 67:    LDA  6,1(2) 	Atualizando MP para o frame anterior
+ 68:     LD  2,0(2) 	FP volta para o escopo pai (fim do bloco)
+* <- Fim de Bloco
+ 18:    LDA  7,50(7) 	jmp to end
+* <- If
+* -> Return
+ 69:    LDA  1,0(2) 	Salvar FP em AC1
+ 70:     LD  2,0(2) 	FP volta para o escopo pai
+ 71:    LDA  6,1(1) 	MP volta ao topo do frame anterior
+ 72:     LD  1,-1(1) 	AC1 tem o endereco de retorno - 1
+ 73:    LDA  7,1(1) 	Retorna para onde foi chamado
+* <- Return
+* <- Function exit
+* -> FUNCAO (gdc)
+* -> If
+* -> Op
+* -> Id
+ 74:     LD  0,-3(2) 	Carregar valor de ID em AC
+* <- Id
+ 75:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+ 76:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+ 77:    LDC  0,0(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+ 78:     LD  1,0(6) 	Esquerda da operacao em AC1
+ 79:    LDA  6,1(6) 	Livrar o espaco usado
+ 80:    SUB  0,1,0     op ==
+ 81:    JEQ  0,2(7) 	Se verdadeiro PC pula 2
+ 82:    LDC  0,0(0) 	Se falso, coloca 0 em AC
+ 83:    LDA  7,1(7) 	PC pula para o fim
+ 84:    LDC  0,1(0) 	Se verdadeiro, coloca 1 em AC
+* <- Op
+* THEN branch
+* -> Return
+* -> Id
+ 86:     LD  0,-2(2) 	Carregar valor de ID em AC
+* <- Id
+ 87:    LDA  1,0(2) 	Salvar FP em AC1
+ 88:     LD  2,0(2) 	FP volta para o escopo pai
+ 89:    LDA  6,1(1) 	MP volta ao topo do frame anterior
+ 90:     LD  1,-1(1) 	AC1 tem o endereco de retorno - 1
+ 91:    LDA  7,1(1) 	Retorna para onde foi chamado
+* <- Return
+* ELSE branch
+ 85:    JEQ  0,7(7) 	Se AC == 0, pular para else/end
+* -> Return
+* -> Chamando a funcao (gdc)
+ 93:    LDA  6,-1(6) 	Posicao do novo FP
+ 94:     ST  2,0(6) 	Salvar FP antigo
+ 95:    LDA  2,0(6) 	FP atualizado
+ 96:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Id
+ 97:    LDA  3,0(2) 	Salvando FP em R3
+ 98:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+ 99:     LD  0,-3(2) 	Carregar valor de ID em AC
+100:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+* -> Argumento da funcao
+101:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+102:     ST  0,0(6) 	Salvar parametro (v) que esta em AC
+* <- Argumento da funcao
+* -> Op
+* -> Id
+103:    LDA  3,0(2) 	Salvando FP em R3
+104:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+105:     LD  0,-2(2) 	Carregar valor de ID em AC
+106:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+107:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+108:     ST  0,0(6) 	Armazenando valor da variável
+* -> Op
+* -> Op
+* -> Id
+109:    LDA  3,0(2) 	Salvando FP em R3
+110:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+111:     LD  0,-2(2) 	Carregar valor de ID em AC
+112:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+113:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+114:     ST  0,0(6) 	Armazenando valor da variável
+* -> Id
+115:    LDA  3,0(2) 	Salvando FP em R3
+116:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+117:     LD  0,-3(2) 	Carregar valor de ID em AC
+118:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+*                       Direita da operacao em AC
+119:     LD  1,0(6) 	Esquerda da operacao em AC1
+120:    LDA  6,1(6) 	Livrar o espaco usado
+121:    DIV  0,1,0      op /
+* <- Op
+122:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+123:     ST  0,0(6) 	Armazenando valor da variável
+* -> Id
+124:    LDA  3,0(2) 	Salvando FP em R3
+125:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+126:     LD  0,-3(2) 	Carregar valor de ID em AC
+127:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+*                       Direita da operacao em AC
+128:     LD  1,0(6) 	Esquerda da operacao em AC1
+129:    LDA  6,1(6) 	Livrar o espaco usado
+130:    MUL  0,1,0      op *
+* <- Op
+*                       Direita da operacao em AC
+131:     LD  1,0(6) 	Esquerda da operacao em AC1
+132:    LDA  6,1(6) 	Livrar o espaco usado
+133:    SUB  0,1,0      op -
+* <- Op
+* -> Argumento da funcao
+134:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+135:     ST  0,0(6) 	Salvar parametro (-) que esta em AC
+* <- Argumento da funcao
+136:     ST  7,-1(2) 	Guarda endereco de retorno
+137:    LDA  7,-64(7) 	Pular para a funcao
+* <- Call
+138:    LDA  1,0(2) 	Salvar FP em AC1
+139:     LD  2,0(2) 	FP volta para o escopo pai
+140:    LDA  6,1(1) 	MP volta ao topo do frame anterior
+141:     LD  1,-1(1) 	AC1 tem o endereco de retorno - 1
+142:    LDA  7,1(1) 	Retorna para onde foi chamado
+* <- Return
+ 92:    LDA  7,50(7) 	jmp to end
+* <- If
+* <- Function exit
+  3:    LDA  7,139(7) 	Pular para a main
+* -> FUNCAO (main)
+143:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Call output
+* -> Op
+* -> Op
+* -> Chamando a funcao (gdc)
+144:    LDA  6,-1(6) 	Posicao do novo FP
+145:     ST  2,0(6) 	Salvar FP antigo
+146:    LDA  2,0(6) 	FP atualizado
+147:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Constante
+148:    LDC  0,13(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+149:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+150:     ST  0,0(6) 	Salvar parametro (13) que esta em AC
+* <- Argumento da funcao
+* -> Constante
+151:    LDC  0,19(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+152:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+153:     ST  0,0(6) 	Salvar parametro (19) que esta em AC
+* <- Argumento da funcao
+154:     ST  7,-1(2) 	Guarda endereco de retorno
+155:    LDA  7,-82(7) 	Pular para a funcao
+* <- Call
+156:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+157:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+158:    LDC  0,1(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+159:     LD  1,0(6) 	Esquerda da operacao em AC1
+160:    LDA  6,1(6) 	Livrar o espaco usado
+161:    SUB  0,1,0      op -
+* <- Op
+162:    LDA  0,0,0 unario: AC = -AC
+* <- Calc (Unary)
+163:    OUT  0,0,0 Escrevendo valor de AC
+* <- Call output
+* -> Call output
+* -> Op
+* -> Op
+* -> Chamando a funcao (gdc)
+164:    LDA  6,-1(6) 	Posicao do novo FP
+165:     ST  2,0(6) 	Salvar FP antigo
+166:    LDA  2,0(6) 	FP atualizado
+167:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Constante
+168:    LDC  0,1(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+169:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+170:     ST  0,0(6) 	Salvar parametro (1) que esta em AC
+* <- Argumento da funcao
+* -> Constante
+171:    LDC  0,10(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+172:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+173:     ST  0,0(6) 	Salvar parametro (10) que esta em AC
+* <- Argumento da funcao
+174:     ST  7,-1(2) 	Guarda endereco de retorno
+175:    LDA  7,-102(7) 	Pular para a funcao
+* <- Call
+176:    LDA  0,0,0 unario: AC = -AC
+* <- Calc (Unary)
+177:    LDA  0,0,0 unario: AC = -AC
+* <- Calc (Unary)
+178:    OUT  0,0,0 Escrevendo valor de AC
+* <- Call output
+* -> Call output
+* -> Op
+* -> Chamando a funcao (gdc)
+179:    LDA  6,-1(6) 	Posicao do novo FP
+180:     ST  2,0(6) 	Salvar FP antigo
+181:    LDA  2,0(6) 	FP atualizado
+182:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Op
+* -> Constante
+183:    LDC  0,44(0) 	Salvando constante em AC
+* <- Constante
+184:    LDA  0,0,0 unario: AC = -AC
+* <- Calc (Unary)
+* -> Argumento da funcao
+185:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+186:     ST  0,0(6) 	Salvar parametro (- (unario)) que esta em AC
+* <- Argumento da funcao
+* -> Op
+* -> Constante
+187:    LDC  0,46(0) 	Salvando constante em AC
+* <- Constante
+188:    LDA  0,0,0 unario: AC = -AC
+* <- Calc (Unary)
+* -> Argumento da funcao
+189:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+190:     ST  0,0(6) 	Salvar parametro (- (unario)) que esta em AC
+* <- Argumento da funcao
+191:     ST  7,-1(2) 	Guarda endereco de retorno
+192:    LDA  7,-119(7) 	Pular para a funcao
+* <- Call
+193:    LDA  0,0,0 unario: AC = -AC
+* <- Calc (Unary)
+194:    OUT  0,0,0 Escrevendo valor de AC
+* <- Call output
+* -> Call output
+* -> Op
+* -> Chamando a funcao (gdc)
+195:    LDA  6,-1(6) 	Posicao do novo FP
+196:     ST  2,0(6) 	Salvar FP antigo
+197:    LDA  2,0(6) 	FP atualizado
+198:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Op
+* -> Constante
+199:    LDC  0,9(0) 	Salvando constante em AC
+* <- Constante
+200:    LDA  0,0,0 unario: AC = -AC
+* <- Calc (Unary)
+* -> Argumento da funcao
+201:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+202:     ST  0,0(6) 	Salvar parametro (- (unario)) que esta em AC
+* <- Argumento da funcao
+* -> Op
+* -> Constante
+203:    LDC  0,3(0) 	Salvando constante em AC
+* <- Constante
+204:    LDA  0,0,0 unario: AC = -AC
+* <- Calc (Unary)
+* -> Argumento da funcao
+205:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+206:     ST  0,0(6) 	Salvar parametro (- (unario)) que esta em AC
+* <- Argumento da funcao
+207:     ST  7,-1(2) 	Guarda endereco de retorno
+208:    LDA  7,-135(7) 	Pular para a funcao
+* <- Call
+209:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+210:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+211:    LDC  0,6(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+212:     LD  1,0(6) 	Esquerda da operacao em AC1
+213:    LDA  6,1(6) 	Livrar o espaco usado
+214:    ADD  0,1,0      op +
+* <- Op
+215:    OUT  0,0,0 Escrevendo valor de AC
+* <- Call output
+* -> Call output
+* -> Op
+* -> Op
+* -> Op
+* -> Op
+* -> Constante
+216:    LDC  0,10(0) 	Salvando constante em AC
+* <- Constante
+217:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+218:     ST  0,0(6) 	Armazenando valor da variável
+* -> Op
+* -> Op
+* -> Constante
+219:    LDC  0,2(0) 	Salvando constante em AC
+* <- Constante
+220:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+221:     ST  0,0(6) 	Armazenando valor da variável
+* -> Chamando a funcao (gdc)
+222:    LDA  6,-1(6) 	Posicao do novo FP
+223:     ST  2,0(6) 	Salvar FP antigo
+224:    LDA  2,0(6) 	FP atualizado
+225:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Constante
+226:    LDC  0,44(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+227:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+228:     ST  0,0(6) 	Salvar parametro (44) que esta em AC
+* <- Argumento da funcao
+* -> Constante
+229:    LDC  0,46(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+230:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+231:     ST  0,0(6) 	Salvar parametro (46) que esta em AC
+* <- Argumento da funcao
+232:     ST  7,-1(2) 	Guarda endereco de retorno
+233:    LDA  7,-160(7) 	Pular para a funcao
+* <- Call
+*                       Direita da operacao em AC
+234:     LD  1,0(6) 	Esquerda da operacao em AC1
+235:    LDA  6,1(6) 	Livrar o espaco usado
+236:    MUL  0,1,0      op *
+* <- Op
+237:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+238:     ST  0,0(6) 	Armazenando valor da variável
+* -> Chamando a funcao (gdc)
+239:    LDA  6,-1(6) 	Posicao do novo FP
+240:     ST  2,0(6) 	Salvar FP antigo
+241:    LDA  2,0(6) 	FP atualizado
+242:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Constante
+243:    LDC  0,4(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+244:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+245:     ST  0,0(6) 	Salvar parametro (4) que esta em AC
+* <- Argumento da funcao
+* -> Constante
+246:    LDC  0,6(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+247:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+248:     ST  0,0(6) 	Salvar parametro (6) que esta em AC
+* <- Argumento da funcao
+249:     ST  7,-1(2) 	Guarda endereco de retorno
+250:    LDA  7,-177(7) 	Pular para a funcao
+* <- Call
+*                       Direita da operacao em AC
+251:     LD  1,0(6) 	Esquerda da operacao em AC1
+252:    LDA  6,1(6) 	Livrar o espaco usado
+253:    DIV  0,1,0      op /
+* <- Op
+*                       Direita da operacao em AC
+254:     LD  1,0(6) 	Esquerda da operacao em AC1
+255:    LDA  6,1(6) 	Livrar o espaco usado
+256:    ADD  0,1,0      op +
+* <- Op
+257:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+258:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+259:    LDC  0,10(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+260:     LD  1,0(6) 	Esquerda da operacao em AC1
+261:    LDA  6,1(6) 	Livrar o espaco usado
+262:    SUB  0,1,0      op -
+* <- Op
+263:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+264:     ST  0,0(6) 	Armazenando valor da variável
+* -> Op
+* -> Op
+* -> Op
+* -> Chamando a funcao (gdc)
+265:    LDA  6,-1(6) 	Posicao do novo FP
+266:     ST  2,0(6) 	Salvar FP antigo
+267:    LDA  2,0(6) 	FP atualizado
+268:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Constante
+269:    LDC  0,2(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+270:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+271:     ST  0,0(6) 	Salvar parametro (2) que esta em AC
+* <- Argumento da funcao
+* -> Constante
+272:    LDC  0,46(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+273:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+274:     ST  0,0(6) 	Salvar parametro (46) que esta em AC
+* <- Argumento da funcao
+275:     ST  7,-1(2) 	Guarda endereco de retorno
+276:    LDA  7,-203(7) 	Pular para a funcao
+* <- Call
+277:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+278:     ST  0,0(6) 	Armazenando valor da variável
+* -> Op
+* -> Constante
+279:    LDC  0,0(0) 	Salvando constante em AC
+* <- Constante
+280:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+281:     ST  0,0(6) 	Armazenando valor da variável
+* -> Chamando a funcao (gdc)
+282:    LDA  6,-1(6) 	Posicao do novo FP
+283:     ST  2,0(6) 	Salvar FP antigo
+284:    LDA  2,0(6) 	FP atualizado
+285:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Constante
+286:    LDC  0,10(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+287:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+288:     ST  0,0(6) 	Salvar parametro (10) que esta em AC
+* <- Argumento da funcao
+* -> Constante
+289:    LDC  0,100(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+290:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+291:     ST  0,0(6) 	Salvar parametro (100) que esta em AC
+* <- Argumento da funcao
+292:     ST  7,-1(2) 	Guarda endereco de retorno
+293:    LDA  7,-220(7) 	Pular para a funcao
+* <- Call
+*                       Direita da operacao em AC
+294:     LD  1,0(6) 	Esquerda da operacao em AC1
+295:    LDA  6,1(6) 	Livrar o espaco usado
+296:    DIV  0,1,0      op /
+* <- Op
+*                       Direita da operacao em AC
+297:     LD  1,0(6) 	Esquerda da operacao em AC1
+298:    LDA  6,1(6) 	Livrar o espaco usado
+299:    ADD  0,1,0      op +
+* <- Op
+300:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+301:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+302:    LDC  0,1(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+303:     LD  1,0(6) 	Esquerda da operacao em AC1
+304:    LDA  6,1(6) 	Livrar o espaco usado
+305:    DIV  0,1,0      op /
+* <- Op
+306:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+307:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+308:    LDC  0,0(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+309:     LD  1,0(6) 	Esquerda da operacao em AC1
+310:    LDA  6,1(6) 	Livrar o espaco usado
+311:    ADD  0,1,0      op +
+* <- Op
+*                       Direita da operacao em AC
+312:     LD  1,0(6) 	Esquerda da operacao em AC1
+313:    LDA  6,1(6) 	Livrar o espaco usado
+314:    ADD  0,1,0      op +
+* <- Op
+315:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+316:     ST  0,0(6) 	Armazenando valor da variável
+* -> Op
+* -> Constante
+317:    LDC  0,0(0) 	Salvando constante em AC
+* <- Constante
+318:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+319:     ST  0,0(6) 	Armazenando valor da variável
+* -> Chamando a funcao (gdc)
+320:    LDA  6,-1(6) 	Posicao do novo FP
+321:     ST  2,0(6) 	Salvar FP antigo
+322:    LDA  2,0(6) 	FP atualizado
+323:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Constante
+324:    LDC  0,1(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+325:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+326:     ST  0,0(6) 	Salvar parametro (1) que esta em AC
+* <- Argumento da funcao
+* -> Constante
+327:    LDC  0,1(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+328:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+329:     ST  0,0(6) 	Salvar parametro (1) que esta em AC
+* <- Argumento da funcao
+330:     ST  7,-1(2) 	Guarda endereco de retorno
+331:    LDA  7,-258(7) 	Pular para a funcao
+* <- Call
+*                       Direita da operacao em AC
+332:     LD  1,0(6) 	Esquerda da operacao em AC1
+333:    LDA  6,1(6) 	Livrar o espaco usado
+334:    MUL  0,1,0      op *
+* <- Op
+*                       Direita da operacao em AC
+335:     LD  1,0(6) 	Esquerda da operacao em AC1
+336:    LDA  6,1(6) 	Livrar o espaco usado
+337:    SUB  0,1,0      op -
+* <- Op
+338:    OUT  0,0,0 Escrevendo valor de AC
+* <- Call output
+* -> Call output
+* -> Op
+* -> Op
+* -> Op
+* -> Constante
+339:    LDC  0,1(0) 	Salvando constante em AC
+* <- Constante
+340:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+341:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+342:    LDC  0,2(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+343:     LD  1,0(6) 	Esquerda da operacao em AC1
+344:    LDA  6,1(6) 	Livrar o espaco usado
+345:    SUB  0,1,0      op -
+* <- Op
+346:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+347:     ST  0,0(6) 	Armazenando valor da variável
+* -> Op
+* -> Op
+* -> Op
+* -> Op
+* -> Op
+* -> Chamando a funcao (gdc)
+348:    LDA  6,-1(6) 	Posicao do novo FP
+349:     ST  2,0(6) 	Salvar FP antigo
+350:    LDA  2,0(6) 	FP atualizado
+351:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Constante
+352:    LDC  0,5(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+353:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+354:     ST  0,0(6) 	Salvar parametro (5) que esta em AC
+* <- Argumento da funcao
+* -> Constante
+355:    LDC  0,5(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+356:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+357:     ST  0,0(6) 	Salvar parametro (5) que esta em AC
+* <- Argumento da funcao
+358:     ST  7,-1(2) 	Guarda endereco de retorno
+359:    LDA  7,-286(7) 	Pular para a funcao
+* <- Call
+360:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+361:     ST  0,0(6) 	Armazenando valor da variável
+* -> Chamando a funcao (gdc)
+362:    LDA  6,-1(6) 	Posicao do novo FP
+363:     ST  2,0(6) 	Salvar FP antigo
+364:    LDA  2,0(6) 	FP atualizado
+365:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Constante
+366:    LDC  0,5(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+367:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+368:     ST  0,0(6) 	Salvar parametro (5) que esta em AC
+* <- Argumento da funcao
+* -> Constante
+369:    LDC  0,5(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+370:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+371:     ST  0,0(6) 	Salvar parametro (5) que esta em AC
+* <- Argumento da funcao
+372:     ST  7,-1(2) 	Guarda endereco de retorno
+373:    LDA  7,-300(7) 	Pular para a funcao
+* <- Call
+*                       Direita da operacao em AC
+374:     LD  1,0(6) 	Esquerda da operacao em AC1
+375:    LDA  6,1(6) 	Livrar o espaco usado
+376:    ADD  0,1,0      op +
+* <- Op
+377:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+378:     ST  0,0(6) 	Armazenando valor da variável
+* -> Chamando a funcao (gdc)
+379:    LDA  6,-1(6) 	Posicao do novo FP
+380:     ST  2,0(6) 	Salvar FP antigo
+381:    LDA  2,0(6) 	FP atualizado
+382:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Constante
+383:    LDC  0,5(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+384:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+385:     ST  0,0(6) 	Salvar parametro (5) que esta em AC
+* <- Argumento da funcao
+* -> Constante
+386:    LDC  0,5(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+387:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+388:     ST  0,0(6) 	Salvar parametro (5) que esta em AC
+* <- Argumento da funcao
+389:     ST  7,-1(2) 	Guarda endereco de retorno
+390:    LDA  7,-317(7) 	Pular para a funcao
+* <- Call
+*                       Direita da operacao em AC
+391:     LD  1,0(6) 	Esquerda da operacao em AC1
+392:    LDA  6,1(6) 	Livrar o espaco usado
+393:    ADD  0,1,0      op +
+* <- Op
+394:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+395:     ST  0,0(6) 	Armazenando valor da variável
+* -> Chamando a funcao (gdc)
+396:    LDA  6,-1(6) 	Posicao do novo FP
+397:     ST  2,0(6) 	Salvar FP antigo
+398:    LDA  2,0(6) 	FP atualizado
+399:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Constante
+400:    LDC  0,5(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+401:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+402:     ST  0,0(6) 	Salvar parametro (5) que esta em AC
+* <- Argumento da funcao
+* -> Constante
+403:    LDC  0,5(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+404:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+405:     ST  0,0(6) 	Salvar parametro (5) que esta em AC
+* <- Argumento da funcao
+406:     ST  7,-1(2) 	Guarda endereco de retorno
+407:    LDA  7,-334(7) 	Pular para a funcao
+* <- Call
+*                       Direita da operacao em AC
+408:     LD  1,0(6) 	Esquerda da operacao em AC1
+409:    LDA  6,1(6) 	Livrar o espaco usado
+410:    ADD  0,1,0      op +
+* <- Op
+411:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+412:     ST  0,0(6) 	Armazenando valor da variável
+* -> Chamando a funcao (gdc)
+413:    LDA  6,-1(6) 	Posicao do novo FP
+414:     ST  2,0(6) 	Salvar FP antigo
+415:    LDA  2,0(6) 	FP atualizado
+416:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Constante
+417:    LDC  0,5(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+418:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+419:     ST  0,0(6) 	Salvar parametro (5) que esta em AC
+* <- Argumento da funcao
+* -> Constante
+420:    LDC  0,5(0) 	Salvando constante em AC
+* <- Constante
+* -> Argumento da funcao
+421:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+422:     ST  0,0(6) 	Salvar parametro (5) que esta em AC
+* <- Argumento da funcao
+423:     ST  7,-1(2) 	Guarda endereco de retorno
+424:    LDA  7,-351(7) 	Pular para a funcao
+* <- Call
+*                       Direita da operacao em AC
+425:     LD  1,0(6) 	Esquerda da operacao em AC1
+426:    LDA  6,1(6) 	Livrar o espaco usado
+427:    ADD  0,1,0      op +
+* <- Op
+428:    LDA  0,0,0 unario: AC = -AC
+* <- Calc (Unary)
+*                       Direita da operacao em AC
+429:     LD  1,0(6) 	Esquerda da operacao em AC1
+430:    LDA  6,1(6) 	Livrar o espaco usado
+431:    MUL  0,1,0      op *
+* <- Op
+432:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+433:     ST  0,0(6) 	Armazenando valor da variável
+* -> Op
+* -> Op
+* -> Op
+* -> Op
+* -> Op
+* -> Op
+* -> Op
+* -> Constante
+434:    LDC  0,1(0) 	Salvando constante em AC
+* <- Constante
+435:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+436:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+437:    LDC  0,1(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+438:     LD  1,0(6) 	Esquerda da operacao em AC1
+439:    LDA  6,1(6) 	Livrar o espaco usado
+440:    ADD  0,1,0      op +
+* <- Op
+441:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+442:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+443:    LDC  0,1(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+444:     LD  1,0(6) 	Esquerda da operacao em AC1
+445:    LDA  6,1(6) 	Livrar o espaco usado
+446:    ADD  0,1,0      op +
+* <- Op
+447:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+448:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+449:    LDC  0,1(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+450:     LD  1,0(6) 	Esquerda da operacao em AC1
+451:    LDA  6,1(6) 	Livrar o espaco usado
+452:    ADD  0,1,0      op +
+* <- Op
+453:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+454:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+455:    LDC  0,1(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+456:     LD  1,0(6) 	Esquerda da operacao em AC1
+457:    LDA  6,1(6) 	Livrar o espaco usado
+458:    ADD  0,1,0      op +
+* <- Op
+459:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+460:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+461:    LDC  0,5(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+462:     LD  1,0(6) 	Esquerda da operacao em AC1
+463:    LDA  6,1(6) 	Livrar o espaco usado
+464:    ADD  0,1,0      op +
+* <- Op
+465:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+466:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+467:    LDC  0,5(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+468:     LD  1,0(6) 	Esquerda da operacao em AC1
+469:    LDA  6,1(6) 	Livrar o espaco usado
+470:    ADD  0,1,0      op +
+* <- Op
+471:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+472:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+473:    LDC  0,10(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+474:     LD  1,0(6) 	Esquerda da operacao em AC1
+475:    LDA  6,1(6) 	Livrar o espaco usado
+476:    SUB  0,1,0      op -
+* <- Op
+*                       Direita da operacao em AC
+477:     LD  1,0(6) 	Esquerda da operacao em AC1
+478:    LDA  6,1(6) 	Livrar o espaco usado
+479:    DIV  0,1,0      op /
+* <- Op
+480:    OUT  0,0,0 Escrevendo valor de AC
+* <- Call output
+* -> Call output
+* -> Op
+* -> Op
+* -> Constante
+481:    LDC  0,6(0) 	Salvando constante em AC
+* <- Constante
+482:    LDA  0,0,0 unario: AC = -AC
+* <- Calc (Unary)
+483:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+484:     ST  0,0(6) 	Armazenando valor da variável
+* -> Op
+* -> Constante
+485:    LDC  0,1(0) 	Salvando constante em AC
+* <- Constante
+486:    LDA  0,0,0 unario: AC = -AC
+* <- Calc (Unary)
+*                       Direita da operacao em AC
+487:     LD  1,0(6) 	Esquerda da operacao em AC1
+488:    LDA  6,1(6) 	Livrar o espaco usado
+489:    MUL  0,1,0      op *
+* <- Op
+490:    OUT  0,0,0 Escrevendo valor de AC
+* <- Call output
+* -> Declarando variavel
+491:    LDA  6,-1(6) 	Deixando MP no final do frame
+* <- Declarando variavel
+* -> Constante
+492:    LDC  0,0(0) 	Salvando constante em AC
+* <- Constante
+493:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+494:     ST  4,-2(2) 	Armazenando valor na variável
+* <- Atribuicao
+* -> Declarando variavel
+495:    LDA  6,-1(6) 	Deixando MP no final do frame
+* <- Declarando variavel
+* -> Declarando variavel
+496:    LDA  6,-1(6) 	Deixando MP no final do frame
+* <- Declarando variavel
+* -> Constante
+497:    LDC  0,0(0) 	Salvando constante em AC
+* <- Constante
+498:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+499:     ST  4,-4(2) 	Armazenando valor na variável
+* <- Atribuicao
+* -> Novo Bloco
+500:    LDA  6,-1(6) 	Posicao do novo FP
+501:     ST  2,0(6) 	Salvar FP antigo
+502:    LDA  2,0(6) 	FP atualizado
+* -> Declarando variavel
+503:    LDA  6,-1(6) 	Deixando MP no final do frame
+* <- Declarando variavel
+* -> Call input
+504:     IN  0,0,0 Lendo valor para AC
+* <- Call input
+505:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+506:    LDA  3,0(2) 	Salvando FP em R3
+507:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+508:     ST  4,-3(2) 	Armazenando valor na variável
+509:    LDA  2,0(3) 	Restaurando FP
+* <- Atribuicao
+* -> Call input
+510:     IN  0,0,0 Lendo valor para AC
+* <- Call input
+511:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+512:     ST  4,-1(2) 	Armazenando valor na variável
+* <- Atribuicao
+* -> Chamando a funcao (gdc)
+513:    LDA  6,-1(6) 	Posicao do novo FP
+514:     ST  2,0(6) 	Salvar FP antigo
+515:    LDA  2,0(6) 	FP atualizado
+516:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Id
+517:    LDA  3,0(2) 	Salvando FP em R3
+518:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+519:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+520:     LD  0,-3(2) 	Carregar valor de ID em AC
+521:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+* -> Argumento da funcao
+522:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+523:     ST  0,0(6) 	Salvar parametro (x) que esta em AC
+* <- Argumento da funcao
+* -> Id
+524:    LDA  3,0(2) 	Salvando FP em R3
+525:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+526:     LD  0,-1(2) 	Carregar valor de ID em AC
+527:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+* -> Argumento da funcao
+528:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+529:     ST  0,0(6) 	Salvar parametro (y) que esta em AC
+* <- Argumento da funcao
+530:     ST  7,-1(2) 	Guarda endereco de retorno
+531:    LDA  7,-458(7) 	Pular para a funcao
+* <- Call
+532:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+533:     ST  4,-1(2) 	Armazenando valor na variável
+* <- Atribuicao
+* -> Id
+534:     LD  0,-1(2) 	Carregar valor de ID em AC
+* <- Id
+535:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+536:    LDA  3,0(2) 	Salvando FP em R3
+537:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+538:     ST  4,-4(2) 	Armazenando valor na variável
+539:    LDA  2,0(3) 	Restaurando FP
+* <- Atribuicao
+* -> Call output
+* -> Id
+540:    LDA  3,0(2) 	Salvando FP em R3
+541:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+542:     LD  0,-4(2) 	Carregar valor de ID em AC
+543:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+544:    OUT  0,0,0 Escrevendo valor de AC
+* <- Call output
+545:    LDA  6,1(2) 	Atualizando MP para o frame anterior
+546:     LD  2,0(2) 	FP volta para o escopo pai (fim do bloco)
+* <- Fim de Bloco
+* -> If
+* -> Op
+* -> Id
+547:     LD  0,-4(2) 	Carregar valor de ID em AC
+* <- Id
+548:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+549:     ST  0,0(6) 	Armazenando valor da variável
+* -> Constante
+550:    LDC  0,0(0) 	Salvando constante em AC
+* <- Constante
+*                       Direita da operacao em AC
+551:     LD  1,0(6) 	Esquerda da operacao em AC1
+552:    LDA  6,1(6) 	Livrar o espaco usado
+553:    SUB  0,1,0     op >=
+554:    JGE  0,2(7) 	Se verdadeiro PC pula 2
+555:    LDC  0,0(0) 	Se falso, coloca 0 em AC
+556:    LDA  7,1(7) 	PC pula para o fim
+557:    LDC  0,1(0) 	Se verdadeiro, coloca 1 em AC
+* <- Op
+* THEN branch
+* -> Chamando a funcao (binario)
+559:    LDA  6,-1(6) 	Posicao do novo FP
+560:     ST  2,0(6) 	Salvar FP antigo
+561:    LDA  2,0(6) 	FP atualizado
+562:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Op
+* -> Id
+563:    LDA  3,0(2) 	Salvando FP em R3
+564:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+565:     LD  0,-4(2) 	Carregar valor de ID em AC
+566:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+567:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+568:     ST  0,0(6) 	Armazenando valor da variável
+* -> Id
+569:    LDA  3,0(2) 	Salvando FP em R3
+570:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+571:     LD  0,-2(2) 	Carregar valor de ID em AC
+572:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+*                       Direita da operacao em AC
+573:     LD  1,0(6) 	Esquerda da operacao em AC1
+574:    LDA  6,1(6) 	Livrar o espaco usado
+575:    ADD  0,1,0      op +
+* <- Op
+* -> Argumento da funcao
+576:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+577:     ST  0,0(6) 	Salvar parametro (+) que esta em AC
+* <- Argumento da funcao
+578:     ST  7,-1(2) 	Guarda endereco de retorno
+579:    LDA  7,-576(7) 	Pular para a funcao
+* <- Call
+* ELSE branch
+558:    JEQ  0,22(7) 	Se AC == 0, pular para else/end
+* -> Chamando a funcao (binario)
+581:    LDA  6,-1(6) 	Posicao do novo FP
+582:     ST  2,0(6) 	Salvar FP antigo
+583:    LDA  2,0(6) 	FP atualizado
+584:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Op
+* -> Op
+* -> Id
+585:    LDA  3,0(2) 	Salvando FP em R3
+586:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+587:     LD  0,-4(2) 	Carregar valor de ID em AC
+588:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+589:    LDA  0,0,0 unario: AC = -AC
+* <- Calc (Unary)
+590:    LDA  6,-1(6) 	Espaco para salvar a esquerda
+591:     ST  0,0(6) 	Armazenando valor da variável
+* -> Id
+592:    LDA  3,0(2) 	Salvando FP em R3
+593:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+594:     LD  0,-2(2) 	Carregar valor de ID em AC
+595:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+*                       Direita da operacao em AC
+596:     LD  1,0(6) 	Esquerda da operacao em AC1
+597:    LDA  6,1(6) 	Livrar o espaco usado
+598:    ADD  0,1,0      op +
+* <- Op
+* -> Argumento da funcao
+599:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+600:     ST  0,0(6) 	Salvar parametro (+) que esta em AC
+* <- Argumento da funcao
+601:     ST  7,-1(2) 	Guarda endereco de retorno
+602:    LDA  7,-599(7) 	Pular para a funcao
+* <- Call
+580:    LDA  7,22(7) 	jmp to end
+* <- If
+* FIM DA EXECUCAO
+603:   HALT  0,0,0          
+* <- Function exit

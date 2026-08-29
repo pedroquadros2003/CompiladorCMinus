@@ -1,0 +1,326 @@
+
+COMPILATION: ../example/block2.cm
+1: /* Variaveis em blocos aninhados */
+2: void teste (int b, int a) {
+	2: reserved word: void
+	2: ID, name= teste
+	2: (
+	2: reserved word: int
+	2: ID, name= b
+	2: ,
+	2: reserved word: int
+	2: ID, name= a
+	2: )
+	2: {
+3:   output(a);
+	3: ID, name= output
+	3: (
+	3: ID, name= a
+	3: )
+	3: ;
+4:   output(b);
+	4: ID, name= output
+	4: (
+	4: ID, name= b
+	4: )
+	4: ;
+5:   { int a;
+	5: {
+	5: reserved word: int
+	5: ID, name= a
+	5: ;
+6:     a = 3;
+	6: ID, name= a
+	6: =
+	6: NUM, val= 3
+	6: ;
+7:     int b;
+	7: reserved word: int
+	7: ID, name= b
+	7: ;
+8:     b = 4;
+	8: ID, name= b
+	8: =
+	8: NUM, val= 4
+	8: ;
+9:     output(a);
+	9: ID, name= output
+	9: (
+	9: ID, name= a
+	9: )
+	9: ;
+10:     output(b);
+	10: ID, name= output
+	10: (
+	10: ID, name= b
+	10: )
+	10: ;
+11:   }
+	11: }
+12:   a = 5;
+	12: ID, name= a
+	12: =
+	12: NUM, val= 5
+	12: ;
+13:   output(a);
+	13: ID, name= output
+	13: (
+	13: ID, name= a
+	13: )
+	13: ;
+14: }
+	14: }
+15: 
+16: void main(void) {
+	16: reserved word: void
+	16: ID, name= main
+	16: (
+	16: reserved word: void
+	16: )
+	16: {
+17:   int a;
+	17: reserved word: int
+	17: ID, name= a
+	17: ;
+18:   a = 1;
+	18: ID, name= a
+	18: =
+	18: NUM, val= 1
+	18: ;
+19:   int b;
+	19: reserved word: int
+	19: ID, name= b
+	19: ;
+20:   b = 2;
+	20: ID, name= b
+	20: =
+	20: NUM, val= 2
+	20: ;
+21:   teste(a,b);
+	21: ID, name= teste
+	21: (
+	21: ID, name= a
+	21: ,
+	21: ID, name= b
+	21: )
+	21: ;
+22:   output(a);
+	22: ID, name= output
+	22: (
+	22: ID, name= a
+	22: )
+	22: ;
+23:   output(b);
+	23: ID, name= output
+	23: (
+	23: ID, name= b
+	23: )
+	23: ;
+24: }
+	24: }
+25: /* saida: 2 1 3 4 5 1 2 */
+	26: EOF
+
+Syntax tree:
+Declare function (return type "void"): teste
+    Function param (int var): b
+    Function param (int var): a
+    Function call: output
+        Id: a
+    Function call: output
+        Id: b
+    Block:
+        Declare int var: a
+        Assign to var: a
+            Const: 3
+        Declare int var: b
+        Assign to var: b
+            Const: 4
+        Function call: output
+            Id: a
+        Function call: output
+            Id: b
+    Assign to var: a
+        Const: 5
+    Function call: output
+        Id: a
+Declare function (return type "void"): main
+    Declare int var: a
+    Assign to var: a
+        Const: 1
+    Declare int var: b
+    Assign to var: b
+        Const: 2
+    Function call: teste
+        Id: a
+        Id: b
+    Function call: output
+        Id: a
+    Function call: output
+        Id: b
+
+Building Symbol Table...
+
+Checking Types...
+
+Type Checking Finished
+
+Symbol table:
+
+Variable Name  Scope     ID Type  Data Type  Line Numbers
+-------------  --------  -------  ---------  -------------------------
+main                     fun      void       16 
+input                    fun      int        
+output                   fun      void        3  4  9 10 13 22 23 
+teste                    fun      void        2 21 
+a              teste:5   var      int         5  6  9 
+b              teste:5   var      int         7  8 10 
+a              main      var      int        17 18 21 22 
+b              main      var      int        19 20 21 23 
+a              teste     var      int         2  3 12 13 
+b              teste     var      int         2  4 
+* GERACAO CODIGO ASSEMBLY TM
+* A posicao 0 comeca com o maxaddress
+  0:     LD  6,0(0) 	Salvar o maxaddress em MP
+  1:     LD  2,0(0) 	Salvar o maxaddress em FP
+  2:     ST  0,0(0) 	Limpar a posicao 0
+* INICIO DA EXECUCAO
+* -> FUNCAO (teste)
+* -> Call output
+* -> Id
+  4:     LD  0,-3(2) 	Carregar valor de ID em AC
+* <- Id
+  5:    OUT  0,0,0 Escrevendo valor de AC
+* <- Call output
+* -> Call output
+* -> Id
+  6:     LD  0,-2(2) 	Carregar valor de ID em AC
+* <- Id
+  7:    OUT  0,0,0 Escrevendo valor de AC
+* <- Call output
+* -> Novo Bloco
+  8:    LDA  6,-1(6) 	Posicao do novo FP
+  9:     ST  2,0(6) 	Salvar FP antigo
+ 10:    LDA  2,0(6) 	FP atualizado
+* -> Declarando variavel
+ 11:    LDA  6,-1(6) 	Deixando MP no final do frame
+* <- Declarando variavel
+* -> Constante
+ 12:    LDC  0,3(0) 	Salvando constante em AC
+* <- Constante
+ 13:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+ 14:     ST  4,-1(2) 	Armazenando valor na variável
+* <- Atribuicao
+* -> Declarando variavel
+ 15:    LDA  6,-1(6) 	Deixando MP no final do frame
+* <- Declarando variavel
+* -> Constante
+ 16:    LDC  0,4(0) 	Salvando constante em AC
+* <- Constante
+ 17:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+ 18:     ST  4,-2(2) 	Armazenando valor na variável
+* <- Atribuicao
+* -> Call output
+* -> Id
+ 19:     LD  0,-1(2) 	Carregar valor de ID em AC
+* <- Id
+ 20:    OUT  0,0,0 Escrevendo valor de AC
+* <- Call output
+* -> Call output
+* -> Id
+ 21:     LD  0,-2(2) 	Carregar valor de ID em AC
+* <- Id
+ 22:    OUT  0,0,0 Escrevendo valor de AC
+* <- Call output
+ 23:    LDA  6,1(2) 	Atualizando MP para o frame anterior
+ 24:     LD  2,0(2) 	FP volta para o escopo pai (fim do bloco)
+* <- Fim de Bloco
+* -> Constante
+ 25:    LDC  0,5(0) 	Salvando constante em AC
+* <- Constante
+ 26:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+ 27:     ST  4,-3(2) 	Armazenando valor na variável
+* <- Atribuicao
+* -> Call output
+* -> Id
+ 28:     LD  0,-3(2) 	Carregar valor de ID em AC
+* <- Id
+ 29:    OUT  0,0,0 Escrevendo valor de AC
+* <- Call output
+* -> Return
+ 30:    LDA  1,0(2) 	Salvar FP em AC1
+ 31:     LD  2,0(2) 	FP volta para o escopo pai
+ 32:    LDA  6,1(1) 	MP volta ao topo do frame anterior
+ 33:     LD  1,-1(1) 	AC1 tem o endereco de retorno - 1
+ 34:    LDA  7,1(1) 	Retorna para onde foi chamado
+* <- Return
+* <- Function exit
+  3:    LDA  7,31(7) 	Pular para a main
+* -> FUNCAO (main)
+ 35:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Declarando variavel
+ 36:    LDA  6,-1(6) 	Deixando MP no final do frame
+* <- Declarando variavel
+* -> Constante
+ 37:    LDC  0,1(0) 	Salvando constante em AC
+* <- Constante
+ 38:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+ 39:     ST  4,-2(2) 	Armazenando valor na variável
+* <- Atribuicao
+* -> Declarando variavel
+ 40:    LDA  6,-1(6) 	Deixando MP no final do frame
+* <- Declarando variavel
+* -> Constante
+ 41:    LDC  0,2(0) 	Salvando constante em AC
+* <- Constante
+ 42:    LDA  4,0(0) 	Copia o valor de AC para R4
+* -> Atribuicao
+ 43:     ST  4,-3(2) 	Armazenando valor na variável
+* <- Atribuicao
+* -> Chamando a funcao (teste)
+ 44:    LDA  6,-1(6) 	Posicao do novo FP
+ 45:     ST  2,0(6) 	Salvar FP antigo
+ 46:    LDA  2,0(6) 	FP atualizado
+ 47:    LDA  6,-1(6) 	Posicao do endereco de retorno
+* -> Id
+ 48:    LDA  3,0(2) 	Salvando FP em R3
+ 49:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+ 50:     LD  0,-2(2) 	Carregar valor de ID em AC
+ 51:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+* -> Argumento da funcao
+ 52:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+ 53:     ST  0,0(6) 	Salvar parametro (a) que esta em AC
+* <- Argumento da funcao
+* -> Id
+ 54:    LDA  3,0(2) 	Salvando FP em R3
+ 55:     LD  2,0(2) 	Voltando um escopo na pilha de execucao
+ 56:     LD  0,-3(2) 	Carregar valor de ID em AC
+ 57:    LDA  2,0(3) 	Restaurando FP
+* <- Id
+* -> Argumento da funcao
+ 58:    LDA  6,-1(6) 	Mover para proximo slot de parametro
+ 59:     ST  0,0(6) 	Salvar parametro (b) que esta em AC
+* <- Argumento da funcao
+ 60:     ST  7,-1(2) 	Guarda endereco de retorno
+ 61:    LDA  7,-58(7) 	Pular para a funcao
+* <- Call
+* -> Call output
+* -> Id
+ 62:     LD  0,-2(2) 	Carregar valor de ID em AC
+* <- Id
+ 63:    OUT  0,0,0 Escrevendo valor de AC
+* <- Call output
+* -> Call output
+* -> Id
+ 64:     LD  0,-3(2) 	Carregar valor de ID em AC
+* <- Id
+ 65:    OUT  0,0,0 Escrevendo valor de AC
+* <- Call output
+* FIM DA EXECUCAO
+ 66:   HALT  0,0,0          
+* <- Function exit

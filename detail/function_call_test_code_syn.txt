@@ -1,0 +1,22 @@
+Declare function (return type "int"): f
+    Function param (int var): a
+    Function param (int var): b
+    Return
+        Op: +
+            Id: a
+            Id: b
+Declare function (return type "int"): g
+    Function param (int var): x
+    Return
+        Op: +
+            Id: x
+            Const: 1
+Declare function (return type "void"): main
+    Declare int var: a
+    Declare int var: b
+    Declare int var: x
+    Assign to var: x
+        Function call: f
+            Id: a
+            Function call: g
+                Id: b

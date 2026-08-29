@@ -1,0 +1,86 @@
+
+COMPILATION: ../example/ser5_function_not_declared.cm
+1: int funOne(void) {
+	1: reserved word: int
+	1: ID, name= funOne
+	1: (
+	1: reserved word: void
+	1: )
+	1: {
+2:     output(1);
+	2: ID, name= output
+	2: (
+	2: NUM, val= 1
+	2: )
+	2: ;
+3: }
+	3: }
+4: 
+5: int funTwo(void) {
+	5: reserved word: int
+	5: ID, name= funTwo
+	5: (
+	5: reserved word: void
+	5: )
+	5: {
+6:     output(2);
+	6: ID, name= output
+	6: (
+	6: NUM, val= 2
+	6: )
+	6: ;
+7: }
+	7: }
+8: 
+9: void main(void)
+	9: reserved word: void
+	9: ID, name= main
+	9: (
+	9: reserved word: void
+	9: )
+10: {
+	10: {
+11:     int a;
+	11: reserved word: int
+	11: ID, name= a
+	11: ;
+12:     a = fun();
+	12: ID, name= a
+	12: =
+	12: ID, name= fun
+	12: (
+	12: )
+	12: ;
+13: }
+	13: }
+	13: EOF
+
+Syntax tree:
+Declare function (return type "int"): funOne
+    Function call: output
+        Const: 1
+Declare function (return type "int"): funTwo
+    Function call: output
+        Const: 2
+Declare function (return type "void"): main
+    Declare int var: a
+    Assign to var: a
+        Function call: fun
+
+Building Symbol Table...
+
+Checking Types...
+Semantic error at line 12: 'fun' was not declared in this scope
+
+Type Checking Finished
+
+Symbol table:
+
+Variable Name  Scope     ID Type  Data Type  Line Numbers
+-------------  --------  -------  ---------  -------------------------
+main                     fun      void        9 
+funTwo                   fun      int         5 
+input                    fun      int        
+funOne                   fun      int         1 
+output                   fun      void        2  6 
+a              main      var      int        11 12 

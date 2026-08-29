@@ -1,0 +1,93 @@
+1: /* Impressao recursiva da representacao
+2: binaria do modulo de um inteiro */
+3: void binario (int x) {
+	3: reserved word: void
+	3: ID, name= binario
+	3: (
+	3: reserved word: int
+	3: ID, name= x
+	3: )
+	3: {
+4:   if (x < 2) output(x);
+	4: reserved word: if
+	4: (
+	4: ID, name= x
+	4: <
+	4: NUM, val= 2
+	4: )
+	4: ID, name= output
+	4: (
+	4: ID, name= x
+	4: )
+	4: ;
+5:   else {
+	5: reserved word: else
+	5: {
+6:     binario(x/2);
+	6: ID, name= binario
+	6: (
+	6: ID, name= x
+	6: /
+	6: NUM, val= 2
+	6: )
+	6: ;
+7:     output(x - 2*(x/2));
+	7: ID, name= output
+	7: (
+	7: ID, name= x
+	7: -
+	7: NUM, val= 2
+	7: *
+	7: (
+	7: ID, name= x
+	7: /
+	7: NUM, val= 2
+	7: )
+	7: )
+	7: ;
+8:   }
+	8: }
+9: }
+	9: }
+10: 
+11: void main(void) {
+	11: reserved word: void
+	11: ID, name= main
+	11: (
+	11: reserved word: void
+	11: )
+	11: {
+12:   int x;
+	12: reserved word: int
+	12: ID, name= x
+	12: ;
+13:   x = input();
+	13: ID, name= x
+	13: =
+	13: ID, name= input
+	13: (
+	13: )
+	13: ;
+14:   if (x >= 0) binario(x);
+	14: reserved word: if
+	14: (
+	14: ID, name= x
+	14: >=
+	14: NUM, val= 0
+	14: )
+	14: ID, name= binario
+	14: (
+	14: ID, name= x
+	14: )
+	14: ;
+15:   else binario(-x);
+	15: reserved word: else
+	15: ID, name= binario
+	15: (
+	15: -
+	15: ID, name= x
+	15: )
+	15: ;
+16: }
+	16: }
+	16: EOF

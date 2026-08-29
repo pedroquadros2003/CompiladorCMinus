@@ -1,0 +1,23 @@
+for f in ../alunodetail/*lex*.txt  
+do 
+    OUTFILE=../detailonlylex/`basename $f`
+    echo running diff  $f x ${OUTFILE}
+    diff -ZbB $f ${OUTFILE} > ../alunodetail/`basename -s .txt $f`.diff
+done
+
+for f in ../alunodetail/*err*.txt  
+do 
+    OUTFILE=../detailonlylex/`basename $f`
+    echo running diff  $f x ${OUTFILE}
+    diff -ZbB $f ${OUTFILE} > ../alunodetail/`basename -s .txt $f`.diff
+done
+
+echo GENERATED DIFFS - ERR
+wc ../alunodetail/*_err.diff
+echo GENERATED DIFFS - LEX
+wc ../alunodetail/*_lex.diff
+
+echo "suggestions:" 
+echo "% batcat ../alunodetail/*lex*txt"
+echo "% batcat ../alunodetail/*lex*diff"
+echo "% meld ../alunodetail/ ../detailonlylex/"  

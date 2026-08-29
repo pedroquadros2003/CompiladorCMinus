@@ -1,0 +1,6 @@
+Declare function (return type "void"): exemplo
+    Declare int var: a
+    Assign to var: a
+        Const: 0
+    Assign to var: b
+        Id: a

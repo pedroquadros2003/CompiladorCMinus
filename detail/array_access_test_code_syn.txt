@@ -1,0 +1,35 @@
+Declare function (return type "void"): main
+    Declare int array: a
+        Const: 10
+    Declare int array: b
+        Const: 10
+    Declare int array: c
+        Const: 10
+    Declare int var: i
+    Assign to var: i
+        Const: 0
+    Iteration (loop)
+        Op: <
+            Id: i
+            Const: 10
+        Assign to array: b
+            Id: i
+            Const: 1
+        Assign to array: c
+            Id: i
+            Const: 1
+        Assign to var: i
+            Op: +
+                Id: i
+                Const: 1
+    Iteration (loop)
+        Op: <
+            Id: i
+            Const: 10
+        Assign to array: a
+            Id: i
+            Op: +
+                Id: b
+                    Id: i
+                Id: c
+                    Id: i

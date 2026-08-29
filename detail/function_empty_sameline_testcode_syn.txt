@@ -1,0 +1,20 @@
+Declare function (return type "void"): f
+    Block:
+Declare int array: global
+    Const: 2
+Declare function (return type "void"): main
+    Declare int var: x
+    Declare int var: y
+    Assign to var: x
+        Const: 1
+    Assign to var: y
+        Op: +
+            Id: x
+            Const: 1
+    Assign to array: global
+        Const: 0
+        Id: x
+    Assign to array: global
+        Const: 1
+        Id: y
+    Function call: f

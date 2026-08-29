@@ -1,0 +1,402 @@
+1: /* Impressao recursiva da representacao
+2: binaria do modulo de um inteiro */
+3: void binario (int x) {
+	3: reserved word: void
+	3: ID, name= binario
+	3: (
+	3: reserved word: int
+	3: ID, name= x
+	3: )
+	3: {
+4:   if (x < 2) output(x);
+	4: reserved word: if
+	4: (
+	4: ID, name= x
+	4: <
+	4: NUM, val= 2
+	4: )
+	4: ID, name= output
+	4: (
+	4: ID, name= x
+	4: )
+	4: ;
+5:   else {
+	5: reserved word: else
+	5: {
+6:     binario(x/2);
+	6: ID, name= binario
+	6: (
+	6: ID, name= x
+	6: /
+	6: NUM, val= 2
+	6: )
+	6: ;
+7:     output(x - 2*(x/2));
+	7: ID, name= output
+	7: (
+	7: ID, name= x
+	7: -
+	7: NUM, val= 2
+	7: *
+	7: (
+	7: ID, name= x
+	7: /
+	7: NUM, val= 2
+	7: )
+	7: )
+	7: ;
+8:   }
+	8: }
+9: }
+	9: }
+10: 
+11: /* Um programa para calcular mdc 
+12:    Segundo o algoritmo de Euclides*/
+13: int gdc (int u, int v)
+	13: reserved word: int
+	13: ID, name= gdc
+	13: (
+	13: reserved word: int
+	13: ID, name= u
+	13: ,
+	13: reserved word: int
+	13: ID, name= v
+	13: )
+14: {
+	14: {
+15:     if (v == 0) return u;
+	15: reserved word: if
+	15: (
+	15: ID, name= v
+	15: ==
+	15: NUM, val= 0
+	15: )
+	15: reserved word: return
+	15: ID, name= u
+	15: ;
+16:     else return gdc(v,u-u/v*v);
+	16: reserved word: else
+	16: reserved word: return
+	16: ID, name= gdc
+	16: (
+	16: ID, name= v
+	16: ,
+	16: ID, name= u
+	16: -
+	16: ID, name= u
+	16: /
+	16: ID, name= v
+	16: *
+	16: ID, name= v
+	16: )
+	16: ;
+17:     /* u-u / v*v == u mod v */
+18: }
+	18: }
+19: 
+20: void main(void)
+	20: reserved word: void
+	20: ID, name= main
+	20: (
+	20: reserved word: void
+	20: )
+21: {
+	21: {
+22:     
+23:     /* hardcoded tests of operators and mdc */
+24:     /* outputs 0 1 2 3 4  (gabarito tem bug) */
+25:     output(-(gdc(13,19)-1));
+	25: ID, name= output
+	25: (
+	25: -
+	25: (
+	25: ID, name= gdc
+	25: (
+	25: NUM, val= 13
+	25: ,
+	25: NUM, val= 19
+	25: )
+	25: -
+	25: NUM, val= 1
+	25: )
+	25: )
+	25: ;
+26:     output(-(-(gdc(1,10))));
+	26: ID, name= output
+	26: (
+	26: -
+	26: (
+	26: -
+	26: (
+	26: ID, name= gdc
+	26: (
+	26: NUM, val= 1
+	26: ,
+	26: NUM, val= 10
+	26: )
+	26: )
+	26: )
+	26: )
+	26: ;
+27:     output(-gdc(-44,-46));
+	27: ID, name= output
+	27: (
+	27: -
+	27: ID, name= gdc
+	27: (
+	27: -
+	27: NUM, val= 44
+	27: ,
+	27: -
+	27: NUM, val= 46
+	27: )
+	27: )
+	27: ;
+28:     output(gdc(-9,-3)+6);
+	28: ID, name= output
+	28: (
+	28: ID, name= gdc
+	28: (
+	28: -
+	28: NUM, val= 9
+	28: ,
+	28: -
+	28: NUM, val= 3
+	28: )
+	28: +
+	28: NUM, val= 6
+	28: )
+	28: ;
+29:     output( 10+(2*gdc(44,46)/gdc(4,6))-10 + ((( gdc(2,46) + 0/gdc(10,100) )/1)+0)-0*gdc(1,1) );
+	29: ID, name= output
+	29: (
+	29: NUM, val= 10
+	29: +
+	29: (
+	29: NUM, val= 2
+	29: *
+	29: ID, name= gdc
+	29: (
+	29: NUM, val= 44
+	29: ,
+	29: NUM, val= 46
+	29: )
+	29: /
+	29: ID, name= gdc
+	29: (
+	29: NUM, val= 4
+	29: ,
+	29: NUM, val= 6
+	29: )
+	29: )
+	29: -
+	29: NUM, val= 10
+	29: +
+	29: (
+	29: (
+	29: (
+	29: ID, name= gdc
+	29: (
+	29: NUM, val= 2
+	29: ,
+	29: NUM, val= 46
+	29: )
+	29: +
+	29: NUM, val= 0
+	29: /
+	29: ID, name= gdc
+	29: (
+	29: NUM, val= 10
+	29: ,
+	29: NUM, val= 100
+	29: )
+	29: )
+	29: /
+	29: NUM, val= 1
+	29: )
+	29: +
+	29: NUM, val= 0
+	29: )
+	29: -
+	29: NUM, val= 0
+	29: *
+	29: ID, name= gdc
+	29: (
+	29: NUM, val= 1
+	29: ,
+	29: NUM, val= 1
+	29: )
+	29: )
+	29: ;
+30:     output( (1-2) * -( gdc(5,5) + gdc(5,5) + gdc(5,5) + gdc(5,5) + gdc(5,5) ) / (1+1+1+1+1+5+5-10)  );
+	30: ID, name= output
+	30: (
+	30: (
+	30: NUM, val= 1
+	30: -
+	30: NUM, val= 2
+	30: )
+	30: *
+	30: -
+	30: (
+	30: ID, name= gdc
+	30: (
+	30: NUM, val= 5
+	30: ,
+	30: NUM, val= 5
+	30: )
+	30: +
+	30: ID, name= gdc
+	30: (
+	30: NUM, val= 5
+	30: ,
+	30: NUM, val= 5
+	30: )
+	30: +
+	30: ID, name= gdc
+	30: (
+	30: NUM, val= 5
+	30: ,
+	30: NUM, val= 5
+	30: )
+	30: +
+	30: ID, name= gdc
+	30: (
+	30: NUM, val= 5
+	30: ,
+	30: NUM, val= 5
+	30: )
+	30: +
+	30: ID, name= gdc
+	30: (
+	30: NUM, val= 5
+	30: ,
+	30: NUM, val= 5
+	30: )
+	30: )
+	30: /
+	30: (
+	30: NUM, val= 1
+	30: +
+	30: NUM, val= 1
+	30: +
+	30: NUM, val= 1
+	30: +
+	30: NUM, val= 1
+	30: +
+	30: NUM, val= 1
+	30: +
+	30: NUM, val= 5
+	30: +
+	30: NUM, val= 5
+	30: -
+	30: NUM, val= 10
+	30: )
+	30: )
+	30: ;
+31:     output( -6 * (-1));
+	31: ID, name= output
+	31: (
+	31: -
+	31: NUM, val= 6
+	31: *
+	31: (
+	31: -
+	31: NUM, val= 1
+	31: )
+	31: )
+	31: ;
+32: 
+33:     int y;
+	33: reserved word: int
+	33: ID, name= y
+	33: ;
+34:     y = 0;
+	34: ID, name= y
+	34: =
+	34: NUM, val= 0
+	34: ;
+35:     int x;
+	35: reserved word: int
+	35: ID, name= x
+	35: ;
+36:     
+37:     int res;
+	37: reserved word: int
+	37: ID, name= res
+	37: ;
+38:     res=0;
+	38: ID, name= res
+	38: =
+	38: NUM, val= 0
+	38: ;
+39:     { 
+	39: {
+40:         int y;
+	40: reserved word: int
+	40: ID, name= y
+	40: ;
+41:         x = input();
+	41: ID, name= x
+	41: =
+	41: ID, name= input
+	41: (
+	41: )
+	41: ;
+42:         y = input();
+	42: ID, name= y
+	42: =
+	42: ID, name= input
+	42: (
+	42: )
+	42: ;
+43:         y = gdc(x,y); /* reusing y apenas pra chatear */
+	43: ID, name= y
+	43: =
+	43: ID, name= gdc
+	43: (
+	43: ID, name= x
+	43: ,
+	43: ID, name= y
+	43: )
+	43: ;
+44:         res = y; /* atribuição do bloco pra fora */
+	44: ID, name= res
+	44: =
+	44: ID, name= y
+	44: ;
+45:         output(res);
+	45: ID, name= output
+	45: (
+	45: ID, name= res
+	45: )
+	45: ;
+46:     }
+	46: }
+47:     if (res >= 0) binario(res+y); /* y eh zero... */
+	47: reserved word: if
+	47: (
+	47: ID, name= res
+	47: >=
+	47: NUM, val= 0
+	47: )
+	47: ID, name= binario
+	47: (
+	47: ID, name= res
+	47: +
+	47: ID, name= y
+	47: )
+	47: ;
+48:     else binario(-res+y);/* gabarito tem bug no unario! */
+	48: reserved word: else
+	48: ID, name= binario
+	48: (
+	48: -
+	48: ID, name= res
+	48: +
+	48: ID, name= y
+	48: )
+	48: ;
+49: }
+	49: }
+	50: EOF

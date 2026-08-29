@@ -1,0 +1,44 @@
+Declare function (return type "int"): gdc
+    Function param (int var): u
+    Function param (int var): v
+    Declare int var: x
+    Declare int var: r
+    Declare int var: y
+    Assign to var: x
+        Const: 1
+    Assign to var: y
+        Const: 1
+    Conditional selection
+        Op: ==
+            Id: v
+            Const: 0
+        Assign to var: r
+            Id: u
+        Assign to var: r
+            Function call: gdc
+                Id: v
+                Op: -
+                    Id: u
+                    Op: *
+                        Op: /
+                            Id: u
+                            Id: v
+                        Id: v
+    Assign to var: x
+        Const: 1
+    Assign to var: y
+        Const: 1
+    Return
+Declare function (return type "void"): main
+    Declare int var: x
+    Declare int var: y
+    Assign to var: x
+        Function call: input
+    Assign to var: y
+        Function call: input
+    Assign to var: x
+        Function call: gdc
+            Id: x
+            Id: y
+    Function call: output
+        Id: x

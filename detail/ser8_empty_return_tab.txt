@@ -1,0 +1,17 @@
+Semantic error at line 13: Function should return!
+
+Symbol table:
+
+Variable Name  Scope     ID Type  Data Type  Line Numbers
+-------------  --------  -------  ---------  -------------------------
+gdc                      fun      int         3 10 21 
+main                     fun      void       15 
+input                    fun      int        19 20 
+output                   fun      void       22 
+x              main      var      int        17 19 21 22 
+y              main      var      int        18 20 21 
+r              gdc       var      int         6  9 10 
+u              gdc       var      int         3  9 10 
+v              gdc       var      int         3  9 10 
+x              gdc       var      int         5  8 12 
+y              gdc       var      int         7  8 12 

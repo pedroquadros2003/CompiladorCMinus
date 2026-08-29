@@ -1,0 +1,369 @@
+\hypertarget{log_8c}{}\doxysection{log.\+c File Reference}
+\label{log_8c}\index{log.c@{log.c}}
+{\ttfamily \#include \char`\"{}log.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Include dependency graph for log.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{log_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{log_8c_a0897d1302b235d526456296a09fd920c}{D\+E\+B\+U\+G\+\_\+\+L\+O\+G\+\_\+\+A\+L\+W\+A\+Y\+S\+\_\+\+F\+L\+U\+SH}}~0
+\begin{DoxyCompactList}\small\item\em IF S\+ET, A\+LL P\+R\+I\+N\+T\+O\+U\+TS W\+I\+LL C\+A\+LL F\+L\+U\+SH. I\+N\+N\+E\+F\+I\+C\+I\+E\+NT, D\+E\+B\+UG O\+N\+L\+Y! \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{log_8c_ace0755790004dd3a7dc356bd60ab11cd}{split\+File\+Name}} (const char $\ast$full\+File\+Name, char $\ast$path, char $\ast$file\+Name, char $\ast$extension)
+\begin{DoxyCompactList}\small\item\em aux func\+: split full\+File\+Name (with full path) into path/file\+Name/extension \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{log_8c_a0ba66d28f34aadc7b447856f180dec55}{initialize\+Printer}} (const char $\ast$path, const char $\ast$base\+Name, \mbox{\hyperlink{log_8h_a866471de48f540bdc1a0f7d42b7fd474}{File\+Destination}} files2open)
+\begin{DoxyCompactList}\small\item\em open the files specified by files2open in the directory specified by path, with the basename specified \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{log_8c_adb62fa9c56ab2153e83eb3da4fdec148}{close\+Printer}} ()
+\begin{DoxyCompactList}\small\item\em closes all opened files \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{log_8c_a8247112d99f0e7cda892af1335db21c5}{done\+L\+E\+Xstart\+S\+YN}} ()
+\begin{DoxyCompactList}\small\item\em sets the curent compilation stage to S\+YN (syntatic analysis) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{log_8c_a704516cdabe12d5b87f253082c830a8e}{done\+S\+Y\+Nstart\+T\+AB}} ()
+\begin{DoxyCompactList}\small\item\em sets the curent compilation stage to T\+AB (symbol table) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{log_8c_af61d2ae2431a5c988e5a9e2793b2761c}{done\+T\+A\+Bstart\+G\+EN}} ()
+\begin{DoxyCompactList}\small\item\em sets the curent compilation stage to G\+EN (code generation) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{log_8c_a35090abc4db171f429e1e52f8aa6e9c6}{fflushc}} ()
+\begin{DoxyCompactList}\small\item\em flushes all opened files. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{log_8c_a19aadbd143c102d1d6d5550149e13985}{pc}} (const char $\ast$format,...)
+\begin{DoxyCompactList}\small\item\em prints in C\+U\+R\+R\+E\+NT output file A\+ND stdout \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{log_8c_a098badc7cd289765ab894834e5b6e83d}{pce}} (const char $\ast$format,...)
+\begin{DoxyCompactList}\small\item\em prints in C\+U\+R\+R\+E\+NT output file A\+ND stdout A\+ND error file (3-\/way) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{log_8c_a66d5587d32889b22e56a956e84997557}{pp}} (\mbox{\hyperlink{log_8h_a866471de48f540bdc1a0f7d42b7fd474}{File\+Destination}} destination, const char $\ast$format,...)
+\begin{DoxyCompactList}\small\item\em prints in both chosen output file(s) A\+ND stdout \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+F\+I\+LE $\ast$ \mbox{\hyperlink{log_8c_ab5b65b8045353cb6ae7234289fab733b}{file\+E\+R\+\_\+}}
+\begin{DoxyCompactList}\small\item\em error output \end{DoxyCompactList}\item 
+F\+I\+LE $\ast$ \mbox{\hyperlink{log_8c_ad122cee78dd19f89dcca0dc1d48a3315}{file\+L\+EX}}
+\begin{DoxyCompactList}\small\item\em lexical analysis output \end{DoxyCompactList}\item 
+F\+I\+LE $\ast$ \mbox{\hyperlink{log_8c_aa9566d215eac838d24904913b608a060}{file\+S\+YN}}
+\begin{DoxyCompactList}\small\item\em syntatic analysis output \end{DoxyCompactList}\item 
+F\+I\+LE $\ast$ \mbox{\hyperlink{log_8c_ac567b30585f2e5a0af7d46635f07a68b}{file\+T\+AB}}
+\begin{DoxyCompactList}\small\item\em symbol table output \end{DoxyCompactList}\item 
+F\+I\+LE $\ast$ \mbox{\hyperlink{log_8c_af656847b82839c76674082c265a925ee}{file\+G\+EN}}
+\begin{DoxyCompactList}\small\item\em generated code output \end{DoxyCompactList}\item 
+\mbox{\hyperlink{log_8h_a866471de48f540bdc1a0f7d42b7fd474}{File\+Destination}} \mbox{\hyperlink{log_8c_a16aec15bef905975fe21140e39693a90}{files\+Opened}}
+\begin{DoxyCompactList}\small\item\em sets which files will be opened. e.\+g. if you will only implement up to symbol table generation, do not open the file to output the generated code. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{log_8h_a866471de48f540bdc1a0f7d42b7fd474}{File\+Destination}} \mbox{\hyperlink{log_8c_a7a942a1f3302cad2454328bf6a8f4902}{current\+State}}
+\begin{DoxyCompactList}\small\item\em marks the current stage of the compilation, used for pc and pce functions \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{log_8c_a0897d1302b235d526456296a09fd920c}\label{log_8c_a0897d1302b235d526456296a09fd920c}} 
+\index{log.c@{log.c}!DEBUG\_LOG\_ALWAYS\_FLUSH@{DEBUG\_LOG\_ALWAYS\_FLUSH}}
+\index{DEBUG\_LOG\_ALWAYS\_FLUSH@{DEBUG\_LOG\_ALWAYS\_FLUSH}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_LOG\_ALWAYS\_FLUSH}{DEBUG\_LOG\_ALWAYS\_FLUSH}}
+{\footnotesize\ttfamily \#define D\+E\+B\+U\+G\+\_\+\+L\+O\+G\+\_\+\+A\+L\+W\+A\+Y\+S\+\_\+\+F\+L\+U\+SH~0}
+
+
+
+IF S\+ET, A\+LL P\+R\+I\+N\+T\+O\+U\+TS W\+I\+LL C\+A\+LL F\+L\+U\+SH. I\+N\+N\+E\+F\+I\+C\+I\+E\+NT, D\+E\+B\+UG O\+N\+L\+Y! 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{log_8c_adb62fa9c56ab2153e83eb3da4fdec148}\label{log_8c_adb62fa9c56ab2153e83eb3da4fdec148}} 
+\index{log.c@{log.c}!closePrinter@{closePrinter}}
+\index{closePrinter@{closePrinter}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{closePrinter()}{closePrinter()}}
+{\footnotesize\ttfamily void close\+Printer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+closes all opened files 
+
+\mbox{\Hypertarget{log_8c_a8247112d99f0e7cda892af1335db21c5}\label{log_8c_a8247112d99f0e7cda892af1335db21c5}} 
+\index{log.c@{log.c}!doneLEXstartSYN@{doneLEXstartSYN}}
+\index{doneLEXstartSYN@{doneLEXstartSYN}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{doneLEXstartSYN()}{doneLEXstartSYN()}}
+{\footnotesize\ttfamily void done\+L\+E\+Xstart\+S\+YN (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+sets the curent compilation stage to S\+YN (syntatic analysis) 
+
+\mbox{\Hypertarget{log_8c_a704516cdabe12d5b87f253082c830a8e}\label{log_8c_a704516cdabe12d5b87f253082c830a8e}} 
+\index{log.c@{log.c}!doneSYNstartTAB@{doneSYNstartTAB}}
+\index{doneSYNstartTAB@{doneSYNstartTAB}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{doneSYNstartTAB()}{doneSYNstartTAB()}}
+{\footnotesize\ttfamily void done\+S\+Y\+Nstart\+T\+AB (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+sets the curent compilation stage to T\+AB (symbol table) 
+
+\mbox{\Hypertarget{log_8c_af61d2ae2431a5c988e5a9e2793b2761c}\label{log_8c_af61d2ae2431a5c988e5a9e2793b2761c}} 
+\index{log.c@{log.c}!doneTABstartGEN@{doneTABstartGEN}}
+\index{doneTABstartGEN@{doneTABstartGEN}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{doneTABstartGEN()}{doneTABstartGEN()}}
+{\footnotesize\ttfamily void done\+T\+A\+Bstart\+G\+EN (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+sets the curent compilation stage to G\+EN (code generation) 
+
+\mbox{\Hypertarget{log_8c_a35090abc4db171f429e1e52f8aa6e9c6}\label{log_8c_a35090abc4db171f429e1e52f8aa6e9c6}} 
+\index{log.c@{log.c}!fflushc@{fflushc}}
+\index{fflushc@{fflushc}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{fflushc()}{fflushc()}}
+{\footnotesize\ttfamily void fflushc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+flushes all opened files. 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{log_8c_a35090abc4db171f429e1e52f8aa6e9c6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{log_8c_a0ba66d28f34aadc7b447856f180dec55}\label{log_8c_a0ba66d28f34aadc7b447856f180dec55}} 
+\index{log.c@{log.c}!initializePrinter@{initializePrinter}}
+\index{initializePrinter@{initializePrinter}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{initializePrinter()}{initializePrinter()}}
+{\footnotesize\ttfamily void initialize\+Printer (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path,  }\item[{const char $\ast$}]{base\+Name,  }\item[{\mbox{\hyperlink{log_8h_a866471de48f540bdc1a0f7d42b7fd474}{File\+Destination}}}]{files2open }\end{DoxyParamCaption})}
+
+
+
+open the files specified by files2open in the directory specified by path, with the basename specified 
+
+
+\begin{DoxyItemize}
+\item sets current\+State to L\+EX -\/ the first stage of compilation is always lexical analysis
+\item the supplied main code already calls this function adequately. Probably, students will not need to change it.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & directory for detailed output files \\
+\hline
+{\em basename} & the radical part of the file name \\
+\hline
+{\em files2open} & choose which files to open. If not all compilation stages will be run, you may choose to not open all files\\
+\hline
+\end{DoxyParams}
+example usage\+:
+
+{\ttfamily initialize\+Printer(detailpath, pgm, L\+O\+G\+A\+L\+L); // open detailed output files into the path given by detailpath, with the basename given by pgm, and L\+O\+G\+A\+LL means all files will be opened} Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{log_8c_a0ba66d28f34aadc7b447856f180dec55_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{log_8c_a19aadbd143c102d1d6d5550149e13985}\label{log_8c_a19aadbd143c102d1d6d5550149e13985}} 
+\index{log.c@{log.c}!pc@{pc}}
+\index{pc@{pc}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{pc()}{pc()}}
+{\footnotesize\ttfamily void pc (\begin{DoxyParamCaption}\item[{const char $\ast$}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+prints in C\+U\+R\+R\+E\+NT output file A\+ND stdout 
+
+
+\begin{DoxyItemize}
+\item use this to {\bfseries{print usual output messages into the current compilation stage output}}.
+\item this function will be used most of the time.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em format} & variadic parameters, to be used as fprintf\\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{flushes if D\+E\+B\+U\+G\+\_\+\+L\+O\+G\+\_\+\+A\+L\+W\+A\+Y\+S\+\_\+\+F\+L\+U\+SH is set}
+
+\end{DoxyParagraph}
+example usage\+:
+
+{\ttfamily pc(\char`\"{}my message n. \%i is \%s\char`\"{},var\+\_\+int,var\+\_\+pointerchar); // prints on stdout A\+ND the output corresponding to the current compilation stage.} flushes all output files. I\+N\+N\+E\+F\+I\+C\+I\+E\+NT, O\+N\+LY F\+OR D\+E\+B\+U\+G!Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{log_8c_a19aadbd143c102d1d6d5550149e13985_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{log_8c_a098badc7cd289765ab894834e5b6e83d}\label{log_8c_a098badc7cd289765ab894834e5b6e83d}} 
+\index{log.c@{log.c}!pce@{pce}}
+\index{pce@{pce}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{pce()}{pce()}}
+{\footnotesize\ttfamily void pce (\begin{DoxyParamCaption}\item[{const char $\ast$}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+prints in C\+U\+R\+R\+E\+NT output file A\+ND stdout A\+ND error file (3-\/way) 
+
+use this to {\bfseries{print error messages into the current compilation stage output}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em format} & variadic parameters, to be used as fprintf\\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{flushes if D\+E\+B\+U\+G\+\_\+\+L\+O\+G\+\_\+\+A\+L\+W\+A\+Y\+S\+\_\+\+F\+L\+U\+SH is set}
+
+\end{DoxyParagraph}
+example usage\+:
+
+{\ttfamily pce(\char`\"{}my message n. \%i is \%s\char`\"{},var\+\_\+int,var\+\_\+pointerchar); // prints on stdout A\+ND error A\+ND the output corresponding to the current compilation stage.} flushes all output files. I\+N\+N\+E\+F\+I\+C\+I\+E\+NT, O\+N\+LY F\+OR D\+E\+B\+U\+G!Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{log_8c_a098badc7cd289765ab894834e5b6e83d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{log_8c_a66d5587d32889b22e56a956e84997557}\label{log_8c_a66d5587d32889b22e56a956e84997557}} 
+\index{log.c@{log.c}!pp@{pp}}
+\index{pp@{pp}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{pp()}{pp()}}
+{\footnotesize\ttfamily void pp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{log_8h_a866471de48f540bdc1a0f7d42b7fd474}{File\+Destination}}}]{destination,  }\item[{const char $\ast$}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+prints in both chosen output file(s) A\+ND stdout 
+
+this function is intended for {\bfseries{hardcoded fine control over output files}}. ~\newline
+
+
+
+\begin{DoxyItemize}
+\item it is a {\itshape variadic function} which accepts a variable number of arguments. It repasses its arguments to fprintf, printing into the output files indicated by the destination argument.
+\item it does not care about the current state.
+\item It checks if the file was set to be opened before printing
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em destination} & bitflag setting which output files will be used \\
+\hline
+{\em format} & after the destination flag, this function should be used as fprintf.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{flushes if D\+E\+B\+U\+G\+\_\+\+L\+O\+G\+\_\+\+A\+L\+W\+A\+Y\+S\+\_\+\+F\+L\+U\+SH is set}
+
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{example usage (check the possible flags on the @ref file\+Destination \char`\"{}enum file\+Destination\char`\"{} ) \+:}
+
+\end{DoxyParagraph}
+{\ttfamily pp(S\+YN, \char`\"{}my message n. \%i is \%s\char`\"{},var\+\_\+int,var\+\_\+pointerchar); // prints on stdout and sintatic analysis output}
+
+{\ttfamily pp(S\+YN $\vert$ L\+EX, \char`\"{}my message n. \%i is \%s\char`\"{},var\+\_\+int,var\+\_\+pointerchar); // prints on stdout, lexic and sintatic analysis outputs}
+
+{\ttfamily pp(T\+AB $\vert$ E\+RR, \char`\"{}my message n. \%i is \%s\char`\"{},var\+\_\+int,var\+\_\+pointerchar); // prints on stdout, symbol table and error outputs} flushes all output files. I\+N\+N\+E\+F\+I\+C\+I\+E\+NT, O\+N\+LY F\+OR D\+E\+B\+U\+G!Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{log_8c_a66d5587d32889b22e56a956e84997557_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{log_8c_ace0755790004dd3a7dc356bd60ab11cd}\label{log_8c_ace0755790004dd3a7dc356bd60ab11cd}} 
+\index{log.c@{log.c}!splitFileName@{splitFileName}}
+\index{splitFileName@{splitFileName}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{splitFileName()}{splitFileName()}}
+{\footnotesize\ttfamily void split\+File\+Name (\begin{DoxyParamCaption}\item[{const char $\ast$}]{full\+File\+Name,  }\item[{char $\ast$}]{path,  }\item[{char $\ast$}]{file\+Name,  }\item[{char $\ast$}]{extension }\end{DoxyParamCaption})}
+
+
+
+aux func\+: split full\+File\+Name (with full path) into path/file\+Name/extension 
+
+\begin{DoxyParagraph}{students usually will not need to use this function}
+
+\end{DoxyParagraph}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{log_8c_ace0755790004dd3a7dc356bd60ab11cd_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{log_8c_a7a942a1f3302cad2454328bf6a8f4902}\label{log_8c_a7a942a1f3302cad2454328bf6a8f4902}} 
+\index{log.c@{log.c}!currentState@{currentState}}
+\index{currentState@{currentState}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{currentState}{currentState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{log_8h_a866471de48f540bdc1a0f7d42b7fd474}{File\+Destination}} current\+State}
+
+
+
+marks the current stage of the compilation, used for pc and pce functions 
+
+\mbox{\Hypertarget{log_8c_ab5b65b8045353cb6ae7234289fab733b}\label{log_8c_ab5b65b8045353cb6ae7234289fab733b}} 
+\index{log.c@{log.c}!fileER\_@{fileER\_}}
+\index{fileER\_@{fileER\_}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{fileER\_}{fileER\_}}
+{\footnotesize\ttfamily F\+I\+LE$\ast$ file\+E\+R\+\_\+}
+
+
+
+error output 
+
+\mbox{\Hypertarget{log_8c_af656847b82839c76674082c265a925ee}\label{log_8c_af656847b82839c76674082c265a925ee}} 
+\index{log.c@{log.c}!fileGEN@{fileGEN}}
+\index{fileGEN@{fileGEN}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{fileGEN}{fileGEN}}
+{\footnotesize\ttfamily F\+I\+LE$\ast$ file\+G\+EN}
+
+
+
+generated code output 
+
+\mbox{\Hypertarget{log_8c_ad122cee78dd19f89dcca0dc1d48a3315}\label{log_8c_ad122cee78dd19f89dcca0dc1d48a3315}} 
+\index{log.c@{log.c}!fileLEX@{fileLEX}}
+\index{fileLEX@{fileLEX}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{fileLEX}{fileLEX}}
+{\footnotesize\ttfamily F\+I\+LE$\ast$ file\+L\+EX}
+
+
+
+lexical analysis output 
+
+\mbox{\Hypertarget{log_8c_a16aec15bef905975fe21140e39693a90}\label{log_8c_a16aec15bef905975fe21140e39693a90}} 
+\index{log.c@{log.c}!filesOpened@{filesOpened}}
+\index{filesOpened@{filesOpened}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{filesOpened}{filesOpened}}
+{\footnotesize\ttfamily \mbox{\hyperlink{log_8h_a866471de48f540bdc1a0f7d42b7fd474}{File\+Destination}} files\+Opened}
+
+
+
+sets which files will be opened. e.\+g. if you will only implement up to symbol table generation, do not open the file to output the generated code. 
+
+\mbox{\Hypertarget{log_8c_aa9566d215eac838d24904913b608a060}\label{log_8c_aa9566d215eac838d24904913b608a060}} 
+\index{log.c@{log.c}!fileSYN@{fileSYN}}
+\index{fileSYN@{fileSYN}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{fileSYN}{fileSYN}}
+{\footnotesize\ttfamily F\+I\+LE$\ast$ file\+S\+YN}
+
+
+
+syntatic analysis output 
+
+\mbox{\Hypertarget{log_8c_ac567b30585f2e5a0af7d46635f07a68b}\label{log_8c_ac567b30585f2e5a0af7d46635f07a68b}} 
+\index{log.c@{log.c}!fileTAB@{fileTAB}}
+\index{fileTAB@{fileTAB}!log.c@{log.c}}
+\doxysubsubsection{\texorpdfstring{fileTAB}{fileTAB}}
+{\footnotesize\ttfamily F\+I\+LE$\ast$ file\+T\+AB}
+
+
+
+symbol table output 
+

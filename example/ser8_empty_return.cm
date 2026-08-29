@@ -1,0 +1,23 @@
+/* Um programa para calcular mdc 
+   Segundo o algoritmo de Euclides*/
+int gdc (int u, int v)
+{
+    int x; 
+    int r;
+    int y;
+    x = 1; y = 1;
+    if (v == 0) r = u;
+    else r = gdc(v,u-u/v*v);     
+    /* u-u / v*v == u mod v */
+    x = 1; y = 1; /* x,y a bogus value to avoid returning the right value */
+    return ; /* oopps! it should return a value! */
+}
+void main(void)
+{
+    int x;
+    int y;
+    x = input();
+    y = input();
+    x = gdc(x,y);
+    output(x);
+}

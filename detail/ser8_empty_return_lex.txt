@@ -1,0 +1,127 @@
+1: /* Um programa para calcular mdc 
+2:    Segundo o algoritmo de Euclides*/
+3: int gdc (int u, int v)
+	3: reserved word: int
+	3: ID, name= gdc
+	3: (
+	3: reserved word: int
+	3: ID, name= u
+	3: ,
+	3: reserved word: int
+	3: ID, name= v
+	3: )
+4: {
+	4: {
+5:     int x; 
+	5: reserved word: int
+	5: ID, name= x
+	5: ;
+6:     int r;
+	6: reserved word: int
+	6: ID, name= r
+	6: ;
+7:     int y;
+	7: reserved word: int
+	7: ID, name= y
+	7: ;
+8:     x = 1; y = 1;
+	8: ID, name= x
+	8: =
+	8: NUM, val= 1
+	8: ;
+	8: ID, name= y
+	8: =
+	8: NUM, val= 1
+	8: ;
+9:     if (v == 0) r = u;
+	9: reserved word: if
+	9: (
+	9: ID, name= v
+	9: ==
+	9: NUM, val= 0
+	9: )
+	9: ID, name= r
+	9: =
+	9: ID, name= u
+	9: ;
+10:     else r = gdc(v,u-u/v*v);     
+	10: reserved word: else
+	10: ID, name= r
+	10: =
+	10: ID, name= gdc
+	10: (
+	10: ID, name= v
+	10: ,
+	10: ID, name= u
+	10: -
+	10: ID, name= u
+	10: /
+	10: ID, name= v
+	10: *
+	10: ID, name= v
+	10: )
+	10: ;
+11:     /* u-u / v*v == u mod v */
+12:     x = 1; y = 1; /* x,y a bogus value to avoid returning the right value */
+	12: ID, name= x
+	12: =
+	12: NUM, val= 1
+	12: ;
+	12: ID, name= y
+	12: =
+	12: NUM, val= 1
+	12: ;
+13:     return ; /* oopps! it should return a value! */
+	13: reserved word: return
+	13: ;
+14: }
+	14: }
+15: void main(void)
+	15: reserved word: void
+	15: ID, name= main
+	15: (
+	15: reserved word: void
+	15: )
+16: {
+	16: {
+17:     int x;
+	17: reserved word: int
+	17: ID, name= x
+	17: ;
+18:     int y;
+	18: reserved word: int
+	18: ID, name= y
+	18: ;
+19:     x = input();
+	19: ID, name= x
+	19: =
+	19: ID, name= input
+	19: (
+	19: )
+	19: ;
+20:     y = input();
+	20: ID, name= y
+	20: =
+	20: ID, name= input
+	20: (
+	20: )
+	20: ;
+21:     x = gdc(x,y);
+	21: ID, name= x
+	21: =
+	21: ID, name= gdc
+	21: (
+	21: ID, name= x
+	21: ,
+	21: ID, name= y
+	21: )
+	21: ;
+22:     output(x);
+	22: ID, name= output
+	22: (
+	22: ID, name= x
+	22: )
+	22: ;
+23: }
+	23: }
+	24: EOF

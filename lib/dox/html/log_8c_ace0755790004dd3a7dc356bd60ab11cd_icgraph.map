@@ -1,0 +1,4 @@
+<map id="splitFileName" name="splitFileName">
+<area shape="rect" id="node1" title="aux func: split fullFileName (with full path) into path/fileName/extension" alt="" coords="175,5,285,32"/>
+<area shape="rect" id="node2" href="$log_8h.html#a0ba66d28f34aadc7b447856f180dec55" title="open the files specified by files2open in the directory specified by path, with the basename specifie..." alt="" coords="5,5,127,32"/>
+</map>

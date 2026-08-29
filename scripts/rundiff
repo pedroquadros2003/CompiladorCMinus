@@ -1,0 +1,9 @@
+for f in ../alunoout/*.out  
+do 
+    OUTFILE=../output/`basename $f`
+    echo running diff  $f x ${OUTFILE}
+    diff -ZbBE --strip-trailing-cr $f ${OUTFILE} > ../alunoout/`basename -s .out $f`.diff
+done
+
+echo GENERATED DIFFS 
+wc ../alunoout/*.diff

@@ -1,0 +1,150 @@
+\begin{theindex}
+
+  \item {closePrinter}
+    \subitem {log.c}, \hyperpage{4}
+    \subitem {log.h}, \hyperpage{12}
+  \item {currentState}
+    \subitem {log.c}, \hyperpage{9}
+
+  \indexspace
+
+  \item {DEBUG\_LOG\_ALWAYS\_FLUSH}
+    \subitem {log.c}, \hyperpage{4}
+  \item {doneLEXstartSYN}
+    \subitem {log.c}, \hyperpage{5}
+    \subitem {log.h}, \hyperpage{12}
+  \item {doneSYNstartTAB}
+    \subitem {log.c}, \hyperpage{5}
+    \subitem {log.h}, \hyperpage{13}
+  \item {doneTABstartGEN}
+    \subitem {log.c}, \hyperpage{5}
+    \subitem {log.h}, \hyperpage{13}
+
+  \indexspace
+
+  \item {ER\_}
+    \subitem {log.h}, \hyperpage{12}
+
+  \indexspace
+
+  \item {fflushc}
+    \subitem {log.c}, \hyperpage{5}
+    \subitem {log.h}, \hyperpage{13}
+  \item {FileDestination}
+    \subitem {log.h}, \hyperpage{12}
+  \item {fileDestination}
+    \subitem {log.h}, \hyperpage{12}
+  \item {fileER\_}
+    \subitem {log.c}, \hyperpage{9}
+  \item {fileGEN}
+    \subitem {log.c}, \hyperpage{10}
+  \item {fileLEX}
+    \subitem {log.c}, \hyperpage{10}
+  \item {filesOpened}
+    \subitem {log.c}, \hyperpage{10}
+  \item {fileSYN}
+    \subitem {log.c}, \hyperpage{10}
+  \item {fileTAB}
+    \subitem {log.c}, \hyperpage{10}
+
+  \indexspace
+
+  \item {GEN}
+    \subitem {log.h}, \hyperpage{12}
+  \item {GER}
+    \subitem {log.h}, \hyperpage{12}
+
+  \indexspace
+
+  \item {initializePrinter}
+    \subitem {log.c}, \hyperpage{5}
+    \subitem {log.h}, \hyperpage{13}
+
+  \indexspace
+
+  \item {LER}
+    \subitem {log.h}, \hyperpage{12}
+  \item {LEX}
+    \subitem {log.h}, \hyperpage{12}
+  \item {log.c}, \hyperpage{3}
+    \subitem {closePrinter}, \hyperpage{4}
+    \subitem {currentState}, \hyperpage{9}
+    \subitem {DEBUG\_LOG\_ALWAYS\_FLUSH}, \hyperpage{4}
+    \subitem {doneLEXstartSYN}, \hyperpage{5}
+    \subitem {doneSYNstartTAB}, \hyperpage{5}
+    \subitem {doneTABstartGEN}, \hyperpage{5}
+    \subitem {fflushc}, \hyperpage{5}
+    \subitem {fileER\_}, \hyperpage{9}
+    \subitem {fileGEN}, \hyperpage{10}
+    \subitem {fileLEX}, \hyperpage{10}
+    \subitem {filesOpened}, \hyperpage{10}
+    \subitem {fileSYN}, \hyperpage{10}
+    \subitem {fileTAB}, \hyperpage{10}
+    \subitem {initializePrinter}, \hyperpage{5}
+    \subitem {pc}, \hyperpage{6}
+    \subitem {pce}, \hyperpage{7}
+    \subitem {pp}, \hyperpage{8}
+    \subitem {splitFileName}, \hyperpage{9}
+  \item {log.h}, \hyperpage{11}
+    \subitem {closePrinter}, \hyperpage{12}
+    \subitem {doneLEXstartSYN}, \hyperpage{12}
+    \subitem {doneSYNstartTAB}, \hyperpage{13}
+    \subitem {doneTABstartGEN}, \hyperpage{13}
+    \subitem {ER\_}, \hyperpage{12}
+    \subitem {fflushc}, \hyperpage{13}
+    \subitem {FileDestination}, \hyperpage{12}
+    \subitem {fileDestination}, \hyperpage{12}
+    \subitem {GEN}, \hyperpage{12}
+    \subitem {GER}, \hyperpage{12}
+    \subitem {initializePrinter}, \hyperpage{13}
+    \subitem {LER}, \hyperpage{12}
+    \subitem {LEX}, \hyperpage{12}
+    \subitem {LOGALL}, \hyperpage{12}
+    \subitem {pc}, \hyperpage{14}
+    \subitem {pce}, \hyperpage{15}
+    \subitem {pp}, \hyperpage{16}
+    \subitem {SER}, \hyperpage{12}
+    \subitem {SYN}, \hyperpage{12}
+    \subitem {TAB}, \hyperpage{12}
+    \subitem {TER}, \hyperpage{12}
+    \subitem {UP2SYN}, \hyperpage{12}
+    \subitem {UP2TAB}, \hyperpage{12}
+  \item {LOGALL}
+    \subitem {log.h}, \hyperpage{12}
+
+  \indexspace
+
+  \item {pc}
+    \subitem {log.c}, \hyperpage{6}
+    \subitem {log.h}, \hyperpage{14}
+  \item {pce}
+    \subitem {log.c}, \hyperpage{7}
+    \subitem {log.h}, \hyperpage{15}
+  \item {pp}
+    \subitem {log.c}, \hyperpage{8}
+    \subitem {log.h}, \hyperpage{16}
+
+  \indexspace
+
+  \item {SER}
+    \subitem {log.h}, \hyperpage{12}
+  \item {splitFileName}
+    \subitem {log.c}, \hyperpage{9}
+  \item {SYN}
+    \subitem {log.h}, \hyperpage{12}
+
+  \indexspace
+
+  \item {TAB}
+    \subitem {log.h}, \hyperpage{12}
+  \item {TER}
+    \subitem {log.h}, \hyperpage{12}
+
+  \indexspace
+
+  \item {UP2SYN}
+    \subitem {log.h}, \hyperpage{12}
+  \item {UP2TAB}
+    \subitem {log.h}, \hyperpage{12}
+
+\end{theindex}

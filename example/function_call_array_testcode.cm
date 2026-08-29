@@ -1,0 +1,8 @@
+/*
+Este exemplo testa:
+- declaração de função contendo parâmetro de tipo array
+- return não-vazio de expressao combinando chamada a função, leitura de array e expressão aritmética
+*/
+int f (int u, int v[]) 
+{    return g(v[3], 3) + u;
+}

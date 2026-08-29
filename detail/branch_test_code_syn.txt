@@ -1,0 +1,61 @@
+Declare function (return type "void"): main
+    Declare int var: x
+    Declare int var: a
+    Declare int var: b
+    Declare int var: i
+    Conditional selection
+        Op: ==
+            Id: a
+            Id: b
+        Assign to var: x
+            Const: 0
+        Assign to var: x
+            Const: 1
+    Conditional selection
+        Op: <
+            Id: a
+            Id: b
+        Assign to var: a
+            Op: +
+                Id: b
+                Const: 1
+        Assign to var: b
+            Op: +
+                Id: b
+                Op: /
+                    Op: *
+                        Const: 3
+                        Const: 5
+                    Const: 2
+    Conditional selection
+        Op: >
+            Id: a
+            Id: b
+        Assign to var: a
+            Const: 8
+        Assign to var: b
+            Const: 75
+        Assign to var: a
+            Op: +
+                Op: *
+                    Id: b
+                    Op: /
+                        Const: 5
+                        Const: 3
+                Const: 7
+    Iteration (loop)
+        Op: <=
+            Id: i
+            Const: 10
+        Assign to var: b
+            Op: *
+                Id: i
+                Const: 2
+        Assign to var: a
+            Op: +
+                Id: b
+                Const: 4
+        Assign to var: i
+            Op: +
+                Id: i
+                Const: 1

@@ -1,0 +1,13 @@
+
+Symbol table:
+
+Variable Name  Scope     ID Type  Data Type  Line Numbers
+-------------  --------  -------  ---------  -------------------------
+main                     fun      void       11 
+global                   var      int         6  8 15 21 
+atualizaglobal           fun      void        7 18 
+input                    fun      int        16 
+output                   fun      void       21 
+max            main      var      int        14 16 
+i              main      var      int        13 15 17 18 19 
+i              atualizaglobalvar      int         7  8 

@@ -1,0 +1,7 @@
+/* Program that uses a invalid id name */
+
+void main(void)
+{
+    int x1 = 1; /* numbers are not allowed in id name */
+    output(x1);
+}

@@ -1,0 +1,93 @@
+1: /*
+2: Este exemplo testa:
+3: - retorno vazio (tá na BNF)
+4: - loop while
+5: */
+6: int global;
+	6: reserved word: int
+	6: ID, name= global
+	6: ;
+7: void atualizaglobal(int i) {
+	7: reserved word: void
+	7: ID, name= atualizaglobal
+	7: (
+	7: reserved word: int
+	7: ID, name= i
+	7: )
+	7: {
+8:     global = global + i;
+	8: ID, name= global
+	8: =
+	8: ID, name= global
+	8: +
+	8: ID, name= i
+	8: ;
+9:     return;
+	9: reserved word: return
+	9: ;
+10: }
+	10: }
+11: void main(void) {
+	11: reserved word: void
+	11: ID, name= main
+	11: (
+	11: reserved word: void
+	11: )
+	11: {
+12:     /* calcula 1 + 2 + ... + N com N dado pelo usuario */
+13:     int i;
+	13: reserved word: int
+	13: ID, name= i
+	13: ;
+14:     int max;
+	14: reserved word: int
+	14: ID, name= max
+	14: ;
+15:     global = 0; i = 1;
+	15: ID, name= global
+	15: =
+	15: NUM, val= 0
+	15: ;
+	15: ID, name= i
+	15: =
+	15: NUM, val= 1
+	15: ;
+16:     max = input();
+	16: ID, name= max
+	16: =
+	16: ID, name= input
+	16: (
+	16: )
+	16: ;
+17:     while (i < 10) {
+	17: reserved word: while
+	17: (
+	17: ID, name= i
+	17: <
+	17: NUM, val= 10
+	17: )
+	17: {
+18:         atualizaglobal(i);
+	18: ID, name= atualizaglobal
+	18: (
+	18: ID, name= i
+	18: )
+	18: ;
+19:         i = i + 1;
+	19: ID, name= i
+	19: =
+	19: ID, name= i
+	19: +
+	19: NUM, val= 1
+	19: ;
+20:     }
+	20: }
+21:     output(global);
+	21: ID, name= output
+	21: (
+	21: ID, name= global
+	21: )
+	21: ;
+22: }
+	22: }
+	22: EOF

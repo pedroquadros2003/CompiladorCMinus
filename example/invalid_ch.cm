@@ -1,0 +1,7 @@
+/* Program that uses a invalid character */
+
+void main(void)
+{
+    int x@test = 99; /* @ is an illegal character */ 
+    output(x@test);
+}

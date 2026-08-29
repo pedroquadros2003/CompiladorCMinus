@@ -1,0 +1,15 @@
+1: void main(void)
+	1: reserved word: void
+	1: ID, name= main
+	1: (
+	1: reserved word: void
+	1: )
+2: {
+	2: {
+3:     void a;
+	3: reserved word: void
+	3: ID, name= a
+	3: ;
+4: }
+	4: }
+	4: EOF

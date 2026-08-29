@@ -1,0 +1,24 @@
+void main (void) {
+   int x; int a; int b; int i;
+   if (a == b) x = 0;
+   else x = 1;
+
+   if (a < b) {
+      a = b + 1;
+      b = b + (3 * 5) / 2;
+   }
+
+   if (a > b) {
+      a = 8;
+   } else {
+      b = 75;
+      a = b * (5 / 3) + 7;
+   }
+
+   while (i <= 10)
+   {
+      b = i * 2;
+      a = b + 4;
+      i = i + 1;
+   }
+}

@@ -1,0 +1,10 @@
+void exemplo(void)
+{ 
+    output(3);  
+}
+
+void main(void)
+{
+    int a;
+    a = exemplo();
+}
