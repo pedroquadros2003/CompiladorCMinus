@@ -206,7 +206,6 @@ static void printSpaces(void) {
  */
 void printTree(TreeNode *tree) {
   int i;
-  INDENT;
   while (tree != NULL) {
     printSpaces();
     if (tree->nodekind == StmtK) {
@@ -277,9 +276,10 @@ void printTree(TreeNode *tree) {
       }
     } else
       pce("Unknown node kind\n");
+    INDENT;
     for (i = 0; i < MAXCHILDREN; i++)
       printTree(tree->child[i]);
+    UNINDENT;
     tree = tree->sibling;
   }
-  UNINDENT;
 }

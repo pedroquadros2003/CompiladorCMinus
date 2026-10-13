@@ -145,10 +145,25 @@ param
         }
     ;
 
-/* Function body: returns the raw chained list (no Block node). */
+/* Compound used as a function body or a control-structure body: yields the
+ * raw chained list (no Block node). An empty body { } becomes an empty Block
+ * node, matching the gabarito (e.g. a function with an empty body). */
 compound_stmt
     : LBRACE local_list RBRACE
-        { $$ = $2; }
+        { $$ = ($2 == NULL) ? newStmtNode(BlockK) : $2; }
+    ;
+
+/* Body of if/while/else: a single statement, or a compound (raw list). */
+body
+    : statement     { $$ = $1; }
+    | compound_stmt { $$ = $1; }
+    ;
+
+/* Extension 2: a standalone nested { ... } appearing as an item in a
+ * statement list becomes an explicit Block node. */
+block_stmt
+    : LBRACE local_list RBRACE
+        { $$ = newStmtNode(BlockK); $$->child[0] = $2; }
     ;
 
 /* Extension 1: local declarations and statements may be interleaved. */
@@ -168,12 +183,11 @@ local_list
 local_item
     : var_declaration { $$ = $1; }
     | statement { $$ = $1; }
+    | block_stmt { $$ = $1; }
     ;
 
 statement
     : expression_stmt { $$ = $1; }
-    /* Extension 2: a nested { ... } used as a statement becomes a Block node. */
-    | compound_stmt   { $$ = newStmtNode(BlockK); $$->child[0] = $1; }
     | selection_stmt  { $$ = $1; }
     | iteration_stmt  { $$ = $1; }
     | return_stmt     { $$ = $1; }
@@ -185,12 +199,12 @@ expression_stmt
     ;
 
 selection_stmt
-    : IF LPAREN expression RPAREN statement %prec LOWER_THAN_ELSE
+    : IF LPAREN expression RPAREN body %prec LOWER_THAN_ELSE
         { $$ = newStmtNode(IfK);
           $$->child[0] = $3;
           $$->child[1] = $5;
         }
-    | IF LPAREN expression RPAREN statement ELSE statement
+    | IF LPAREN expression RPAREN body ELSE body
         { $$ = newStmtNode(IfK);
           $$->child[0] = $3;
           $$->child[1] = $5;
@@ -199,7 +213,7 @@ selection_stmt
     ;
 
 iteration_stmt
-    : WHILE LPAREN expression RPAREN statement
+    : WHILE LPAREN expression RPAREN body
         { $$ = newStmtNode(WhileK);
           $$->child[0] = $3;
           $$->child[1] = $5;
