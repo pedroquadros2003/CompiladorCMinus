@@ -143,6 +143,7 @@ TreeNode *newStmtNode(StmtKind kind) {
     t->nodekind = StmtK;
     t->kind.stmt = kind;
     t->lineno = lineno;
+    t->type = Void;
   }
   return t;
 }
@@ -190,8 +191,8 @@ char *copyString(char *s) {
 static int indentno = 0;
 
 /* macros to increase/decrease indentation */
-#define INDENT indentno += 2
-#define UNINDENT indentno -= 2
+#define INDENT indentno += 4
+#define UNINDENT indentno -= 4
 
 /* printSpaces indents by printing spaces */
 static void printSpaces(void) {
@@ -210,36 +211,65 @@ void printTree(TreeNode *tree) {
     printSpaces();
     if (tree->nodekind == StmtK) {
       switch (tree->kind.stmt) {
-      case IfK:
-        pc("If\n");
+      /* declarations */
+      case FunctionK:
+        pc("Declare function (return type \"%s\"): %s\n",
+           (tree->type == Integer) ? "int" : "void", tree->attr.name);
         break;
-      case RepeatK:
-        pc("Repeat\n");
+      case VarDeclK:
+        pc("Declare %s var: %s\n",
+           (tree->type == Integer) ? "int" : "void", tree->attr.name);
+        break;
+      case VarDeclArrK:
+        pc("Declare int array: %s\n", tree->attr.name);
+        break;
+      case ParamK:
+        pc("Function param (int var): %s\n", tree->attr.name);
+        break;
+      case ParamArrK:
+        pc("Function param (int array): %s\n", tree->attr.name);
+        break;
+      /* commands */
+      case IfK:
+        pc("Conditional selection\n");
+        break;
+      case WhileK:
+        pc("Iteration (loop)\n");
+        break;
+      case ReturnK:
+        pc("Return\n");
         break;
       case AssignK:
-        pc("Assign to: %s\n", tree->attr.name);
+        pc("Assign to var: %s\n", tree->attr.name);
         break;
-      case ReadK:
-        pc("Read: %s\n", tree->attr.name);
+      case AssignArrK:
+        pc("Assign to array: %s\n", tree->attr.name);
         break;
-      case WriteK:
-        pc("Write\n");
+      case BlockK:
+        pc("Block:\n");
         break;
       default:
-        pce("Unknown ExpNode kind\n");
+        pce("Unknown StmtNode kind\n");
         break;
       }
     } else if (tree->nodekind == ExpK) {
       switch (tree->kind.exp) {
       case OpK:
-        pc("Op: ");
-        printToken(tree->attr.op, "\0");
+        if (tree->attr.op == MINUS && tree->child[1] == NULL) {
+          pc("Op: - (unario)\n");
+        } else {
+          pc("Op: ");
+          printToken(tree->attr.op, "\0");
+        }
         break;
       case ConstK:
         pc("Const: %d\n", tree->attr.val);
         break;
       case IdK:
         pc("Id: %s\n", tree->attr.name);
+        break;
+      case CallK:
+        pc("Function call: %s\n", tree->attr.name);
         break;
       default:
         pce("Unknown ExpNode kind\n");
