@@ -182,6 +182,8 @@ O arquivo **`src/cminus.y`** é o arquivo de especificação onde você define t
      * Conecta nós pai e filhos usando os campos `child[0]`, `child[1]`, `child[2]`.
      * Encadeia listas de comandos, declarações, parâmetros e argumentos no campo `sibling`.
      * Propaga ponteiros de nós entre as regras usando as pseudo-variáveis do Bison (`$$` para o lado esquerdo da regra, `$1`, `$2`, `$3`... para os símbolos do lado direito).
+       > 💡 **Como o Bison sabe o tipo de `$$` e `$n`? (`YYSTYPE`)**  
+       > Por padrão, o Bison define internamente que o valor semântico de um símbolo é um inteiro (`#define YYSTYPE int`). Ao definirmos `#define YYSTYPE TreeNode *` no cabeçalho C de `cminus.y`, redefinimos o tipo dos elementos da pilha de valores semânticos para ponteiros de nós da árvore. Por isso, atribuições como `$$ = newStmtNode(...)` e `$$->child[0] = $1` funcionam diretamente como `TreeNode *` sem necessidade de *typecast*.
    * Na regra inicial (`program : decl_list`), o `cminus.y` armazena o nó raiz da árvore construída na variável estática `savedTree`.
 5. **Implementação da Interface de Parsing (`parse()`):**
    * O `cminus.y` implementa a função de interface `TreeNode * parse(void)` (declarada em `parse.h` e chamada na `main.c`).
@@ -880,7 +882,7 @@ Crie o arquivo `src/cminus.y` no diretório `src/`. Estruture-o em três seçõe
    #include "scan.h"
    #include "parse.h"
 
-   #define YYSTYPE TreeNode *
+   #define YYSTYPE TreeNode * /* define que $$ e $n são ponteiros TreeNode* */
    static char * savedName;
    static int savedLineNo;
    static TreeNode * savedTree = NULL;
