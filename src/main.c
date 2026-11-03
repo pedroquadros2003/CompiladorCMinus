@@ -10,7 +10,7 @@
 /* set NO_PARSE to TRUE to get a scanner-only compiler */
 #define NO_PARSE FALSE
 /* set NO_ANALYZE to TRUE to get a parser-only compiler */
-#define NO_ANALYZE TRUE
+#define NO_ANALYZE FALSE
 
 /* set NO_CODE to TRUE to get a compiler that does not
  * generate code
@@ -41,7 +41,7 @@ FILE * code;
 int EchoSource = TRUE;
 int TraceScan = TRUE;
 int TraceParse = TRUE;
-int TraceAnalyze = FALSE;
+int TraceAnalyze = TRUE;
 int TraceCode = FALSE;
 
 int Error = FALSE;

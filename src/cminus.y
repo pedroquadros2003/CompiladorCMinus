@@ -162,8 +162,14 @@ body
 /* Extension 2: a standalone nested { ... } appearing as an item in a
  * statement list becomes an explicit Block node. */
 block_stmt
-    : LBRACE local_list RBRACE
-        { $$ = newStmtNode(BlockK); $$->child[0] = $2; }
+    : LBRACE
+        { $$ = newStmtNode(BlockK);
+          $$->lineno = lineno;
+        }
+      local_list RBRACE
+        { $$ = $2;
+          $$->child[0] = $3;
+        }
     ;
 
 /* Extension 1: local declarations and statements may be interleaved. */
@@ -198,14 +204,21 @@ expression_stmt
     | SEMI { $$ = NULL; }
     ;
 
-selection_stmt
-    : IF LPAREN expression RPAREN body %prec LOWER_THAN_ELSE
+if_tok
+    : IF
         { $$ = newStmtNode(IfK);
+          $$->lineno = lineno;
+        }
+    ;
+
+selection_stmt
+    : if_tok LPAREN expression RPAREN body %prec LOWER_THAN_ELSE
+        { $$ = $1;
           $$->child[0] = $3;
           $$->child[1] = $5;
         }
-    | IF LPAREN expression RPAREN body ELSE body
-        { $$ = newStmtNode(IfK);
+    | if_tok LPAREN expression RPAREN body ELSE body
+        { $$ = $1;
           $$->child[0] = $3;
           $$->child[1] = $5;
           $$->child[2] = $7;
@@ -213,10 +226,14 @@ selection_stmt
     ;
 
 iteration_stmt
-    : WHILE LPAREN expression RPAREN body
+    : WHILE
         { $$ = newStmtNode(WhileK);
-          $$->child[0] = $3;
-          $$->child[1] = $5;
+          $$->lineno = lineno;
+        }
+      LPAREN expression RPAREN body
+        { $$ = $2;
+          $$->child[0] = $4;
+          $$->child[1] = $6;
         }
     ;
 
