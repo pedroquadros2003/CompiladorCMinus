@@ -51,7 +51,7 @@ static void genNode(TreeNode *t);
 
 /********** Tabela de simbolos da geracao **********/
 
-static Sym *symInsert(char *name, SymKind kind, int loc) {
+static void symInsert(char *name, SymKind kind, int loc) {
   Sym *s = malloc(sizeof(Sym));
   if (s == NULL) {
     pce("Out of memory error during code generation\n");
@@ -63,7 +63,6 @@ static Sym *symInsert(char *name, SymKind kind, int loc) {
   s->loc = loc;
   s->next = symbols;
   symbols = s;
-  return s;
 }
 
 static Sym *symLookup(char *name) {
@@ -173,7 +172,6 @@ static void genOp(TreeNode *t) {
   case GTE:   genRelational("JGE"); break;
   case EQ:    genRelational("JEQ"); break;
   case NE:    genRelational("JNE"); break;
-  default:    emitComment("operador desconhecido"); break;
   }
 }
 
