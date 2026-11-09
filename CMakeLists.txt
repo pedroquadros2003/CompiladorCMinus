@@ -124,6 +124,11 @@ endif()
 
 
 
+########## simulador TM (tm.c do professor, sem modificacoes) #############
+
+add_executable(tm ${CMAKE_SOURCE_DIR}/tm.c ${CMAKE_SOURCE_DIR}/tools/gets_compat.c)
+target_compile_options(tm PRIVATE -std=gnu89 -w)
+
 # explaning about diff options
 # diff -Z (trail space) -b (change space) -B (blank lines)
 

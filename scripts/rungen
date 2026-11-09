@@ -1,0 +1,34 @@
+#!/bin/bash
+# compila exemplos, roda no tm e compara as saidas (OUT instruction prints)
+set -u
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+DETAIL="${DETAIL:-$ROOT/alunodetail}"
+FALHAS=0
+
+# caso <exemplo> "<esperado>" [entradas...]
+caso() {
+  local ex="$1" esp="$2"; shift 2
+  local fonte="$ROOT/example/$ex.cm"
+  "$ROOT/build/mycmcomp" "$fonte" "$DETAIL/" > /dev/null 2>&1
+  local obt
+  obt=$({ echo g; for i in "$@"; do echo "$i"; done; echo q; } \
+        | "$ROOT/build/tm" "$DETAIL/${ex}_gen.tm" 2>&1 \
+        | sed -n 's/.*OUT instruction prints: *//p' | tr '\n' ' ' | sed 's/ *$//')
+  if [ "$obt" = "$esp" ]; then
+    echo "OK     $ex [$*]"
+  else
+    echo "FALHOU $ex [$*]"
+    echo "  esperado: $esp"
+    echo "  obtido:   $obt"
+    FALHAS=$((FALHAS+1))
+  fi
+}
+
+caso block2 "2 1 3 4 5 1 2"
+caso mdc2 "0 1 2 3 4 5 6 6 1 1 0" 12 18
+caso mdc2 "0 1 2 3 4 5 6 6 1 1 0" -12 18
+caso mdc2 "0 1 2 3 4 5 6 -6 1 1 0" -12 -18
+caso sort "-6 -2 -2 0 0 0 1 2 2 5 1 3 5 7 9" 5 3 9 1 7
+
+[ "$FALHAS" -eq 0 ] && echo "todos os casos OK" || echo "$FALHAS caso(s) falharam"
+[ "$FALHAS" -eq 0 ]

@@ -1,0 +1,11 @@
+#!/bin/bash
+# uso: runtm <exemplo> [entradas...]
+set -u
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+if [ $# -lt 1 ]; then echo "uso: $0 <exemplo> [entradas...]" >&2; exit 2; fi
+EX="$1"; shift
+{
+  echo g
+  for i in "$@"; do echo "$i"; done
+  echo q
+} | "$ROOT/build/tm" "$ROOT/alunodetail/${EX}_gen.tm"
