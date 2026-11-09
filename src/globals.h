@@ -42,10 +42,10 @@
 /* Bison generates its own integer values for tokens */
 typedef int TokenType;
 
-extern FILE *source;  /* source code text file */
-extern FILE* redundant_source; /* source code text file to print lines */
-extern FILE *listing; /* listing output text file */
-extern FILE *code;    /* code text file for TM simulator */
+extern FILE *source;           /* source code text file */
+extern FILE *redundant_source; /* source code text file to print lines */
+extern FILE *listing;          /* listing output text file */
+extern FILE *code;             /* code text file for TM simulator */
 
 extern int lineno; /* source line number for listing */
 
@@ -76,7 +76,7 @@ typedef enum {
 typedef enum { OpK, ConstK, IdK, ArrAccessK, CallK } ExpKind;
 
 /* ExpType is used for type checking */
-typedef enum { Void, Integer, Boolean } ExpType;
+typedef enum { Void, Integer } ExpType;
 
 #define MAXCHILDREN 3
 
