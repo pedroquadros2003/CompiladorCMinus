@@ -95,6 +95,8 @@ typedef struct treeNode {
     char *name;
   } attr;
   ExpType type; /* for type checking of exps */
+  int braced;   /* TRUE no 1o no de um corpo de if/else/while escrito
+                   entre chaves (a geracao de codigo abre um bloco) */
 } TreeNode;
 
 /**************************************************/
