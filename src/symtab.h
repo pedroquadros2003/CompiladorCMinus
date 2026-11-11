@@ -87,6 +87,12 @@ void st_pop_scope(void);
  */
 char *st_current_scope(void);
 
+/* Procedure st_add_call records that function caller
+ * calls function callee. Used only to order the
+ * printing of the table.
+ */
+void st_add_call(char *caller, char *callee);
+
 /* Procedure printSymTab prints a formatted
  * list of the symbol table contents.
  */

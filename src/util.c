@@ -144,6 +144,7 @@ TreeNode *newStmtNode(StmtKind kind) {
     t->kind.stmt = kind;
     t->lineno = lineno;
     t->type = Void;
+    t->braced = FALSE;
   }
   return t;
 }
@@ -164,6 +165,7 @@ TreeNode *newExpNode(ExpKind kind) {
     t->kind.exp = kind;
     t->lineno = lineno;
     t->type = Void;
+    t->braced = FALSE;
   }
   return t;
 }

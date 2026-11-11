@@ -153,10 +153,12 @@ compound_stmt
         { $$ = ($2 == NULL) ? newStmtNode(BlockK) : $2; }
     ;
 
-/* Body of if/while/else: a single statement, or a compound (raw list). */
+/* Body of if/while/else: a single statement, or a compound (raw list).
+ * A compound body is marked as braced: code generation opens a block
+ * frame for it (as the gabarito does). */
 body
     : statement     { $$ = $1; }
-    | compound_stmt { $$ = $1; }
+    | compound_stmt { $$ = $1; $$->braced = TRUE; }
     ;
 
 /* Extension 2: a standalone nested { ... } appearing as an item in a
