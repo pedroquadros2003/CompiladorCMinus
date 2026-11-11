@@ -15,6 +15,10 @@
 static char *currentFuncName = NULL;
 static ExpType currentFuncReturnType = Void;
 
+/* Profundidade de if's abertos; chamadas dentro de um if nao
+ * entram no grafo usado para ordenar a impressao da tabela */
+static int ifDepth = 0;
+
 /* Procedure traverse is a generic recursive
  * syntax tree traversal routine:
  * it applies preProc in preorder and postProc
@@ -61,6 +65,8 @@ static void insertNode(TreeNode *t) {
     case WhileK:
     case IfK: {
       char scopeName[64];
+      if (t->kind.stmt == IfK)
+        ifDepth++;
       sprintf(scopeName, "%s:%d", currentFuncName, t->lineno);
       st_push_scope(copyString(scopeName));
       break;
@@ -150,6 +156,12 @@ static void insertNode(TreeNode *t) {
       break;
     }
 
+    case CallK:
+      /* registrado em pre-ordem: f(a, g(b)) gera f antes de g */
+      if (ifDepth == 0 && currentFuncName != NULL)
+        st_add_call(currentFuncName, t->attr.name);
+      break;
+
     default:
       break;
     }
@@ -173,6 +185,8 @@ static void leaveScope(TreeNode *t) {
     case BlockK:
     case WhileK:
     case IfK:
+      if (t->kind.stmt == IfK)
+        ifDepth--;
       st_pop_scope();
       break;
     default:
@@ -187,6 +201,7 @@ static void leaveScope(TreeNode *t) {
 void buildSymtab(TreeNode *syntaxTree) {
   st_init();
   currentFuncName = NULL;
+  ifDepth = 0;
   traverse(syntaxTree, insertNode, leaveScope);
   if (st_lookup_global("main") == NULL) {
     pce("Semantic error: undefined reference to 'main'\n");

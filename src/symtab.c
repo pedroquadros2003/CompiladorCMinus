@@ -40,6 +40,36 @@ static char *scopeStack[MAX_SCOPE_DEPTH];
 
 static int scopeTop = -1;
 
+/* Registro de todos os escopos ja criados, na ordem da primeira
+ * abertura, e das chamadas entre funcoes. Usados apenas para
+ * definir a ordem de impressao da tabela (igual ao gabarito). */
+#define MAX_SCOPES 512
+#define MAX_CALLS 2048
+
+static char *scopeNames[MAX_SCOPES];
+static int scopeIsFunc[MAX_SCOPES];
+static int nScopes = 0;
+
+static char *callCaller[MAX_CALLS];
+static char *callCallee[MAX_CALLS];
+static int nCalls = 0;
+
+static int scopeIndex(char *scope) {
+  int i;
+  for (i = 0; i < nScopes; i++)
+    if (strcmp(scopeNames[i], scope) == 0)
+      return i;
+  return -1;
+}
+
+static void registerScope(char *scope, int isFunc) {
+  if (scopeIndex(scope) < 0 && nScopes < MAX_SCOPES) {
+    scopeNames[nScopes] = scope;
+    scopeIsFunc[nScopes] = isFunc;
+    nScopes++;
+  }
+}
+
 /* Procedure st_init initializes the symbol table,
  * inserting input and output functions.
  */
@@ -50,6 +80,9 @@ void st_init(void) {
   }
   scopeTop = 0;
   scopeStack[0] = "";
+  nScopes = 0;
+  nCalls = 0;
+  registerScope("", FALSE);
   st_insert("input", "", FUN_ID, Integer, 0, 0);
   st_insert("output", "", FUN_ID, Void, 0, 0);
 }
@@ -58,8 +91,21 @@ void st_init(void) {
  * to the symbol table.
  */
 void st_push_scope(char *scope) {
+  /* escopo de funcao e o primeiro empilhado sobre o global */
+  registerScope(scope, scopeTop == 0);
   if (scopeTop < MAX_SCOPE_DEPTH - 1) {
     scopeStack[++scopeTop] = scope;
+  }
+}
+
+/* Procedure st_add_call records that function caller
+ * calls function callee (in source order).
+ */
+void st_add_call(char *caller, char *callee) {
+  if (nCalls < MAX_CALLS) {
+    callCaller[nCalls] = caller;
+    callCallee[nCalls] = callee;
+    nCalls++;
   }
 }
 
@@ -211,29 +257,78 @@ static char *dataTypeToStr(ExpType dt) {
   }
 }
 
-/* Procedure printSymTab prints a formatted
- * list of the symbol table contents
- */
-void printSymTab(void) {
+static void printRecord(BucketList l) {
+  LineList t = l->lines;
+  pc("%-14s ", l->name);
+  pc("%-10s", l->scope);
+  pc("%-9s", idTypeToStr(l->idType));
+  pc("%-11s", dataTypeToStr(l->dataType));
+  while (t != NULL) {
+    pc("%2d ", t->lineno);
+    t = t->next;
+  }
+  pc("\n");
+}
+
+/* Imprime os registros de um escopo, na ordem dos buckets */
+static void printScope(char *scope) {
   int i;
-  pc("Variable Name  Scope     ID Type  Data Type  Line Numbers\n");
-  pc("-------------  --------  -------  ---------  -------------------------\n");
-  for (i = 0; i < SIZE; ++i) {
-    if (hashTable[i] != NULL) {
-      BucketList l = hashTable[i];
-      while (l != NULL) {
-        LineList t = l->lines;
-        pc("%-14s ", l->name);
-        pc("%-10s", l->scope);
-        pc("%-9s", idTypeToStr(l->idType));
-        pc("%-11s", dataTypeToStr(l->dataType));
-        while (t != NULL) {
-          pc("%2d ", t->lineno);
-          t = t->next;
-        }
-        pc("\n");
-        l = l->next;
-      }
+  BucketList l;
+  for (i = 0; i < SIZE; ++i)
+    for (l = hashTable[i]; l != NULL; l = l->next)
+      if (strcmp(l->scope, scope) == 0)
+        printRecord(l);
+}
+
+/* Visita em profundidade (pre-ordem) as funcoes alcancaveis
+ * a partir de scopes[s], seguindo as chamadas na ordem do codigo */
+static void visitCalls(int s, int *reached, int *order, int *n) {
+  int c;
+  reached[s] = TRUE;
+  order[(*n)++] = s;
+  for (c = 0; c < nCalls; c++) {
+    if (strcmp(callCaller[c], scopeNames[s]) == 0) {
+      int callee = scopeIndex(callCallee[c]);
+      if (callee >= 0 && scopeIsFunc[callee] && !reached[callee])
+        visitCalls(callee, reached, order, n);
     }
   }
+}
+
+/* Procedure printSymTab prints a formatted
+ * list of the symbol table contents.
+ * Ordem dos escopos (a mesma do gabarito):
+ *   1. o escopo global;
+ *   2. os escopos nao alcancaveis a partir de main, na ordem
+ *      de criacao (blocos aninhados e funcoes nao chamadas);
+ *   3. main e as funcoes alcancaveis por ela, em profundidade.
+ * Dentro de cada escopo, a ordem e a dos buckets da hash.
+ */
+void printSymTab(void) {
+  int reached[MAX_SCOPES];
+  int order[MAX_SCOPES];
+  int nOrder = 0;
+  int i, mainIdx;
+  BucketList l;
+
+  pc("Variable Name  Scope     ID Type  Data Type  Line Numbers\n");
+  pc("-------------  --------  -------  ---------  -------------------------\n");
+
+  for (i = 0; i < nScopes; i++)
+    reached[i] = FALSE;
+  mainIdx = scopeIndex("main");
+  if (mainIdx >= 0 && scopeIsFunc[mainIdx])
+    visitCalls(mainIdx, reached, order, &nOrder);
+
+  for (i = 0; i < nScopes; i++)
+    if (!reached[i])
+      printScope(scopeNames[i]);
+  for (i = 0; i < nOrder; i++)
+    printScope(scopeNames[order[i]]);
+
+  /* seguranca: registros cujo escopo nao foi registrado */
+  for (i = 0; i < SIZE; ++i)
+    for (l = hashTable[i]; l != NULL; l = l->next)
+      if (scopeIndex(l->scope) < 0)
+        printRecord(l);
 }
